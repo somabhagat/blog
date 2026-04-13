@@ -1,0 +1,1068 @@
+<style>
+  .blog-wrap * { 
+      font-family: Arial, sans-serif; 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+  }
+  
+  .blog-wrap { 
+      /* --- THEME VARIABLES FOR THIS POST --- */
+      --theme-color: #534ab7;
+      --theme-bg-light: #eeedfe;
+      --theme-text-dark: #26215c;
+      
+      /* --- BASE STYLES --- */
+      max-width: 680px; 
+      color: #3a3a3a; 
+      font-size: 17px; 
+      line-height: 1.8; 
+      font-weight: 300; 
+  }
+
+  .blog-tag { 
+      display: inline-block; 
+      font-size: 11px; 
+      font-weight: 600; 
+      letter-spacing: .12em; 
+      text-transform: uppercase; 
+      color: var(--theme-color); 
+      background: var(--theme-bg-light); 
+      padding: 4px 12px; 
+      border-radius: 2px; 
+      margin-bottom: 24px; 
+  }
+
+  .blog-title { 
+      font-size: clamp(28px, 4vw, 42px); 
+      font-weight: 700; 
+      line-height: 1.15; 
+      color: #0f0f0f; 
+      margin-bottom: 20px; 
+      letter-spacing: -.01em; 
+      border-bottom: 3px solid var(--theme-color); 
+      padding-bottom: 20px; 
+  }
+
+  .blog-title span { 
+      color: var(--theme-color); 
+  }
+
+  .blog-standfirst { 
+      font-size: 19px; 
+      font-weight: 300; 
+      color: #3a3a3a; 
+      line-height: 1.6; 
+      margin-top: 20px; 
+      margin-bottom: 20px; 
+      font-style: italic; 
+  }
+
+  .blog-byline { 
+      font-size: 13px; 
+      color: #767676; 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      padding-bottom: 32px; 
+      border-bottom: 1px solid #e2e2de; 
+      margin-bottom: 36px; 
+  }
+
+  .blog-byline-dot { 
+      width: 3px; 
+      height: 3px; 
+      border-radius: 50%; 
+      background: var(--theme-color); 
+      flex-shrink: 0; 
+  }
+
+  .blog-wrap p { 
+      margin-bottom: 1.6rem; 
+      color: #3a3a3a; 
+      font-weight: 300; 
+  }
+
+  .blog-wrap p strong { 
+      font-weight: 700; 
+      color: #0f0f0f; 
+  }
+
+  .blog-wrap p em { 
+      font-style: italic; 
+      color: #5f5e5a; 
+  }
+
+  .blog-wrap h2 { 
+      font-size: 24px; 
+      font-weight: 700; 
+      line-height: 1.3; 
+      color: #0f0f0f; 
+      margin: 3rem 0 1rem; 
+      padding-top: 2rem; 
+      border-top: 1px solid #e2e2de; 
+  }
+
+  .pullquote { 
+      margin: 2.5rem 0; 
+      padding: 28px 32px; 
+      border-left: 3px solid var(--theme-color); 
+      background: #fafaf8; 
+      border-radius: 0 8px 8px 0; 
+  }
+
+  .pullquote p { 
+      font-size: 20px; 
+      line-height: 1.5; 
+      color: #0f0f0f; 
+      margin: 0; 
+      font-weight: 400; 
+      font-style: italic; 
+  }
+
+  .pullquote cite { 
+      display: block; 
+      margin-top: 12px; 
+      font-size: 13px; 
+      color: #767676; 
+      font-style: normal; 
+  }
+
+  .section-intro { 
+      font-size: 15px; 
+      color: #767676; 
+      font-weight: 300; 
+      font-style: italic; 
+      margin-bottom: 1.5rem; 
+      padding-left: 16px; 
+      border-left: 2px solid var(--theme-color); 
+      line-height: 1.6; 
+  }
+
+  .flow { 
+      margin: 2.5rem 0; 
+      display: flex; 
+      flex-direction: column; 
+  }
+
+  .flow-step { 
+      display: flex; 
+      gap: 20px; 
+      align-items: flex-start; 
+      padding: 20px 0; 
+      border-bottom: 1px solid #e2e2de; 
+  }
+
+  .flow-step:last-child { 
+      border-bottom: none; 
+  }
+
+  .step-num { 
+      flex-shrink: 0; 
+      width: 32px; 
+      height: 32px; 
+      border-radius: 50%; 
+      background: var(--theme-color); 
+      color: #ffffff; 
+      font-size: 13px; 
+      font-weight: 700; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-top: 2px; 
+  }
+
+  .step-content strong { 
+      display: block; 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #0f0f0f; 
+      margin-bottom: 6px; 
+  }
+
+  .step-content p { 
+      font-size: 15px; 
+      color: #3a3a3a; 
+      margin: 0; 
+      line-height: 1.65; 
+  }
+
+  .callout { 
+      background: #fafaf8; 
+      border: 1px solid #e2e2de; 
+      border-left: 3px solid var(--theme-color); 
+      border-radius: 8px; 
+      padding: 28px 32px; 
+      margin: 2.5rem 0; 
+  }
+
+  .callout-label { 
+      font-size: 11px; 
+      letter-spacing: .12em; 
+      text-transform: uppercase; 
+      font-weight: 700; 
+      color: #767676; 
+      margin-bottom: 16px; 
+  }
+
+  .callout ul { 
+      list-style: none; 
+      padding: 0; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+  }
+
+  .callout li { 
+      display: flex; 
+      align-items: flex-start; 
+      gap: 12px; 
+      font-size: 15px; 
+      color: #3a3a3a; 
+      font-weight: 300; 
+      line-height: 1.6; 
+  }
+
+  .callout li::before { 
+      content: ''; 
+      flex-shrink: 0; 
+      width: 6px; 
+      height: 6px; 
+      border-radius: 50%; 
+      background: var(--theme-color); 
+      margin-top: 9px; 
+  }
+
+  .network-grid { 
+      margin: 2rem 0; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 12px; 
+  }
+
+  .network-card { 
+      background: #ffffff; 
+      border: 1px solid #e2e2de; 
+      border-radius: 8px; 
+      padding: 18px 22px; 
+      display: flex; 
+      gap: 16px; 
+      align-items: flex-start; 
+  }
+
+  .network-icon { 
+      flex-shrink: 0; 
+      width: 36px; 
+      height: 36px; 
+      border-radius: 6px; 
+      background: var(--theme-bg-light); 
+      color: var(--theme-color); 
+      font-size: 15px; 
+      font-weight: 700; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+  }
+
+  .network-card strong { 
+      display: block; 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #0f0f0f; 
+      margin-bottom: 4px; 
+  }
+
+  .network-card p { 
+      font-size: 15px; 
+      color: #3a3a3a; 
+      margin: 0; 
+      line-height: 1.6; 
+      font-weight: 300; 
+  }
+
+  .compare-grid { 
+      display: grid; 
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); 
+      gap: 16px; 
+      margin: 2rem 0; 
+  }
+
+  .compare-card { 
+      border-radius: 8px; 
+      padding: 20px 22px; 
+      border: 1px solid #e2e2de; 
+  }
+
+  .compare-card.old { 
+      background: #fafaf8; 
+  }
+
+  .compare-card.new { 
+      background: var(--theme-bg-light); 
+      border-color: #afa9ec; 
+  }
+
+  .compare-label { 
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: .1em; 
+      text-transform: uppercase; 
+      margin-bottom: 12px; 
+  }
+
+  .compare-label.old { 
+      color: #888780; 
+  }
+
+  .compare-label.new { 
+      color: var(--theme-color); 
+  }
+
+  .compare-card ul { 
+      list-style: none; 
+      padding: 0; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+  }
+
+  .compare-card li { 
+      font-size: 14px; 
+      color: #3a3a3a; 
+      font-weight: 300; 
+      line-height: 1.5; 
+      display: flex; 
+      gap: 8px; 
+  }
+
+  .compare-card.old li::before { 
+      content: '—'; 
+      color: #b4b2a9; 
+      font-size: 12px; 
+      flex-shrink: 0; 
+      margin-top: 1px; 
+  }
+
+  .compare-card.new li::before { 
+      content: '→'; 
+      color: var(--theme-color); 
+      font-size: 12px; 
+      flex-shrink: 0; 
+      margin-top: 1px; 
+  }
+
+  .dach-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      gap: 12px; 
+      margin: 2rem 0; 
+  }
+
+  .dach-card { 
+      border-radius: 8px; 
+      padding: 18px 18px; 
+      border: 1px solid #e2e2de; 
+      background: #fff; 
+  }
+
+  .dach-flag { 
+      font-size: 22px; 
+      margin-bottom: 8px; 
+      display: block; 
+  }
+
+  .dach-country { 
+      font-size: 12px; 
+      font-weight: 700; 
+      letter-spacing: .1em; 
+      text-transform: uppercase; 
+      color: var(--theme-color); 
+      margin-bottom: 6px; 
+  }
+
+  .dach-name { 
+      font-size: 15px; 
+      font-weight: 700; 
+      color: #0f0f0f; 
+      margin-bottom: 8px; 
+  }
+
+  .dach-tag { 
+      display: inline-block; 
+      font-size: 10px; 
+      font-weight: 600; 
+      padding: 2px 8px; 
+      border-radius: 3px; 
+      margin-bottom: 8px; 
+  }
+
+  .dach-tag.mandate { 
+      background: var(--theme-bg-light); 
+      color: var(--theme-color); 
+  }
+
+  .dach-tag.voluntary { 
+      background: #e8f5ee; 
+      color: #1a6b3c; 
+  }
+
+  .dach-body { 
+      font-size: 13px; 
+      color: #767676; 
+      font-weight: 300; 
+      line-height: 1.55; 
+  }
+
+  .stat-row { 
+      display: grid; 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      gap: 12px; 
+      margin: 2rem 0; 
+  }
+
+  .stat-card { 
+      background: var(--theme-bg-light); 
+      border-radius: 8px; 
+      padding: 18px 16px; 
+      text-align: center; 
+  }
+
+  .stat-val { 
+      font-size: 28px; 
+      font-weight: 700; 
+      color: var(--theme-text-dark); 
+      line-height: 1; 
+      margin-bottom: 6px; 
+  }
+
+  .stat-val span { 
+      color: var(--theme-color); 
+  }
+
+  .stat-lbl { 
+      font-size: 12px; 
+      color: var(--theme-color); 
+      font-weight: 400; 
+      line-height: 1.4; 
+  }
+
+  /* STANDARD DARK FEATURE BOX (Injected for safety and future-proofing) */
+  .dark-feature-box { 
+      margin: 2.5rem 0; 
+      padding: 28px 32px; 
+      background: #0f0f0f; 
+      border-radius: 12px; 
+      color: #fff; 
+  }
+
+  .dark-feature-box h3 { 
+      font-size: 18px; 
+      font-weight: 700; 
+      color: #fff; 
+      margin-bottom: 14px; 
+  }
+
+  .dark-feature-box p { 
+      font-size: 15px; 
+      color: #b0b0a8; 
+      font-weight: 300; 
+      line-height: 1.7; 
+      margin-bottom: 10px; 
+  }
+
+  .dark-feature-box p:last-child { 
+      margin-bottom: 0; 
+  }
+
+  .dark-feature-box p strong { 
+      color: #cecbf6; 
+      font-weight: 600; 
+  }
+
+  .ref-box { 
+      margin-top: 3rem; 
+      padding: 20px 24px; 
+      border-radius: 8px; 
+      background: #fafaf8; 
+      border: 1px solid #e2e2de; 
+  }
+
+  .ref-label { 
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: .12em; 
+      text-transform: uppercase; 
+      color: #767676; 
+      margin-bottom: 12px; 
+  }
+
+  .ref-list { 
+      list-style: none; 
+      padding: 0; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+  }
+
+  .ref-list li { 
+      font-size: 13px; 
+      color: #767676; 
+      line-height: 1.6; 
+      font-weight: 300; 
+      display: flex; 
+      gap: 10px; 
+  }
+
+  .ref-list li::before { 
+      content: '[' attr(data-n) ']'; 
+      color: var(--theme-color); 
+      font-weight: 600; 
+      font-size: 12px; 
+      flex-shrink: 0; 
+      margin-top: 1px; 
+  }
+
+  .disclaimer { 
+      margin-top: 1.5rem; 
+      padding: 20px 24px; 
+      border-radius: 8px; 
+      background: #fafaf8; 
+      border: 1px solid #e2e2de; 
+      font-size: 13px; 
+      color: #767676; 
+      line-height: 1.7; 
+  }
+
+  .disclaimer strong { 
+      color: #3a3a3a; 
+      font-weight: 700; 
+  }
+
+  /* Diagram styles */
+  .diagram-wrap { width: 100%; background: #ffffff; border: 1px solid #e2e2de; border-radius: 12px; overflow: hidden; margin: 2rem 0 2.5rem; }
+  .diagram-title { background: #0f0f0f; color: #ffffff; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 12px 20px; }
+  .lane { display: flex; align-items: center; border-bottom: 1px solid #e2e2de; min-height: 72px; }
+  .lane:last-of-type { border-bottom: none; }
+  .lane-label { width: 120px; flex-shrink: 0; font-size: 11px; color: #767676; font-weight: 400; padding: 0 12px; border-right: 1px solid #e2e2de; background: #fafaf8; align-self: stretch; display: flex; align-items: center; line-height: 1.4; }
+  .lane-content { flex: 1; padding: 12px 16px; display: flex; align-items: center; gap: 10px; position: relative; flex-wrap: wrap; }
+  .dnode { border-radius: 8px; padding: 8px 14px; text-align: center; flex-shrink: 0; }
+  .dnode-title { font-size: 13px; font-weight: 700; line-height: 1.3; }
+  .dnode-sub { font-size: 11px; font-weight: 300; margin-top: 3px; line-height: 1.3; }
+  
+  /* Diagram specific colors retained */
+  .dnode-gray { background: #f1efe8; border: 1px solid #b4b2a9; color: #2c2c2a; }
+  .dnode-gray .dnode-sub { color: #5f5e5a; }
+  .dnode-purple { background: var(--theme-bg-light); border: 1px solid #afa9ec; color: var(--theme-text-dark); }
+  .dnode-purple .dnode-sub { color: var(--theme-color); }
+  .dnode-teal { background: #e1f5ee; border: 1px solid #5dcaa5; color: #04342c; }
+  .dnode-teal .dnode-sub { color: #0f6e56; }
+  .dnode-amber { background: #faeeda; border: 1px solid #ef9f27; color: #412402; }
+  .dnode-amber .dnode-sub { color: #854f0b; }
+  .dnode-blue { background: #e6f1fb; border: 1px solid #85b7eb; color: #042c53; }
+  .dnode-blue .dnode-sub { color: #185fa5; }
+  
+  .darrow { font-size: 15px; color: #888780; flex-shrink: 0; }
+  .dline { flex: 1; border-top: 1.5px solid #c8c8c0; min-width: 10px; }
+  .diagram-legend { display: flex; gap: 20px; padding: 12px 20px; background: #fafaf8; border-top: 1px solid #e2e2de; flex-wrap: wrap; }
+  .dlegend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #767676; }
+  .dlegend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .diagram-source { font-size: 10px; color: #aaa; text-align: center; padding: 8px 20px 12px; font-style: italic; }
+</style>
+
+<div class="blog-wrap">
+
+    <div class="blog-tag">Regulation &amp; AI Payments</div>
+    <h1 class="blog-title">PSD2, SCA, and the <span>AI Agent Revolution</span>: Navigating Europe's Regulatory Bedrock
+    </h1>
+    <p class="blog-standfirst">Strong Customer Authentication was designed for humans. Delegated Authority is being
+        designed for machines. Here is what changes — and what cannot — when an AI agent becomes the one signing the
+        transaction.</p>
+
+    <div class="blog-byline">
+        <span>Regulation &amp; AI Payments</span>
+        <div class="blog-byline-dot"></div>
+        <span>8 min read</span>
+    </div>
+
+    <p>In Europe, you do not move money without a deep respect for the regulatory framework. PSD2 — the Second Payment
+        Services Directive — is not merely a compliance checkbox. It is the structural foundation upon which every
+        modern payment innovation in Europe is built. From open banking to instant payments to, now, AI agent execution,
+        everything flows through this bedrock.</p>
+
+    <p>The Santander–Mastercard AI agent pilot that completed Europe's first live end-to-end agentic payment did not
+        happen in a regulatory vacuum. It happened <em>because</em> the right frameworks were in place, and
+        <em>because</em> those frameworks are beginning to evolve to accommodate what comes next. Understanding that
+        evolution — and its limits — is essential for anyone building in payments right now.</p>
+
+    <div class="stat-row">
+        <div class="stat-card">
+            <div class="stat-val">2018</div>
+            <div class="stat-lbl">PSD2 SCA enforcement began across EU member states</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">3<span>×</span></div>
+            <div class="stat-lbl">Authentication factors required: know, have, are</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">€0</div>
+            <div class="stat-lbl">Liability for unauthorised payments under PSD2 Article 74</div>
+        </div>
+    </div>
+
+    <div class="pullquote">
+        <p>Compliance is not just a legal hurdle — it is a trust-builder. In payments, regulatory rigour is the product.
+        </p>
+    </div>
+
+    <h2>The regulatory bedrock: what PSD2 actually requires</h2>
+
+    <p class="section-intro">PSD2 is often described as an "open banking directive." It is more accurate to call it a
+        trust architecture — a legally mandated set of rules that governs who can touch money, under what conditions,
+        and with what accountability.</p>
+
+    <p>At its core, PSD2 does three things. It mandates open access to payment account data via standardised APIs —
+        creating the open banking ecosystem. It defines two new categories of licensed payment service provider: Account
+        Information Service Providers (AISPs) and Payment Initiation Service Providers (PISPs). And it mandates
+        <strong>Strong Customer Authentication</strong> for any electronic payment, making security a legal requirement
+        rather than a product decision.</p>
+
+    <p>For payments professionals working across the DACH region, PSD2 compliance is table stakes. But the interesting
+        question is not what PSD2 requires today — it is how its requirements interact with the emerging reality of
+        AI-initiated transactions.</p>
+
+    <div class="diagram-wrap">
+        <div class="diagram-title">PSD2 Architecture — Core Components</div>
+        <div class="lane">
+            <div class="lane-label">Regulation</div>
+            <div class="lane-content" style="justify-content:center; gap:12px;">
+                <div class="dnode dnode-purple" style="min-width:160px;">
+                    <div class="dnode-title">PSD2 Directive</div>
+                    <div class="dnode-sub">EU legal framework</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-purple" style="min-width:160px;">
+                    <div class="dnode-title">EBA RTS on SCA</div>
+                    <div class="dnode-sub">Technical standards</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-purple" style="min-width:140px;">
+                    <div class="dnode-title">National law</div>
+                    <div class="dnode-sub">BaFin, FCA, DNB</div>
+                </div>
+            </div>
+        </div>
+        <div class="lane">
+            <div class="lane-label">Licences created</div>
+            <div class="lane-content" style="justify-content:center; gap:16px;">
+                <div class="dnode dnode-blue" style="min-width:140px;">
+                    <div class="dnode-title">AISP</div>
+                    <div class="dnode-sub">Account info access</div>
+                </div>
+                <div class="dnode dnode-blue" style="min-width:140px;">
+                    <div class="dnode-title">PISP</div>
+                    <div class="dnode-sub">Payment initiation</div>
+                </div>
+                <div class="dnode dnode-blue" style="min-width:140px;">
+                    <div class="dnode-title">ASPSP</div>
+                    <div class="dnode-sub">Account-holding bank</div>
+                </div>
+            </div>
+        </div>
+        <div class="lane" style="border-bottom:none;">
+            <div class="lane-label">SCA mandate</div>
+            <div class="lane-content" style="justify-content:center; gap:12px;">
+                <div class="dnode dnode-amber" style="min-width:110px;">
+                    <div class="dnode-title">Knowledge</div>
+                    <div class="dnode-sub">PIN, password</div>
+                </div>
+                <div class="darrow">+</div>
+                <div class="dnode dnode-amber" style="min-width:110px;">
+                    <div class="dnode-title">Possession</div>
+                    <div class="dnode-sub">Phone, token</div>
+                </div>
+                <div class="darrow">+</div>
+                <div class="dnode dnode-amber" style="min-width:110px;">
+                    <div class="dnode-title">Inherence</div>
+                    <div class="dnode-sub">Biometric</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-teal" style="min-width:80px;">
+                    <div class="dnode-title">2 of 3</div>
+                    <div class="dnode-sub">Required</div>
+                </div>
+            </div>
+        </div>
+        <div class="diagram-legend">
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#534ab7;"></div>Regulatory layer
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#185fa5;"></div>Licence types
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#854f0b;"></div>SCA factors
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#0f6e56;"></div>Requirement
+            </div>
+        </div>
+        <div class="diagram-source">Source: PSD2 Directive (EU) 2015/2366; EBA RTS on SCA and CSC</div>
+    </div>
+
+    <h2>The SCA paradox: designed for humans, applied to machines</h2>
+
+    <p class="section-intro">SCA was built on a fundamental assumption: a human is present at the point of payment. That
+        assumption is now being stress-tested.</p>
+
+    <p>Strong Customer Authentication requires at least two of three factors — something you know, something you have,
+        something you are. Every one of those factors was designed for a human being. A PIN is something a person knows.
+        A phone is something a person possesses. A fingerprint is something a person inherently is.</p>
+
+    <p>When an AI agent initiates a payment, none of those factors apply in their traditional form. The agent does not
+        know a PIN in the way a human does. It does not possess a device. It certainly does not have a fingerprint. And
+        yet — as the Santander–Mastercard pilot demonstrated — the transaction can be completed securely. The question
+        is: <strong>what replaces the human authentication factors?</strong></p>
+
+    <div class="compare-grid">
+        <div class="compare-card old">
+            <div class="compare-label old">Traditional SCA</div>
+            <ul>
+                <li>Human present at point of payment</li>
+                <li>PIN or password entered manually</li>
+                <li>Device possession confirmed via OTP</li>
+                <li>Biometric check on phone or terminal</li>
+                <li>Authentication is a moment in time</li>
+                <li>Challenge always visible to cardholder</li>
+            </ul>
+        </div>
+        <div class="compare-card new">
+            <div class="compare-label new">Delegated Authority (AI)</div>
+            <ul>
+                <li>AI agent acts within pre-approved mandate</li>
+                <li>Cryptographic credential replaces PIN</li>
+                <li>Tokenised identity issued by network</li>
+                <li>Risk scoring replaces biometric check</li>
+                <li>Authentication is an ongoing policy</li>
+                <li>Human oversight at mandate level, not transaction</li>
+            </ul>
+        </div>
+    </div>
+
+    <p>The answer emerging from frameworks like Mastercard Agent Pay is <strong>Delegated Authority</strong>. Instead of
+        authentating at the moment of each transaction, the human authenticates once — at the moment they establish
+        the agent's mandate. That mandate defines what the agent can do, up to what limits, under what conditions. The
+        agent then operates within those bounds, and the trust is carried by cryptographic credentials rather than human
+        biometrics.</p>
+
+    <div class="diagram-wrap">
+        <div class="diagram-title">From SCA to Delegated Authority — The Authentication Shift</div>
+        <div class="lane">
+            <div class="lane-label">Old model</div>
+            <div class="lane-content" style="gap:8px;">
+                <div class="dnode dnode-gray" style="min-width:100px;">
+                    <div class="dnode-title">Human intent</div>
+                    <div class="dnode-sub">Shops online</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-amber" style="min-width:110px;">
+                    <div class="dnode-title">SCA challenge</div>
+                    <div class="dnode-sub">OTP or biometric</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-teal" style="min-width:100px;">
+                    <div class="dnode-title">Payment sent</div>
+                    <div class="dnode-sub">Authorised</div>
+                </div>
+            </div>
+        </div>
+        <div class="lane" style="border-bottom:none;">
+            <div class="lane-label">New model</div>
+            <div class="lane-content" style="gap:8px;">
+                <div class="dnode dnode-gray" style="min-width:110px;">
+                    <div class="dnode-title">Human sets mandate</div>
+                    <div class="dnode-sub">Once, with SCA</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-purple" style="min-width:110px;">
+                    <div class="dnode-title">AI agent</div>
+                    <div class="dnode-sub">Acts within mandate</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-blue" style="min-width:110px;">
+                    <div class="dnode-title">Credential token</div>
+                    <div class="dnode-sub">Issued by network</div>
+                </div>
+                <div class="darrow">→</div>
+                <div class="dnode dnode-teal" style="min-width:90px;">
+                    <div class="dnode-title">Payment sent</div>
+                    <div class="dnode-sub">Authorised</div>
+                </div>
+            </div>
+        </div>
+        <div class="diagram-legend">
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#888780;"></div>Human action
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#854f0b;"></div>Authentication event
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:var(--theme-color);"></div>AI agent
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#185fa5;"></div>Credential layer
+            </div>
+            <div class="dlegend-item">
+                <div class="dlegend-dot" style="background:#0f6e56;"></div>Outcome
+            </div>
+        </div>
+        <div class="diagram-source">Illustrative framework based on PSD2 RTS Article 10 and Mastercard Agent Pay
+            architecture</div>
+    </div>
+
+    <h2>The regulatory friction: BaFin, FINMA, and the AI signature problem</h2>
+
+    <p>Here is where theory meets the hard wall of national regulation. PSD2 is a European directive — but it is
+        implemented differently in each member state. In Germany, BaFin (Bundesanstalt für
+        Finanzdienstleistungsaufsicht) is the enforcer. In Switzerland, FINMA (Finanzmarktaufsichtsbehörde). Each has
+        its own interpretation, its own supervisory culture, and its own tolerance for novel payment mechanisms.</p>
+
+    <p>The specific challenge for AI-initiated transactions is what regulators are calling the <strong>"AI signature
+            problem"</strong>: when an AI agent executes a transaction, who is legally responsible? PSD2's liability
+        framework places responsibility on the PSP for unauthorised payments. But what constitutes "unauthorised" when
+        the authorisation was granted to an agent, not a specific transaction?</p>
+
+    <div class="network-grid">
+        <div class="network-card">
+            <div class="network-icon">🏛</div>
+            <div>
+                <strong>BaFin (Germany) — high scrutiny model</strong>
+                <p>BaFin's supervisory approach emphasises auditability and documented liability chains. For
+                    AI-initiated payments, this means the entire decision path — why the agent triggered the payment,
+                    what mandate authorised it, what credential was used — must be loggable and reconstructable. BaFin
+                    is not hostile to innovation, but it requires evidence that controls are operational before scale.
+                </p>
+            </div>
+        </div>
+        <div class="network-card">
+            <div class="network-icon">🏔</div>
+            <div>
+                <strong>FINMA (Switzerland) — principles-based approach</strong>
+                <p>Switzerland's FINMA operates on a principles-based regulatory model. Rather than prescribing specific
+                    technical implementations, it sets outcomes: consumer protection, system stability, market
+                    integrity. This gives more flexibility to innovate — but also places more responsibility on
+                    institutions to demonstrate that their AI frameworks achieve those outcomes. The Swiss market's
+                    voluntary open banking model reflects this philosophy.</p>
+            </div>
+        </div>
+        <div class="network-card">
+            <div class="network-icon">📋</div>
+            <div>
+                <strong>PCI-DSS — the floor beneath both</strong>
+                <p>Regardless of jurisdiction, any system handling cardholder data must comply with PCI-DSS. For AI
+                    agent frameworks, this creates specific obligations around how credentials are stored, how
+                    tokenisation is implemented, and how the agent's access to payment data is scoped and logged.
+                    Compliance here is not optional — it is the trust infrastructure that makes the entire model viable.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pullquote">
+        <p>The AI signature problem is not a technical challenge — it is a legal one. Regulators need to know who is
+            responsible when an algorithm executes a payment. The answer must be traceable to a human decision, even if
+            that decision was made weeks before the transaction.</p>
+    </div>
+
+    <h2>Regional nuances: the DACH market</h2>
+
+    <p class="section-intro">Working in Munich gives a unique vantage point on how differently three adjacent markets —
+        sharing a language but not a regulatory framework — approach the same open banking challenge.</p>
+
+    <div class="dach-grid">
+        <div class="dach-card">
+            <span class="dach-flag">🇩🇪</span>
+            <div class="dach-country">Germany</div>
+            <div class="dach-name">PSD2 + Open Finance</div>
+            <span class="dach-tag mandate">EU Mandate</span>
+            <div class="dach-body">BaFin enforcement. Rigorous KYC processes. finAPI pioneering Open Finance data
+                aggregation. Strong consumer protection culture. High bar for AI deployment in regulated services.</div>
+        </div>
+        <div class="dach-card">
+            <span class="dach-flag">🇦🇹</span>
+            <div class="dach-country">Austria</div>
+            <div class="dach-name">PSD2 aligned</div>
+            <span class="dach-tag mandate">EU Mandate</span>
+            <div class="dach-body">FMA (Finanzmarktaufsicht) as regulator. Strong SEPA payment culture. Conservative
+                adoption curve for novel authentication methods. Aligned with German approach on SCA enforcement.</div>
+        </div>
+        <div class="dach-card">
+            <span class="dach-flag">🇨🇭</span>
+            <div class="dach-country">Switzerland</div>
+            <div class="dach-name">Voluntary / SIC5</div>
+            <span class="dach-tag voluntary">Market-driven</span>
+            <div class="dach-body">No PSD2 mandate. Banks open APIs voluntarily via b.Link (SIX) or Common API. TWINT
+                dominates mobile. QR-Rechnung for invoicing. SIC5 for instant payments. FINMA principles-based
+                oversight.</div>
+        </div>
+    </div>
+
+    <p>The Swiss divergence is the most instructive case study. Without a PSD2 mandate, Switzerland's open banking
+        evolution has been driven by market participants rather than regulation. The result is a different architecture:
+        banks open their interfaces voluntarily, the standards are industry-defined rather than legally prescribed, and
+        innovation happens at a different pace and in different directions.</p>
+
+    <p>The <em>marktwirtschaftlicher Ansatz</em> — the market-driven approach — means that Switzerland's payment
+        ecosystem has developed genuinely distinctive products. TWINT, the dominant Swiss mobile payment solution, has
+        no direct equivalent elsewhere in Europe. QR-Rechnung is a Swiss-specific invoicing innovation with wide
+        adoption. SIC5, Switzerland's instant payment infrastructure, operates on its own technical standards. For a
+        payments product leader working across DACH, this diversity is not an inconvenience — it is a design constraint
+        that must be embedded in every product decision from day one.</p>
+
+    <div style="margin: 2rem 0;">
+        <div style="display:flex; gap:16px; margin-bottom:10px; font-size:12px; color:#767676; flex-wrap:wrap;">
+            <span style="display:flex;align-items:center;gap:4px;"><span
+                    style="width:10px;height:10px;border-radius:2px;background:#534ab7;display:inline-block;"></span>API
+                calls/month (M) — indicative</span>
+            <span style="display:flex;align-items:center;gap:4px;"><span
+                    style="width:10px;height:10px;border-radius:2px;background:#afa9ec;display:inline-block;"></span>YoY
+                growth %</span>
+        </div>
+        <div style="position:relative; width:100%; height:260px;">
+            <canvas id="dachChart"></canvas>
+        </div>
+        <div style="font-size:10px; color:#aaa; text-align:center; margin-top:8px; font-style:italic;">Indicative
+            figures based on published open banking market data and EBA reports, 2025. Switzerland reflects voluntary
+            API framework activity.</div>
+    </div>
+
+    <h2>Compliance as a product feature</h2>
+
+    <p>There is a tendency in fintech to frame regulatory compliance as friction — something that slows you down, adds
+        cost, and constrains product design. That framing is wrong, and experienced payments professionals know it.</p>
+
+    <p>In a market built on trust, <strong>compliance is the product</strong>. When a corporate treasurer decides which
+        payment platform to use for cross-border payroll, they are not just comparing features and fees. They are
+        assessing which provider has the most credible controls, the most reliable audit trail, and the most robust
+        liability framework. PCI-DSS certification is not a badge — it is a signal that you have earned the right to be
+        trusted with money.</p>
+
+    <div class="callout">
+        <div class="callout-label">The compliance-as-product checklist</div>
+        <ul>
+            <li>PSD2 licence (AISP or PISP) as a customer trust signal, not just a legal requirement</li>
+            <li>SCA implementation that minimises friction while maximising security — the 3DS2 silent authentication
+                path</li>
+            <li>PCI-DSS Level 1 certification published and accessible to enterprise prospects</li>
+            <li>BaFin / FCA / FINMA regulatory correspondence handled proactively, not reactively</li>
+            <li>Audit trail architecture designed from day one — not retrofitted after an incident</li>
+            <li>Consumer protection terms that exceed the PSD2 minimum — a differentiator in enterprise sales</li>
+        </ul>
+    </div>
+
+    <h2>What comes next: PSD3 and the agentic payments framework</h2>
+
+    <p>PSD2 was not designed for AI agents. Its successor — PSD3, currently in European legislative process — is
+        beginning to grapple with these questions. The key areas where PSD3 and accompanying regulatory technical
+        standards will need to evolve:</p>
+
+    <div class="flow">
+        <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <strong>Delegated Authority standards</strong>
+                <p>PSD3 will need to define what constitutes valid "delegation" of payment authority to an AI agent —
+                    what the mandate must contain, how it must be authenticated, and what limits apply. The existing
+                    framework for recurring payments (PSD2 RTS Article 10) provides a partial template, but agentic
+                    payments require a more comprehensive treatment.</p>
+            </div>
+        </div>
+        <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <strong>Liability allocation for AI-initiated transactions</strong>
+                <p>PSD2's liability framework was designed for human-initiated payments. When an AI agent makes an error
+                    — executes a payment outside its mandate, or is compromised — the question of who bears liability
+                    needs a clear regulatory answer. PSD3 discussions are beginning to address this, but resolution is
+                    likely years away.</p>
+            </div>
+        </div>
+        <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <strong>Open Finance expansion</strong>
+                <p>Beyond payment accounts, Open Finance extends the PSD2 principle to investment accounts, insurance,
+                    pensions, and mortgages. For AI agents that manage holistic financial portfolios, this expanded data
+                    access is essential — but it brings additional regulatory complexity around data governance, consent
+                    management, and cross-sector liability.</p>
+            </div>
+        </div>
+        <div class="flow-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <strong>EU AI Act interaction</strong>
+                <p>AI systems used in payment decisions may fall under the EU AI Act's high-risk category, triggering
+                    requirements for transparency, human oversight, and conformity assessment. Payments professionals
+                    should assume that AI-driven payment orchestration will face dual regulatory scrutiny from both
+                    financial and AI regulators simultaneously.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pullquote">
+        <p>PSD2 opened the banking rails. PSD3 will need to answer who is responsible when an algorithm drives the
+            train.</p>
+    </div>
+
+    <div class="ref-box">
+        <div class="ref-label">References &amp; further reading</div>
+        <ul class="ref-list">
+            <li data-n="1">European Commission (2015). Directive (EU) 2015/2366 on Payment Services in the Internal
+                Market (PSD2). Official Journal of the European Union.</li>
+            <li data-n="2">European Banking Authority (2019). Final Report on Guidelines — RTS on SCA and CSC.
+                EBA/RTS/2019/04.</li>
+            <li data-n="3">Mastercard (2025). Mastercard Agent Pay — Framework Documentation. Mastercard Developer
+                Portal.</li>
+            <li data-n="4">BaFin (2024). Supervisory Guidance on AI in Financial Services. Bundesanstalt für
+                Finanzdienstleistungsaufsicht.</li>
+            <li data-n="5">SIX Group (2024). b.Link Open Banking Standard — API Framework Documentation. SIX Swiss
+                Exchange.</li>
+            <li data-n="6">finAPI (2025). Open Finance in Germany: Market Report 2025. finAPI GmbH, Munich.</li>
+            <li data-n="7">European Commission (2023). Proposal for PSD3 and PSR. COM(2023) 366 final.</li>
+            <li data-n="8">European Parliament (2024). EU AI Act — Regulation (EU) 2024/1689 on Artificial Intelligence.
+                Official Journal of the European Union.</li>
+        </ul>
+    </div>
+
+    <div class="disclaimer">
+        <strong>Note:</strong> This post reflects the author's professional perspective on European payment regulation
+        as of early 2026. Regulatory frameworks evolve — readers should verify current requirements with qualified legal
+        counsel. Statistics marked as indicative are based on published industry reports and EBA data; exact figures
+        vary by source and methodology.
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+    new Chart(document.getElementById('dachChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Germany', 'Austria', 'Switzerland'],
+            datasets: [
+                { label: 'API calls/month (M)', data: [340, 85, 42], backgroundColor: '#534ab7', borderRadius: 4, yAxisID: 'y' },
+                { label: 'YoY growth %', data: [68, 54, 31], backgroundColor: '#afa9ec', borderRadius: 4, yAxisID: 'y2' }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#767676', font: { size: 13 } } },
+                y: { position: 'left', grid: { color: 'rgba(0,0,0,0.06)' }, ticks: { color: '#767676', font: { size: 12 }, callback: v => v + 'M' }, title: { display: true, text: 'API calls / month', color: '#534ab7', font: { size: 11 } } },
+                y2: { position: 'right', grid: { display: false }, ticks: { color: '#767676', font: { size: 12 }, callback: v => v + '%' }, title: { display: true, text: 'YoY growth', color: '#888780', font: { size: 11 } } }
+            }
+        }
+    });
+</script>
