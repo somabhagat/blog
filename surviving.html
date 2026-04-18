@@ -1,373 +1,373 @@
 <style>
-  .blog-wrap * { 
-      font-family: Arial, sans-serif; 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-  }
-  
-  .blog-wrap { 
-      /* --- THEME VARIABLES FOR THIS POST --- */
-      --theme-color: #ef9f27;
-      --theme-bg-light: #faeeda;
-      --theme-text-dark: #854f0b;
-      
-      /* --- BASE STYLES --- */
-      max-width: 680px; 
-      color: #3a3a3a; 
-      font-size: 17px; 
-      line-height: 1.8; 
-      font-weight: 300; 
+  .blog-wrap * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  .blog-tag { 
-      display: inline-block; 
-      font-size: 11px; 
-      font-weight: 600; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      color: var(--theme-text-dark); 
-      background: var(--theme-bg-light); 
-      padding: 4px 12px; 
-      border-radius: 2px; 
-      margin-bottom: 24px; 
+  .blog-wrap {
+    /* --- THEME VARIABLES FOR THIS POST --- */
+    --theme-color: #ef9f27;
+    --theme-bg-light: #faeeda;
+    --theme-text-dark: #854f0b;
+
+    /* --- BASE STYLES --- */
+    max-width: 680px;
+    color: #3a3a3a;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
   }
 
-  .blog-title { 
-      font-size: clamp(28px, 4vw, 42px); 
-      font-weight: 700; 
-      line-height: 1.15; 
-      color: #0f0f0f; 
-      margin-bottom: 20px; 
-      letter-spacing: -.01em; 
-      border-bottom: 3px solid var(--theme-color); 
-      padding-bottom: 20px; 
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--theme-text-dark);
+    background: var(--theme-bg-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
   }
 
-  .blog-title span { 
-      color: var(--theme-color); 
+  .blog-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0f0f0f;
+    margin-bottom: 20px;
+    letter-spacing: -.01em;
+    border-bottom: 3px solid var(--theme-color);
+    padding-bottom: 20px;
   }
 
-  .blog-standfirst { 
-      font-size: 19px; 
-      font-weight: 300; 
-      color: #3a3a3a; 
-      line-height: 1.6; 
-      margin-top: 20px; 
-      margin-bottom: 20px; 
-      font-style: italic; 
+  .blog-title span {
+    color: var(--theme-color);
   }
 
-  .blog-byline { 
-      font-size: 13px; 
-      color: #767676; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      padding-bottom: 32px; 
-      border-bottom: 1px solid #e2e2de; 
-      margin-bottom: 36px; 
+  .blog-standfirst {
+    font-size: 19px;
+    font-weight: 300;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
   }
 
-  .blog-byline-dot { 
-      width: 3px; 
-      height: 3px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      flex-shrink: 0; 
+  .blog-byline {
+    font-size: 13px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2de;
+    margin-bottom: 36px;
   }
 
-  .blog-wrap p { 
-      margin-bottom: 1.6rem; 
-      color: #3a3a3a; 
-      font-weight: 300; 
+  .blog-byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    flex-shrink: 0;
   }
 
-  .blog-wrap p strong { 
-      font-weight: 700; 
-      color: #0f0f0f; 
+  .blog-wrap p {
+    margin-bottom: 1.6rem;
+    color: #3a3a3a;
+    font-weight: 300;
   }
 
-  .blog-wrap p em { 
-      font-style: italic; 
-      color: #5f5e5a; 
+  .blog-wrap p strong {
+    font-weight: 700;
+    color: #0f0f0f;
   }
 
-  .blog-wrap h2 { 
-      font-size: 24px; 
-      font-weight: 700; 
-      line-height: 1.3; 
-      color: #0f0f0f; 
-      margin: 3rem 0 1rem; 
-      padding-top: 2rem; 
-      border-top: 1px solid #e2e2de; 
+  .blog-wrap p em {
+    font-style: italic;
+    color: #5f5e5a;
   }
 
-  .hero-quote { 
-      text-align: center; 
-      padding: 40px 20px; 
-      margin: 0 0 40px; 
-      background: var(--theme-bg-light); 
-      border-radius: 12px; 
+  .blog-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f0f0f;
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e2de;
   }
 
-  .hero-quote p { 
-      font-size: 26px; 
-      font-weight: 700; 
-      color: #412402; 
-      line-height: 1.35; 
-      margin: 0; 
-      letter-spacing: -.01em; 
+  .hero-quote {
+    text-align: center;
+    padding: 40px 20px;
+    margin: 0 0 40px;
+    background: var(--theme-bg-light);
+    border-radius: 12px;
   }
 
-  .hero-quote span { 
-      display: block; 
-      font-size: 13px; 
-      font-weight: 400; 
-      color: var(--theme-text-dark); 
-      margin-top: 12px; 
-      letter-spacing: .06em; 
-      text-transform: uppercase; 
+  .hero-quote p {
+    font-size: 26px;
+    font-weight: 700;
+    color: #412402;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: -.01em;
   }
 
-  .pullquote { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      border-left: 3px solid var(--theme-color); 
-      background: #fafaf8; 
-      border-radius: 0 8px 8px 0; 
+  .hero-quote span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--theme-text-dark);
+    margin-top: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
   }
 
-  .pullquote p { 
-      font-size: 20px; 
-      line-height: 1.5; 
-      color: #0f0f0f; 
-      margin: 0; 
-      font-weight: 400; 
-      font-style: italic; 
+  .pullquote {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--theme-color);
+    background: #fafaf8;
+    border-radius: 0 8px 8px 0;
   }
 
-  .pullquote cite { 
-      display: block; 
-      margin-top: 10px; 
-      font-size: 13px; 
-      color: #767676; 
-      font-style: normal; 
+  .pullquote p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
   }
 
-  .insight-grid { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 0; 
-      margin: 2rem 0; 
+  .pullquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #767676;
+    font-style: normal;
   }
 
-  .insight-card { 
-      display: flex; 
-      gap: 20px; 
-      align-items: flex-start; 
-      padding: 22px 0; 
-      border-bottom: 1px solid #e2e2de; 
+  .insight-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 2rem 0;
   }
 
-  .insight-card:last-child { 
-      border-bottom: none; 
+  .insight-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 22px 0;
+    border-bottom: 1px solid #e2e2de;
   }
 
-  .insight-icon { 
-      flex-shrink: 0; 
-      width: 44px; 
-      height: 44px; 
-      border-radius: 10px; 
-      background: var(--theme-bg-light); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 20px; 
-      margin-top: 2px; 
+  .insight-card:last-child {
+    border-bottom: none;
   }
 
-  .insight-body strong { 
-      display: block; 
-      font-size: 16px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 6px; 
+  .insight-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--theme-bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 2px;
   }
 
-  .insight-body p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.65; 
-      font-weight: 300; 
+  .insight-body strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 6px;
   }
 
-  .permission-box { 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      border-left: 3px solid var(--theme-color); 
-      border-radius: 8px; 
-      padding: 28px 32px; 
-      margin: 2.5rem 0; 
+  .insight-body p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.65;
+    font-weight: 300;
   }
 
-  .permission-label { 
-      font-size: 11px; 
-      font-weight: 700; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      color: var(--theme-text-dark); 
-      margin-bottom: 16px; 
+  .permission-box {
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-left: 3px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 2.5rem 0;
   }
 
-  .permission-list { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 10px; 
+  .permission-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--theme-text-dark);
+    margin-bottom: 16px;
   }
 
-  .permission-list li { 
-      display: flex; 
-      align-items: flex-start; 
-      gap: 12px; 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-      line-height: 1.6; 
+  .permission-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .permission-list li::before { 
-      content: '✓'; 
-      color: var(--theme-color); 
-      font-weight: 700; 
-      font-size: 14px; 
-      flex-shrink: 0; 
-      margin-top: 1px; 
+  .permission-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.6;
   }
 
-  .timeline { 
-      margin: 2.5rem 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 0; 
+  .permission-list li::before {
+    content: '✓';
+    color: var(--theme-color);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
   }
 
-  .timeline-step { 
-      display: flex; 
-      gap: 20px; 
-      align-items: flex-start; 
-      padding: 20px 0; 
-      border-bottom: 1px solid #e2e2de; 
+  .timeline {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .timeline-step:last-child { 
-      border-bottom: none; 
+  .timeline-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2de;
   }
 
-  .tnum { 
-      flex-shrink: 0; 
-      width: 32px; 
-      height: 32px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      color: #fff; 
-      font-size: 13px; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-top: 2px; 
+  .timeline-step:last-child {
+    border-bottom: none;
   }
 
-  .tbody strong { 
-      display: block; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 6px; 
+  .tnum {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
   }
 
-  .tbody p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.65; 
-      font-weight: 300; 
+  .tbody strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 6px;
   }
 
-  .dark-feature-box { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      background: #0f0f0f; 
-      border-radius: 12px; 
-      color: #fff; 
-      text-align: center; 
+  .tbody p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.65;
+    font-weight: 300;
   }
 
-  .dark-feature-box-icon { 
-      font-size: 36px; 
-      margin-bottom: 16px; 
-      display: block; 
+  .dark-feature-box {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    background: #0f0f0f;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
   }
 
-  .dark-feature-box h3 { 
-      font-size: 20px; 
-      font-weight: 700; 
-      color: #fff; 
-      margin-bottom: 12px; 
-      line-height: 1.3; 
+  .dark-feature-box-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
   }
 
-  .dark-feature-box p { 
-      font-size: 15px; 
-      color: #b0b0a8; 
-      font-weight: 300; 
-      line-height: 1.7; 
-      margin: 0; 
+  .dark-feature-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .dark-feature-box p {
+    font-size: 15px;
+    color: #b0b0a8;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 0;
   }
 
   /* Specificity fix applied dynamically to all dark boxes */
-  .dark-feature-box p strong { 
-      color: var(--theme-color); 
-      font-weight: 600; 
+  .dark-feature-box p strong {
+    color: var(--theme-color);
+    font-weight: 600;
   }
 
-  .disclaimer { 
-      margin-top: 3rem; 
-      padding: 20px 24px; 
-      border-radius: 8px; 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      font-size: 13px; 
-      color: #767676; 
-      line-height: 1.7; 
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.7;
   }
 
-  .disclaimer strong { 
-      color: #3a3a3a; 
-      font-weight: 700; 
+  .disclaimer strong {
+    color: #3a3a3a;
+    font-weight: 700;
   }
 
-  .section-intro { 
-      font-size: 15px; 
-      color: #767676; 
-      font-weight: 300; 
-      font-style: italic; 
-      margin-bottom: 1.5rem; 
-      padding-left: 16px; 
-      border-left: 2px solid var(--theme-color); 
-      line-height: 1.6; 
+  .section-intro {
+    font-size: 15px;
+    color: #767676;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 16px;
+    border-left: 2px solid var(--theme-color);
+    line-height: 1.6;
   }
 
-  .divider { 
-      text-align: center; 
-      margin: 3rem 0; 
-      color: var(--theme-color); 
-      font-size: 20px; 
-      letter-spacing: 8px; 
+  .divider {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--theme-color);
+    font-size: 20px;
+    letter-spacing: 8px;
   }
 </style>
 
@@ -377,7 +377,8 @@
 
   <h1 class="blog-title">Surviving <span>Difficult Times</span></h1>
 
-  <p class="blog-standfirst">This too shall pass. Three words that carry the weight of every difficult season — and the quiet promise that nothing, not even the hardest chapter, lasts forever.</p>
+  <p class="blog-standfirst">This too shall pass. Three words that carry the weight of every difficult season — and the
+    quiet promise that nothing, not even the hardest chapter, lasts forever.</p>
 
   <div class="blog-byline">
     <span>Life &amp; Resilience</span>
@@ -390,46 +391,65 @@
     <span>On acceptance &amp; what comes next</span>
   </div>
 
-  <p>Right now, in this exact moment, things are the way they are. That is simply true. There is no alternative version of this second where the difficult thing did not happen, where the loss was not real, where the uncertainty was not unsettling. What exists, exists.</p>
+  <p>Right now, in this exact moment, things are the way they are. That is simply true. There is no alternative version
+    of this second where the difficult thing did not happen, where the loss was not real, where the uncertainty was not
+    unsettling. What exists, exists.</p>
 
-  <p>And yet — tomorrow is genuinely open. Not in a dismissive, silver-lining way. But in the truest sense: the future has not been written. Every difficult season in history has eventually ended. Every person who has stood in the place you are standing now — and many have — eventually moved through it.</p>
+  <p>And yet — tomorrow is genuinely open. Not in a dismissive, silver-lining way. But in the truest sense: the future
+    has not been written. Every difficult season in history has eventually ended. Every person who has stood in the
+    place you are standing now — and many have — eventually moved through it.</p>
 
   <div class="divider">· · ·</div>
 
   <h2>Pain vs. suffering: the most important distinction</h2>
 
-  <p class="section-intro">This is not spiritual bypassing. It is a practical distinction that changes what you can actually do right now.</p>
+  <p class="section-intro">This is not spiritual bypassing. It is a practical distinction that changes what you can
+    actually do right now.</p>
 
-  <p>Pain is <strong>inevitable</strong>. When something difficult happens — redundancy, rejection, loss, failure — pain is the appropriate response. It is not a sign that something is wrong with you. It is a sign that something mattered to you.</p>
+  <p>Pain is <strong>inevitable</strong>. When something difficult happens — redundancy, rejection, loss, failure — pain
+    is the appropriate response. It is not a sign that something is wrong with you. It is a sign that something mattered
+    to you.</p>
 
-  <p>Suffering, however, is different. Suffering comes from <strong>non-acceptance</strong> — from fighting the reality of what is happening rather than moving through it. The moment we stop spending our energy resisting what has already occurred, something shifts. The pain is still there. But the suffering — the exhausting, circular, energy-draining resistance — begins to ease.</p>
+  <p>Suffering, however, is different. Suffering comes from <strong>non-acceptance</strong> — from fighting the reality
+    of what is happening rather than moving through it. The moment we stop spending our energy resisting what has
+    already occurred, something shifts. The pain is still there. But the suffering — the exhausting, circular,
+    energy-draining resistance — begins to ease.</p>
 
   <div class="pullquote">
-    <p>Action to change a situation requires many capabilities. Acceptance, however, is only a question of willingness.</p>
+    <p>Action to change a situation requires many capabilities. Acceptance, however, is only a question of willingness.
+    </p>
   </div>
 
-  <p>That asymmetry matters. You may not have the resources, the network, the timing, or the energy to change your situation today. But acceptance is available to you right now, in this moment, regardless of any external circumstance. It costs nothing except the willingness to stop fighting what has already happened.</p>
+  <p>That asymmetry matters. You may not have the resources, the network, the timing, or the energy to change your
+    situation today. But acceptance is available to you right now, in this moment, regardless of any external
+    circumstance. It costs nothing except the willingness to stop fighting what has already happened.</p>
 
   <div class="insight-grid">
     <div class="insight-card">
       <div class="insight-icon">🌱</div>
       <div class="insight-body">
         <strong>Where you are today is the result of past choices</strong>
-        <p>Not as a judgment — but as a liberating truth. If the past shaped today, then your choices from today forward are shaping tomorrow. You are not a passive recipient of circumstances. You are an active author of what comes next.</p>
+        <p>Not as a judgment — but as a liberating truth. If the past shaped today, then your choices from today forward
+          are shaping tomorrow. You are not a passive recipient of circumstances. You are an active author of what comes
+          next.</p>
       </div>
     </div>
     <div class="insight-card">
       <div class="insight-icon">🔭</div>
       <div class="insight-body">
         <strong>Dream specifically about tomorrow</strong>
-        <p>Not vaguely — specifically. What does the situation look like in six months if things go well? What is one concrete thing that would signal you are moving in the right direction? The clearer the picture, the easier it is to take the first step toward it.</p>
+        <p>Not vaguely — specifically. What does the situation look like in six months if things go well? What is one
+          concrete thing that would signal you are moving in the right direction? The clearer the picture, the easier it
+          is to take the first step toward it.</p>
       </div>
     </div>
     <div class="insight-card">
       <div class="insight-icon">⚡</div>
       <div class="insight-body">
         <strong>The real tragedy is not doing what you can</strong>
-        <p>Not doing what you cannot do — that is simply human. But not doing what you can do, even when it is uncomfortable — that is where we lose ourselves. The uncomfortable action, taken anyway, is the turning point.</p>
+        <p>Not doing what you cannot do — that is simply human. But not doing what you can do, even when it is
+          uncomfortable — that is where we lose ourselves. The uncomfortable action, taken anyway, is the turning point.
+        </p>
       </div>
     </div>
   </div>
@@ -438,9 +458,12 @@
 
   <h2>You have permission to fall apart — briefly</h2>
 
-  <p class="section-intro">This is not advice to push through before you are ready. It is permission to be human first.</p>
+  <p class="section-intro">This is not advice to push through before you are ready. It is permission to be human first.
+  </p>
 
-  <p>Do not panic — that is easy to say and almost impossible to act on in the middle of a crisis. The truth is: it is completely fine to panic. It is fine to feel frustrated, disappointed, sad, and angry. All of those are legitimate responses to a genuinely difficult situation.</p>
+  <p>Do not panic — that is easy to say and almost impossible to act on in the middle of a crisis. The truth is: it is
+    completely fine to panic. It is fine to feel frustrated, disappointed, sad, and angry. All of those are legitimate
+    responses to a genuinely difficult situation.</p>
 
   <div class="permission-box">
     <div class="permission-label">You are allowed to</div>
@@ -454,7 +477,9 @@
     </ul>
   </div>
 
-  <p>The caveat is the <em>day or two</em>. After that window — and you will know when it has passed — something else is required. Not perfection. Not a complete plan. Just the act of standing up, shaking off the dust, and taking one constructive action within your actual capacity today.</p>
+  <p>The caveat is the <em>day or two</em>. After that window — and you will know when it has passed — something else is
+    required. Not perfection. Not a complete plan. Just the act of standing up, shaking off the dust, and taking one
+    constructive action within your actual capacity today.</p>
 
   <h2>From acceptance to action: the path through</h2>
 
@@ -463,35 +488,44 @@
       <div class="tnum">1</div>
       <div class="tbody">
         <strong>Feel it fully</strong>
-        <p>Do not rush this. The difficult feelings are not a detour from recovery — they are part of it. Grief, frustration, and fear that are acknowledged move through faster than feelings that are suppressed or dismissed.</p>
+        <p>Do not rush this. The difficult feelings are not a detour from recovery — they are part of it. Grief,
+          frustration, and fear that are acknowledged move through faster than feelings that are suppressed or
+          dismissed.</p>
       </div>
     </div>
     <div class="timeline-step">
       <div class="tnum">2</div>
       <div class="tbody">
         <strong>Accept what has already happened</strong>
-        <p>The event has occurred. The situation is real. Accepting this does not mean approving of it or being passive about the future. It means stopping the energy drain of wishing things were different than they are right now.</p>
+        <p>The event has occurred. The situation is real. Accepting this does not mean approving of it or being passive
+          about the future. It means stopping the energy drain of wishing things were different than they are right now.
+        </p>
       </div>
     </div>
     <div class="timeline-step">
       <div class="tnum">3</div>
       <div class="tbody">
         <strong>Separate what you can control from what you cannot</strong>
-        <p>You cannot control the timing of the market, the decisions of others, or the circumstances that led here. You can control how you spend the next hour. Start there.</p>
+        <p>You cannot control the timing of the market, the decisions of others, or the circumstances that led here. You
+          can control how you spend the next hour. Start there.</p>
       </div>
     </div>
     <div class="timeline-step">
       <div class="tnum">4</div>
       <div class="tbody">
         <strong>Take one uncomfortable action</strong>
-        <p>Not ten. Not a whole plan. One call you have been avoiding. One application you have been putting off. One conversation you have been delaying. The momentum that follows a single difficult action is real and it compounds.</p>
+        <p>Not ten. Not a whole plan. One call you have been avoiding. One application you have been putting off. One
+          conversation you have been delaying. The momentum that follows a single difficult action is real and it
+          compounds.</p>
       </div>
     </div>
     <div class="timeline-step">
       <div class="tnum">5</div>
       <div class="tbody">
         <strong>Remember: you will not be the last person to stand here</strong>
-        <p>You are not the first person to face financial difficulty, professional disruption, or personal upheaval. Every person who has come through a hard season has done it one day at a time. When the storm passes — and it will — you will carry the survival lesson with you for the rest of your life.</p>
+        <p>You are not the first person to face financial difficulty, professional disruption, or personal upheaval.
+          Every person who has come through a hard season has done it one day at a time. When the storm passes — and it
+          will — you will carry the survival lesson with you for the rest of your life.</p>
       </div>
     </div>
   </div>
@@ -500,22 +534,31 @@
 
   <h2>On the things that happen with and without our approval</h2>
 
-  <p>There is a useful distinction between the things that happen with our blessing and the things that are thrust upon us. Choosing to leave a job for something better feels like the ninth cloud — even when it is scary. Being made redundant against your will can feel like an inferno — even when the outcome eventually turns out to be good.</p>
+  <p>There is a useful distinction between the things that happen with our blessing and the things that are thrust upon
+    us. Choosing to leave a job for something better feels like the ninth cloud — even when it is scary. Being made
+    redundant against your will can feel like an inferno — even when the outcome eventually turns out to be good.</p>
 
-  <p>The external facts may be identical: in both cases, you are unemployed on a Tuesday. But the internal experience is completely different. And that gap — between what happened and how we experience it — is exactly where acceptance does its work.</p>
+  <p>The external facts may be identical: in both cases, you are unemployed on a Tuesday. But the internal experience is
+    completely different. And that gap — between what happened and how we experience it — is exactly where acceptance
+    does its work.</p>
 
   <div class="pullquote">
-    <p>We are not the first ones to see financial difficulty. We will certainly not be the last. When the dust settles, the ones still standing will have a survival lesson that makes them stronger than they were before.</p>
+    <p>We are not the first ones to see financial difficulty. We will certainly not be the last. When the dust settles,
+      the ones still standing will have a survival lesson that makes them stronger than they were before.</p>
   </div>
 
   <div class="dark-feature-box">
     <span class="dark-feature-box-icon">☕</span>
     <h3>I am here — even if we have not spoken in a while</h3>
-    <p>Even if it feels weird. Even if we barely know each other. <strong>I will keep the coffee ready.</strong> You are welcome to drop by, reach out, or simply know that someone out there is rooting for you. We do not have to have all the answers — we just have to not be alone in the questions.</p>
+    <p>Even if it feels weird. Even if we barely know each other. <strong>I will keep the coffee ready.</strong> You are
+      welcome to drop by, reach out, or simply know that someone out there is rooting for you. We do not have to have
+      all the answers — we just have to not be alone in the questions.</p>
   </div>
 
   <div class="disclaimer">
-    <strong>A note:</strong> This post is written from personal experience and reflection, not as professional mental health advice. If you are going through a genuinely difficult time and need support beyond a conversation, please reach out to a qualified professional. You deserve proper care.
+    <strong>A note:</strong> This post is written from personal experience and reflection, not as professional mental
+    health advice. If you are going through a genuinely difficult time and need support beyond a conversation, please
+    reach out to a qualified professional. You deserve proper care.
   </div>
 
 </div>

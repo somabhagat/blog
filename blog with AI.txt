@@ -1,0 +1,4 @@
+Attached are my various blogs and the SEPA blog. 
+Based on all other blogs lets make the SEPA blog factually correct by doing a fact check of all information on the code for SEPA blog and 
+update the minimum thats needed to be changed to stay fact compliant. 
+According to my standard design principal so far please also fix code for SEPA blog

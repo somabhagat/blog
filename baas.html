@@ -1,474 +1,615 @@
 <style>
-  .blog-wrap * { 
-      font-family: Arial, sans-serif; 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-  }
-  
-  .blog-wrap { 
-      /* --- THEME VARIABLES FOR THIS POST --- */
-      --theme-color: #185fa5;
-      --theme-bg-light: #e6f1fb;
-      --theme-text-dark: #042c53;
-      
-      /* --- BASE STYLES --- */
-      max-width: 680px; 
-      color: #3a3a3a; 
-      font-size: 17px; 
-      line-height: 1.8; 
-      font-weight: 300; 
+  .blog-wrap * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  .blog-tag { 
-      display: inline-block; 
-      font-size: 11px; 
-      font-weight: 600; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      color: var(--theme-color); 
-      background: var(--theme-bg-light); 
-      padding: 4px 12px; 
-      border-radius: 2px; 
-      margin-bottom: 24px; 
+  .blog-wrap {
+    /* --- THEME VARIABLES FOR THIS POST --- */
+    --theme-color: #185fa5;
+    --theme-bg-light: #e6f1fb;
+    --theme-text-dark: #042c53;
+
+    /* --- BASE STYLES --- */
+    max-width: 680px;
+    color: #3a3a3a;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
   }
 
-  .blog-title { 
-      font-size: clamp(28px, 4vw, 42px); 
-      font-weight: 700; 
-      line-height: 1.15; 
-      color: #0f0f0f; 
-      margin-bottom: 20px; 
-      letter-spacing: -.01em; 
-      border-bottom: 3px solid var(--theme-color); 
-      padding-bottom: 20px; 
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    background: var(--theme-bg-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
   }
 
-  .blog-title span { 
-      color: var(--theme-color); 
+  .blog-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0f0f0f;
+    margin-bottom: 20px;
+    letter-spacing: -.01em;
+    border-bottom: 3px solid var(--theme-color);
+    padding-bottom: 20px;
   }
 
-  .blog-standfirst { 
-      font-size: 19px; 
-      font-weight: 300; 
-      color: #3a3a3a; 
-      line-height: 1.6; 
-      margin-top: 20px; 
-      margin-bottom: 20px; 
-      font-style: italic; 
+  .blog-title span {
+    color: var(--theme-color);
   }
 
-  .blog-byline { 
-      font-size: 13px; 
-      color: #767676; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      padding-bottom: 32px; 
-      border-bottom: 1px solid #e2e2de; 
-      margin-bottom: 36px; 
+  .blog-standfirst {
+    font-size: 19px;
+    font-weight: 300;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
   }
 
-  .blog-byline-dot { 
-      width: 3px; 
-      height: 3px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      flex-shrink: 0; 
+  .blog-byline {
+    font-size: 13px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2de;
+    margin-bottom: 36px;
   }
 
-  .blog-wrap p { 
-      margin-bottom: 1.6rem; 
-      color: #3a3a3a; 
-      font-weight: 300; 
+  .blog-byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    flex-shrink: 0;
   }
 
-  .blog-wrap p strong { 
-      font-weight: 700; 
-      color: #0f0f0f; 
+  .blog-wrap p {
+    margin-bottom: 1.6rem;
+    color: #3a3a3a;
+    font-weight: 300;
   }
 
-  .blog-wrap p em { 
-      font-style: italic; 
-      color: #5f5e5a; 
+  .blog-wrap p strong {
+    font-weight: 700;
+    color: #0f0f0f;
   }
 
-  .blog-wrap h2 { 
-      font-size: 24px; 
-      font-weight: 700; 
-      line-height: 1.3; 
-      color: #0f0f0f; 
-      margin: 3rem 0 1rem; 
-      padding-top: 2rem; 
-      border-top: 1px solid #e2e2de; 
+  .blog-wrap p em {
+    font-style: italic;
+    color: #5f5e5a;
   }
 
-  .pullquote { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      border-left: 3px solid var(--theme-color); 
-      background: #fafaf8; 
-      border-radius: 0 8px 8px 0; 
+  .blog-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f0f0f;
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e2de;
   }
 
-  .pullquote p { 
-      font-size: 20px; 
-      line-height: 1.5; 
-      color: #0f0f0f; 
-      margin: 0; 
-      font-weight: 400; 
-      font-style: italic; 
+  .pullquote {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--theme-color);
+    background: #fafaf8;
+    border-radius: 0 8px 8px 0;
   }
 
-  .pullquote cite { 
-      display: block; 
-      margin-top: 12px; 
-      font-size: 13px; 
-      color: #767676; 
-      font-style: normal; 
+  .pullquote p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
   }
 
-  .flow { 
-      margin: 2.5rem 0; 
-      display: flex; 
-      flex-direction: column; 
+  .pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #767676;
+    font-style: normal;
   }
 
-  .flow-step { 
-      display: flex; 
-      gap: 20px; 
-      align-items: flex-start; 
-      padding: 20px 0; 
-      border-bottom: 1px solid #e2e2de; 
+  .flow {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  .flow-step:last-child { 
-      border-bottom: none; 
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2de;
   }
 
-  .step-num { 
-      flex-shrink: 0; 
-      width: 32px; 
-      height: 32px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      color: #ffffff; 
-      font-size: 13px; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-top: 2px; 
+  .flow-step:last-child {
+    border-bottom: none;
   }
 
-  .step-content strong { 
-      display: block; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 6px; 
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
   }
 
-  .step-content p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.65; 
-      font-weight: 300; 
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 6px;
   }
 
-  .callout { 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      border-left: 3px solid var(--theme-color); 
-      border-radius: 8px; 
-      padding: 28px 32px; 
-      margin: 2.5rem 0; 
+  .step-content p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.65;
+    font-weight: 300;
   }
 
-  .callout-label { 
-      font-size: 11px; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      font-weight: 700; 
-      color: #767676; 
-      margin-bottom: 16px; 
+  .callout {
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-left: 3px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 2.5rem 0;
   }
 
-  .callout ul { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
+  .callout-label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #767676;
+    margin-bottom: 16px;
   }
 
-  .callout li { 
-      display: flex; 
-      align-items: flex-start; 
-      gap: 12px; 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-      line-height: 1.6; 
+  .callout ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .callout li::before { 
-      content: ''; 
-      flex-shrink: 0; 
-      width: 6px; 
-      height: 6px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      margin-top: 9px; 
+  .callout li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.6;
   }
 
-  .network-grid { 
-      margin: 2rem 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
+  .callout li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    margin-top: 9px;
   }
 
-  .network-card { 
-      background: #ffffff; 
-      border: 1px solid #e2e2de; 
-      border-radius: 8px; 
-      padding: 18px 22px; 
-      display: flex; 
-      gap: 16px; 
-      align-items: flex-start; 
+  .network-grid {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .network-icon { 
-      flex-shrink: 0; 
-      width: 36px; 
-      height: 36px; 
-      border-radius: 6px; 
-      background: var(--theme-bg-light); 
-      color: var(--theme-color); 
-      font-size: 15px; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+  .network-card {
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
   }
 
-  .network-card strong { 
-      display: block; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 4px; 
+  .network-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--theme-bg-light);
+    color: var(--theme-color);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .network-card p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.6; 
-      font-weight: 300; 
+  .network-card strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
   }
 
-  .section-intro { 
-      font-size: 15px; 
-      color: #767676; 
-      font-weight: 300; 
-      font-style: italic; 
-      margin-bottom: 1.5rem; 
-      padding-left: 16px; 
-      border-left: 2px solid var(--theme-color); 
-      line-height: 1.6; 
+  .network-card p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 300;
   }
 
-  .compare-grid { 
-      display: grid; 
-      grid-template-columns: minmax(0,1fr) minmax(0,1fr); 
-      gap: 16px; 
-      margin: 2rem 0; 
+  .section-intro {
+    font-size: 15px;
+    color: #767676;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 16px;
+    border-left: 2px solid var(--theme-color);
+    line-height: 1.6;
   }
 
-  .compare-card { 
-      border-radius: 8px; 
-      padding: 20px 22px; 
-      border: 1px solid #e2e2de; 
+  .compare-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    margin: 2rem 0;
   }
 
-  .compare-card.old { 
-      background: #fafaf8; 
+  .compare-card {
+    border-radius: 8px;
+    padding: 20px 22px;
+    border: 1px solid #e2e2de;
   }
 
-  .compare-card.new { 
-      background: var(--theme-bg-light); 
-      border-color: #85b7eb; 
+  .compare-card.old {
+    background: #fafaf8;
   }
 
-  .compare-label { 
-      font-size: 11px; 
-      font-weight: 700; 
-      letter-spacing: .1em; 
-      text-transform: uppercase; 
-      margin-bottom: 12px; 
+  .compare-card.new {
+    background: var(--theme-bg-light);
+    border-color: #85b7eb;
   }
 
-  .compare-label.old { 
-      color: #888780; 
+  .compare-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
 
-  .compare-label.new { 
-      color: var(--theme-color); 
+  .compare-label.old {
+    color: #888780;
   }
 
-  .compare-card ul { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 8px; 
+  .compare-label.new {
+    color: var(--theme-color);
   }
 
-  .compare-card li { 
-      font-size: 14px; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-      line-height: 1.5; 
-      display: flex; 
-      gap: 8px; 
+  .compare-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .compare-card.old li::before { 
-      content: '✕'; 
-      color: #b4b2a9; 
-      font-size: 12px; 
-      margin-top: 1px; 
-      flex-shrink: 0; 
+  .compare-card li {
+    font-size: 14px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
   }
 
-  .compare-card.new li::before { 
-      content: '✓'; 
-      color: var(--theme-color); 
-      font-size: 12px; 
-      margin-top: 1px; 
-      flex-shrink: 0; 
+  .compare-card.old li::before {
+    content: '✕';
+    color: #b4b2a9;
+    font-size: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
   }
 
-  .player-grid { 
-      display: grid; 
-      grid-template-columns: repeat(3, minmax(0,1fr)); 
-      gap: 12px; 
-      margin: 2rem 0; 
+  .compare-card.new li::before {
+    content: '✓';
+    color: var(--theme-color);
+    font-size: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
   }
 
-  .player-card { 
-      background: #ffffff; 
-      border: 1px solid #e2e2de; 
-      border-radius: 8px; 
-      padding: 16px 18px; 
+  .player-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 2rem 0;
   }
 
-  .player-city { 
-      font-size: 10px; 
-      font-weight: 700; 
-      letter-spacing: .1em; 
-      text-transform: uppercase; 
-      color: var(--theme-color); 
-      margin-bottom: 6px; 
+  .player-card {
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 8px;
+    padding: 16px 18px;
   }
 
-  .player-name { 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 4px; 
+  .player-city {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    margin-bottom: 6px;
   }
 
-  .player-desc { 
-      font-size: 13px; 
-      color: #767676; 
-      font-weight: 300; 
-      line-height: 1.5; 
+  .player-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+  }
+
+  .player-desc {
+    font-size: 13px;
+    color: #767676;
+    font-weight: 300;
+    line-height: 1.5;
   }
 
   /* Dark Feature Box standard injected for safety and future-proofing */
-  .dark-feature-box { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      background: #0f0f0f; 
-      border-radius: 12px; 
-      color: #fff; 
-      text-align: center; 
+  .dark-feature-box {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    background: #0f0f0f;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
   }
 
-  .dark-feature-box-icon { 
-      font-size: 36px; 
-      margin-bottom: 16px; 
-      display: block; 
+  .dark-feature-box-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
   }
 
-  .dark-feature-box h3 { 
-      font-size: 20px; 
-      font-weight: 700; 
-      color: #fff; 
-      margin-bottom: 12px; 
-      line-height: 1.3; 
+  .dark-feature-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
   }
 
-  .dark-feature-box p { 
-      font-size: 15px; 
-      color: #b0b0a8; 
-      font-weight: 300; 
-      line-height: 1.7; 
-      margin: 0; 
+  .dark-feature-box p {
+    font-size: 15px;
+    color: #b0b0a8;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 0;
   }
 
   /* Specificity fix applied dynamically to all dark boxes */
-  .dark-feature-box p strong { 
-      color: var(--theme-color); 
-      font-weight: 600; 
+  .dark-feature-box p strong {
+    color: var(--theme-color);
+    font-weight: 600;
   }
 
-  .disclaimer { 
-      margin-top: 3rem; 
-      padding: 20px 24px; 
-      border-radius: 8px; 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      font-size: 13px; 
-      color: #767676; 
-      line-height: 1.7; 
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.7;
   }
 
-  .disclaimer strong { 
-      color: #3a3a3a; 
-      font-weight: 700; 
+  .disclaimer strong {
+    color: #3a3a3a;
+    font-weight: 700;
   }
 
   /* Diagram styles retained */
-  .diagram-wrap { width: 100%; background: #ffffff; border: 1px solid #e2e2de; border-radius: 12px; overflow: hidden; margin: 2rem 0 2.5rem; }
-  .diagram-title { background: #0f0f0f; color: #ffffff; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 12px 20px; }
-  .lane { display: flex; align-items: center; border-bottom: 1px solid #e2e2de; min-height: 72px; }
-  .lane:last-of-type { border-bottom: none; }
-  .lane-label { width: 120px; flex-shrink: 0; font-size: 11px; color: #767676; font-weight: 400; padding: 0 12px; border-right: 1px solid #e2e2de; background: #fafaf8; align-self: stretch; display: flex; align-items: center; line-height: 1.4; }
-  .lane-content { flex: 1; padding: 12px 16px; display: flex; align-items: center; gap: 10px; position: relative; }
-  .dnode { border-radius: 8px; padding: 8px 14px; text-align: center; flex-shrink: 0; }
-  .dnode-title { font-size: 13px; font-weight: 700; line-height: 1.3; }
-  .dnode-sub { font-size: 11px; font-weight: 300; margin-top: 3px; line-height: 1.3; }
-  .dnode-gray { background: #f1efe8; border: 1px solid #b4b2a9; color: #2c2c2a; }
-  .dnode-gray .dnode-sub { color: #5f5e5a; }
-  .dnode-blue { background: #e6f1fb; border: 1px solid #85b7eb; color: #042c53; }
-  .dnode-blue .dnode-sub { color: #185fa5; }
-  .dnode-teal { background: #e1f5ee; border: 1px solid #5dcaa5; color: #04342c; }
-  .dnode-teal .dnode-sub { color: #0f6e56; }
-  .dnode-purple { background: #eeedfe; border: 1px solid #afa9ec; color: #26215c; }
-  .dnode-purple .dnode-sub { color: #534ab7; }
-  .dnode-amber { background: #faeeda; border: 1px solid #ef9f27; color: #412402; }
-  .dnode-amber .dnode-sub { color: #854f0b; }
-  .darrow { font-size: 15px; color: #888780; flex-shrink: 0; }
-  .dline { flex: 1; border-top: 1.5px solid #c8c8c0; }
-  .diagram-legend { display: flex; gap: 20px; padding: 12px 20px; background: #fafaf8; border-top: 1px solid #e2e2de; flex-wrap: wrap; }
-  .dlegend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #767676; }
-  .dlegend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .diagram-source { font-size: 10px; color: #aaa; text-align: center; padding: 8px 20px 12px; font-style: italic; }
+  .diagram-wrap {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0 2.5rem;
+  }
+
+  .diagram-title {
+    background: #0f0f0f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+
+  .lane {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2de;
+    min-height: 72px;
+  }
+
+  .lane:last-of-type {
+    border-bottom: none;
+  }
+
+  .lane-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #767676;
+    font-weight: 400;
+    padding: 0 12px;
+    border-right: 1px solid #e2e2de;
+    background: #fafaf8;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .lane-content {
+    flex: 1;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .dnode {
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .dnode-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .dnode-sub {
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  .dnode-gray {
+    background: #f1efe8;
+    border: 1px solid #b4b2a9;
+    color: #2c2c2a;
+  }
+
+  .dnode-gray .dnode-sub {
+    color: #5f5e5a;
+  }
+
+  .dnode-blue {
+    background: #e6f1fb;
+    border: 1px solid #85b7eb;
+    color: #042c53;
+  }
+
+  .dnode-blue .dnode-sub {
+    color: #185fa5;
+  }
+
+  .dnode-teal {
+    background: #e1f5ee;
+    border: 1px solid #5dcaa5;
+    color: #04342c;
+  }
+
+  .dnode-teal .dnode-sub {
+    color: #0f6e56;
+  }
+
+  .dnode-purple {
+    background: #eeedfe;
+    border: 1px solid #afa9ec;
+    color: #26215c;
+  }
+
+  .dnode-purple .dnode-sub {
+    color: #534ab7;
+  }
+
+  .dnode-amber {
+    background: #faeeda;
+    border: 1px solid #ef9f27;
+    color: #412402;
+  }
+
+  .dnode-amber .dnode-sub {
+    color: #854f0b;
+  }
+
+  .darrow {
+    font-size: 15px;
+    color: #888780;
+    flex-shrink: 0;
+  }
+
+  .dline {
+    flex: 1;
+    border-top: 1.5px solid #c8c8c0;
+  }
+
+  .diagram-legend {
+    display: flex;
+    gap: 20px;
+    padding: 12px 20px;
+    background: #fafaf8;
+    border-top: 1px solid #e2e2de;
+    flex-wrap: wrap;
+  }
+
+  .dlegend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #767676;
+  }
+
+  .dlegend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .diagram-source {
+    font-size: 10px;
+    color: #aaa;
+    text-align: center;
+    padding: 8px 20px 12px;
+    font-style: italic;
+  }
 </style>
 
 <div class="blog-wrap">
@@ -477,7 +618,9 @@
 
   <h1 class="blog-title">Banking as a Service: <span>The API Revolution</span> Reshaping Financial Infrastructure</h1>
 
-  <p class="blog-standfirst">For decades, building financial products meant building everything from scratch — or signing a painful integration contract with a brick-and-mortar bank. BaaS changes the equation entirely. Here is why it matters, how it works, and who is leading the charge.</p>
+  <p class="blog-standfirst">For decades, building financial products meant building everything from scratch — or
+    signing a painful integration contract with a brick-and-mortar bank. BaaS changes the equation entirely. Here is why
+    it matters, how it works, and who is leading the charge.</p>
 
   <div class="blog-byline">
     <span>Fintech Fundamentals</span>
@@ -485,17 +628,23 @@
     <span>5 min read</span>
   </div>
 
-  <p>There are two ways to build a digital banking product. The old way: one company develops every tool, every compliance layer, every payment rail, every customer-facing feature — from scratch, over years, at enormous cost. The new way: you assemble best-in-class components from specialist providers, connect them via APIs, and launch in a fraction of the time.</p>
+  <p>There are two ways to build a digital banking product. The old way: one company develops every tool, every
+    compliance layer, every payment rail, every customer-facing feature — from scratch, over years, at enormous cost.
+    The new way: you assemble best-in-class components from specialist providers, connect them via APIs, and launch in a
+    fraction of the time.</p>
 
-  <p>That second model has a name: <strong>Banking as a Service</strong>. And it is not just a developer convenience — it is a structural shift in how financial infrastructure gets built, owned, and distributed.</p>
+  <p>That second model has a name: <strong>Banking as a Service</strong>. And it is not just a developer convenience —
+    it is a structural shift in how financial infrastructure gets built, owned, and distributed.</p>
 
   <div class="pullquote">
-    <p>BaaS turns financial infrastructure from a monolith you build into a platform you compose — and that changes everything about the economics of fintech.</p>
+    <p>BaaS turns financial infrastructure from a monolith you build into a platform you compose — and that changes
+      everything about the economics of fintech.</p>
   </div>
 
   <h2>Old school vs. the cool way</h2>
 
-  <p class="section-intro">The contrast between the traditional model and BaaS is not just technical — it is a fundamentally different theory of how financial products should be built.</p>
+  <p class="section-intro">The contrast between the traditional model and BaaS is not just technical — it is a
+    fundamentally different theory of how financial products should be built.</p>
 
   <div class="compare-grid">
     <div class="compare-card old">
@@ -522,15 +671,26 @@
     </div>
   </div>
 
-  <p>What made this shift possible was not just technology — it was regulation. Specifically, <strong>PSD2 and the open banking framework</strong> it created across Europe. PSD2 mandated that banks open their infrastructure to third-party providers via standardised APIs, breaking the monopoly traditional banks held over customer account data and payment initiation. Suddenly, the rails were accessible — and a generation of BaaS providers emerged to build on top of them.</p>
+  <p>What made this shift possible was not just technology — it was regulation. Specifically, <strong>PSD2 and the open
+      banking framework</strong> it created across Europe. PSD2 mandated that banks open their infrastructure to
+    third-party providers via standardised APIs, breaking the monopoly traditional banks held over customer account data
+    and payment initiation. Suddenly, the rails were accessible — and a generation of BaaS providers emerged to build on
+    top of them.</p>
 
   <h2>What made BaaS possible: the PSD2 unlock</h2>
 
-  <p class="section-intro">Open banking did not just open data — it opened an entire infrastructure layer that had been locked inside traditional banks for decades.</p>
+  <p class="section-intro">Open banking did not just open data — it opened an entire infrastructure layer that had been
+    locked inside traditional banks for decades.</p>
 
-  <p>Before PSD2, accessing banking infrastructure required either becoming a bank yourself (expensive, slow, heavily regulated) or signing proprietary integration agreements with incumbent institutions (slow, expensive, and rarely in the fintech's favour). The result was a two-tier system: large banks with full infrastructure, and everyone else building workarounds.</p>
+  <p>Before PSD2, accessing banking infrastructure required either becoming a bank yourself (expensive, slow, heavily
+    regulated) or signing proprietary integration agreements with incumbent institutions (slow, expensive, and rarely in
+    the fintech's favour). The result was a two-tier system: large banks with full infrastructure, and everyone else
+    building workarounds.</p>
 
-  <p>PSD2 changed the incentive structure. By mandating open APIs, it forced banks to make their infrastructure accessible and <strong>encouraged them to document and publish those APIs publicly</strong> — increasingly on platforms like GitHub, where the developer community could inspect, test, and build against them directly. Banking infrastructure went from being a competitive moat to being a platform.</p>
+  <p>PSD2 changed the incentive structure. By mandating open APIs, it forced banks to make their infrastructure
+    accessible and <strong>encouraged them to document and publish those APIs publicly</strong> — increasingly on
+    platforms like GitHub, where the developer community could inspect, test, and build against them directly. Banking
+    infrastructure went from being a competitive moat to being a platform.</p>
 
   <div class="diagram-wrap">
     <div class="diagram-title">BaaS Architecture — How the Layers Connect</div>
@@ -612,92 +772,128 @@
     </div>
 
     <div class="diagram-legend">
-      <div class="dlegend-item"><div class="dlegend-dot" style="background:#888780;"></div>Customers</div>
-      <div class="dlegend-item"><div class="dlegend-dot" style="background:#185fa5;"></div>BaaS API layer</div>
-      <div class="dlegend-item"><div class="dlegend-dot" style="background:#854f0b;"></div>Regulation</div>
-      <div class="dlegend-item"><div class="dlegend-dot" style="background:#0f6e56;"></div>Underlying rails</div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#888780;"></div>Customers
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#185fa5;"></div>BaaS API layer
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#854f0b;"></div>Regulation
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#0f6e56;"></div>Underlying rails
+      </div>
     </div>
     <div class="diagram-source">Illustrative BaaS stack — components vary by provider and jurisdiction</div>
   </div>
 
   <h2>The licence question: who can play?</h2>
 
-  <p>The rapid growth of fintech has fundamentally changed who can access banking infrastructure. The classic model required partnering with a licensed bank at every step — which meant the incumbent held all the leverage. Today, tech companies can obtain their own banking licences, operate as regulated institutions, and integrate with other financial institutions via APIs on equal terms.</p>
+  <p>The rapid growth of fintech has fundamentally changed who can access banking infrastructure. The classic model
+    required partnering with a licensed bank at every step — which meant the incumbent held all the leverage. Today,
+    tech companies can obtain their own banking licences, operate as regulated institutions, and integrate with other
+    financial institutions via APIs on equal terms.</p>
 
-  <p>This is a structural power shift. A fintech with a full banking licence does not need a bank's permission to offer IBANs, process payments, or hold customer funds. It can compose those services itself — and white-label them to others, becoming a BaaS provider in its own right.</p>
+  <p>This is a structural power shift. A fintech with a full banking licence does not need a bank's permission to offer
+    IBANs, process payments, or hold customer funds. It can compose those services itself — and white-label them to
+    others, becoming a BaaS provider in its own right.</p>
 
   <div class="flow">
     <div class="flow-step">
       <div class="step-num">1</div>
       <div class="step-content">
         <strong>Obtain a banking or e-money licence</strong>
-        <p>Tech companies can apply directly to regulators — BaFin in Germany, the FCA in the UK, the ECB for European banking licences. The bar is high, but it is achievable without being a legacy bank. This is what Solarisbank, Fidor, and a growing cohort of neobanks have done.</p>
+        <p>Tech companies can apply directly to regulators — BaFin in Germany, the FCA in the UK, the ECB for European
+          banking licences. The bar is high, but it is achievable without being a legacy bank. This is what Solarisbank,
+          Fidor, and a growing cohort of neobanks have done.</p>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">2</div>
       <div class="step-content">
         <strong>Build or integrate the API layer</strong>
-        <p>Once licensed, the company builds its product as a set of APIs rather than a monolithic application. Each function — accounts, payments, KYC, lending — is a discrete module that can be consumed independently by partners and clients.</p>
+        <p>Once licensed, the company builds its product as a set of APIs rather than a monolithic application. Each
+          function — accounts, payments, KYC, lending — is a discrete module that can be consumed independently by
+          partners and clients.</p>
       </div>
     </div>
     <div class="flow-step">
       <div class="step-num">3</div>
       <div class="step-content">
         <strong>Distribute via the BaaS model</strong>
-        <p>The licensed infrastructure is offered to other businesses — fintechs, retailers, platforms — who embed financial services into their own products without needing a licence of their own. The BaaS provider handles the regulatory complexity; the partner handles the customer relationship.</p>
+        <p>The licensed infrastructure is offered to other businesses — fintechs, retailers, platforms — who embed
+          financial services into their own products without needing a licence of their own. The BaaS provider handles
+          the regulatory complexity; the partner handles the customer relationship.</p>
       </div>
     </div>
   </div>
 
   <h2>Security is not optional: 3DS2 and SCA</h2>
 
-  <p>Banking is, above all, an industry built on trust. The more accessible the infrastructure becomes, the more important it is that security standards keep pace. Two regulatory frameworks define the security baseline for BaaS in Europe.</p>
+  <p>Banking is, above all, an industry built on trust. The more accessible the infrastructure becomes, the more
+    important it is that security standards keep pace. Two regulatory frameworks define the security baseline for BaaS
+    in Europe.</p>
 
   <div class="network-grid">
     <div class="network-card">
       <div class="network-icon">🔐</div>
       <div>
         <strong>3DS2 — Three Domain Secure</strong>
-        <p>The second generation of the 3D Secure protocol governs how card transactions are authenticated. Unlike the original 3DS, which relied on redirects and static passwords, 3DS2 uses rich data — device fingerprints, transaction history, behavioural signals — to authenticate silently in most cases. The cardholder only sees a challenge when the risk score demands it. For BaaS providers issuing cards, 3DS2 compliance is non-negotiable.</p>
+        <p>The second generation of the 3D Secure protocol governs how card transactions are authenticated. Unlike the
+          original 3DS, which relied on redirects and static passwords, 3DS2 uses rich data — device fingerprints,
+          transaction history, behavioural signals — to authenticate silently in most cases. The cardholder only sees a
+          challenge when the risk score demands it. For BaaS providers issuing cards, 3DS2 compliance is non-negotiable.
+        </p>
       </div>
     </div>
     <div class="network-card">
       <div class="network-icon">🛡️</div>
       <div>
         <strong>SCA — Strong Customer Authentication</strong>
-        <p>Mandated by PSD2, SCA requires that electronic payments are authenticated using at least two of three factors: something the customer knows (PIN, password), something they have (phone, token), or something they are (biometric). SCA applies to account access and payment initiation — the two core functions of any BaaS platform. Getting SCA right is both a regulatory requirement and a direct driver of conversion rates.</p>
+        <p>Mandated by PSD2, SCA requires that electronic payments are authenticated using at least two of three
+          factors: something the customer knows (PIN, password), something they have (phone, token), or something they
+          are (biometric). SCA applies to account access and payment initiation — the two core functions of any BaaS
+          platform. Getting SCA right is both a regulatory requirement and a direct driver of conversion rates.</p>
       </div>
     </div>
   </div>
 
   <div class="pullquote">
-    <p>Open infrastructure without rigorous security is not an opportunity — it is a liability. 3DS2 and SCA are not compliance burdens; they are the foundation of trust that makes BaaS viable at scale.</p>
+    <p>Open infrastructure without rigorous security is not an opportunity — it is a liability. 3DS2 and SCA are not
+      compliance burdens; they are the foundation of trust that makes BaaS viable at scale.</p>
   </div>
 
   <h2>The early players: who built this market</h2>
 
-  <p class="section-intro">The European BaaS market was not built by incumbents — it was built by a generation of licensed challengers who saw that banking infrastructure could be a product.</p>
+  <p class="section-intro">The European BaaS market was not built by incumbents — it was built by a generation of
+    licensed challengers who saw that banking infrastructure could be a product.</p>
 
   <div class="player-grid">
     <div class="player-card">
       <div class="player-city">Berlin</div>
       <div class="player-name">Solarisbank</div>
-      <div class="player-desc">Full German banking licence. Offers accounts, cards, lending, and KYC as white-label APIs. The definitive European BaaS infrastructure play.</div>
+      <div class="player-desc">Full German banking licence. Offers accounts, cards, lending, and KYC as white-label
+        APIs. The definitive European BaaS infrastructure play.</div>
     </div>
     <div class="player-card">
       <div class="player-city">London</div>
       <div class="player-name">Bankable</div>
-      <div class="player-desc">Financial services platform offering payment, card issuance, and account management APIs. Strong focus on enterprise embedded finance.</div>
+      <div class="player-desc">Financial services platform offering payment, card issuance, and account management APIs.
+        Strong focus on enterprise embedded finance.</div>
     </div>
     <div class="player-card">
       <div class="player-city">Munich</div>
       <div class="player-name">Fidor Bank</div>
-      <div class="player-desc">One of the earliest online-only licensed banks in Germany. Community-driven model, open API philosophy, and a pioneer of the digital-first banking approach.</div>
+      <div class="player-desc">One of the earliest online-only licensed banks in Germany. Community-driven model, open
+        API philosophy, and a pioneer of the digital-first banking approach.</div>
     </div>
   </div>
 
-  <p>What these players have in common is not geography — it is philosophy. Each of them decided that banking infrastructure should be <strong>modular, accessible, and developer-friendly</strong>. They built for integration from day one, not as an afterthought. The result is an ecosystem where a new fintech can plug into a full banking stack in days rather than years.</p>
+  <p>What these players have in common is not geography — it is philosophy. Each of them decided that banking
+    infrastructure should be <strong>modular, accessible, and developer-friendly</strong>. They built for integration
+    from day one, not as an afterthought. The result is an ecosystem where a new fintech can plug into a full banking
+    stack in days rather than years.</p>
 
   <div class="callout">
     <div class="callout-label">What a complete BaaS stack enables</div>
@@ -713,18 +909,29 @@
 
   <h2>The game is afoot</h2>
 
-  <p>The classic model of integrating a brick-and-mortar bank with a fintech is not just becoming obsolete — it is becoming a competitive disadvantage. While incumbents negotiate bilateral agreements and manage proprietary integrations, BaaS-native companies are shipping new financial products in weeks and iterating in real time.</p>
+  <p>The classic model of integrating a brick-and-mortar bank with a fintech is not just becoming obsolete — it is
+    becoming a competitive disadvantage. While incumbents negotiate bilateral agreements and manage proprietary
+    integrations, BaaS-native companies are shipping new financial products in weeks and iterating in real time.</p>
 
-  <p>The question for any company building in fintech today is not whether to use BaaS — it is <strong>which layers to own and which to compose</strong>. The licence is expensive to obtain and valuable to hold. The compliance infrastructure is complex to build and cheap to buy via API. The customer relationship is hard to win and easy to lose. Each of those calls requires a strategic view of where your real competitive advantage lies.</p>
+  <p>The question for any company building in fintech today is not whether to use BaaS — it is <strong>which layers to
+      own and which to compose</strong>. The licence is expensive to obtain and valuable to hold. The compliance
+    infrastructure is complex to build and cheap to buy via API. The customer relationship is hard to win and easy to
+    lose. Each of those calls requires a strategic view of where your real competitive advantage lies.</p>
 
-  <p>PSD2 opened the door. Cloud-native infrastructure made composition viable. Licensed challengers like Solarisbank and Fidor proved the model works. What comes next is the second generation of BaaS — deeper integration, more sophisticated products, and the gradual embedding of financial services into every digital experience, whether or not the customer ever knows a bank is involved.</p>
+  <p>PSD2 opened the door. Cloud-native infrastructure made composition viable. Licensed challengers like Solarisbank
+    and Fidor proved the model works. What comes next is the second generation of BaaS — deeper integration, more
+    sophisticated products, and the gradual embedding of financial services into every digital experience, whether or
+    not the customer ever knows a bank is involved.</p>
 
   <div class="pullquote">
-    <p>The most important financial product of the next decade may not come from a bank at all — it will come from a platform that assembled banking as a service and made it invisible.</p>
+    <p>The most important financial product of the next decade may not come from a bank at all — it will come from a
+      platform that assembled banking as a service and made it invisible.</p>
   </div>
 
   <div class="disclaimer">
-    <strong>Note:</strong> This post reflects the author's perspective on BaaS market dynamics as of early 2026. Regulatory frameworks referenced (PSD2, 3DS2, SCA) apply primarily to the European Economic Area. Company descriptions are based on publicly available information and may not reflect current product offerings.
+    <strong>Note:</strong> This post reflects the author's perspective on BaaS market dynamics as of early 2026.
+    Regulatory frameworks referenced (PSD2, 3DS2, SCA) apply primarily to the European Economic Area. Company
+    descriptions are based on publicly available information and may not reflect current product offerings.
   </div>
 
 </div>

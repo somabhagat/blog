@@ -1,765 +1,941 @@
 <style>
-  .blog-wrap * { 
-      font-family: Arial, sans-serif; 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-  }
-  
-  .blog-wrap { 
-      /* --- THEME VARIABLES FOR THIS POST --- */
-      --theme-color: #185fa5;
-      --theme-bg-light: #e6f1fb;
-      --theme-text-dark: #042c53;
-      
-      /* --- BASE STYLES --- */
-      max-width: 680px; 
-      color: #3a3a3a; 
-      font-size: 17px; 
-      line-height: 1.8; 
-      font-weight: 300; 
-  }
-
-  .blog-tag { 
-      display: inline-block; 
-      font-size: 11px; 
-      font-weight: 600; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      color: var(--theme-color); 
-      background: var(--theme-bg-light); 
-      padding: 4px 12px; 
-      border-radius: 2px; 
-      margin-bottom: 24px; 
-  }
-
-  .blog-title { 
-      font-size: clamp(28px, 4vw, 42px); 
-      font-weight: 700; 
-      line-height: 1.15; 
-      color: #0f0f0f; 
-      margin-bottom: 20px; 
-      letter-spacing: -.01em; 
-      border-bottom: 3px solid var(--theme-color); 
-      padding-bottom: 20px; 
-  }
-
-  .blog-title span { 
-      color: var(--theme-color); 
-  }
-
-  .blog-standfirst { 
-      font-size: 19px; 
-      font-weight: 300; 
-      color: #3a3a3a; 
-      line-height: 1.6; 
-      margin-top: 20px; 
-      margin-bottom: 20px; 
-      font-style: italic; 
-  }
-
-  .blog-byline { 
-      font-size: 13px; 
-      color: #767676; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      padding-bottom: 32px; 
-      border-bottom: 1px solid #e2e2de; 
-      margin-bottom: 36px; 
-  }
-
-  .blog-byline-dot { 
-      width: 3px; 
-      height: 3px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      flex-shrink: 0; 
-  }
-
-  .blog-wrap p { 
-      margin-bottom: 1.6rem; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-  }
-
-  .blog-wrap p strong { 
-      font-weight: 700; 
-      color: #0f0f0f; 
-  }
-
-  .blog-wrap p em { 
-      font-style: italic; 
-      color: #5f5e5a; 
-  }
-
-  .blog-wrap h2 { 
-      font-size: 24px; 
-      font-weight: 700; 
-      line-height: 1.3; 
-      color: #0f0f0f; 
-      margin: 3rem 0 1rem; 
-      padding-top: 2rem; 
-      border-top: 1px solid #e2e2de; 
-  }
-
-  .pullquote { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      border-left: 3px solid var(--theme-color); 
-      background: var(--theme-bg-light); 
-      border-radius: 0 8px 8px 0; 
-  }
-
-  .pullquote p { 
-      font-size: 20px; 
-      line-height: 1.5; 
-      color: #0f0f0f; 
-      margin: 0; 
-      font-weight: 400; 
-      font-style: italic; 
-  }
-
-  .pullquote cite { 
-      display: block; 
-      margin-top: 12px; 
-      font-size: 13px; 
-      color: #767676; 
-      font-style: normal; 
-  }
-
-  .section-intro { 
-      font-size: 15px; 
-      color: #767676; 
-      font-weight: 300; 
-      font-style: italic; 
-      margin-bottom: 1.5rem; 
-      padding-left: 16px; 
-      border-left: 2px solid var(--theme-color); 
-      line-height: 1.6; 
-  }
-
-  .callout { 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      border-left: 3px solid var(--theme-color); 
-      border-radius: 8px; 
-      padding: 28px 32px; 
-      margin: 2.5rem 0; 
-  }
-
-  .callout-label { 
-      font-size: 11px; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      font-weight: 700; 
-      color: #767676; 
-      margin-bottom: 16px; 
-  }
-
-  .callout ul { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
-  }
-
-  .callout li { 
-      display: flex; 
-      align-items: flex-start; 
-      gap: 12px; 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-      line-height: 1.6; 
-  }
-
-  .callout li::before { 
-      content: ''; 
-      flex-shrink: 0; 
-      width: 6px; 
-      height: 6px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      margin-top: 9px; 
-  }
-
-  .network-grid { 
-      margin: 2rem 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
-  }
-
-  .network-card { 
-      background: #ffffff; 
-      border: 1px solid #e2e2de; 
-      border-radius: 8px; 
-      padding: 18px 22px; 
-      display: flex; 
-      gap: 16px; 
-      align-items: flex-start; 
-  }
-
-  .network-icon { 
-      flex-shrink: 0; 
-      width: 36px; 
-      height: 36px; 
-      border-radius: 6px; 
-      background: var(--theme-bg-light); 
-      color: var(--theme-color); 
-      font-size: 15px; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-  }
-
-  .network-card strong { 
-      display: block; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 4px; 
-  }
-
-  .network-card p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.6; 
-      font-weight: 300; 
-  }
-
-  .stat-row { 
-      display: grid; 
-      grid-template-columns: repeat(3, minmax(0, 1fr)); 
-      gap: 12px; 
-      margin: 2rem 0; 
-  }
-
-  .stat-card { 
-      background: var(--theme-bg-light); 
-      border-radius: 8px; 
-      padding: 18px 16px; 
-      text-align: center; 
-  }
-
-  .stat-val { 
-      font-size: 28px; 
-      font-weight: 700; 
-      color: var(--theme-text-dark); 
-      line-height: 1; 
-      margin-bottom: 6px; 
-  }
-
-  .stat-val span { 
-      color: var(--theme-color); 
-  }
-
-  .stat-lbl { 
-      font-size: 12px; 
-      color: var(--theme-color); 
-      font-weight: 400; 
-      line-height: 1.4; 
-  }
-
-  .std-grid { 
-      display: grid; 
-      grid-template-columns: repeat(3, minmax(0, 1fr)); 
-      gap: 12px; 
-      margin: 2rem 0; 
+  .blog-wrap * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-wrap {
+    /* --- THEME VARIABLES FOR THIS POST --- */
+    --theme-color: #185fa5;
+    --theme-bg-light: #e6f1fb;
+    --theme-text-dark: #042c53;
+
+    /* --- BASE STYLES --- */
+    max-width: 680px;
+    color: #3a3a3a;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin: 0 auto;
+  }
+
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    background: var(--theme-bg-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .blog-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0f0f0f;
+    margin-bottom: 20px;
+    letter-spacing: -.01em;
+    border-bottom: 3px solid var(--theme-color);
+    padding-bottom: 20px;
+  }
+
+  .blog-title span {
+    color: var(--theme-color);
+  }
+
+  .blog-standfirst {
+    font-size: 19px;
+    font-weight: 300;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .blog-byline {
+    font-size: 13px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2de;
+    margin-bottom: 36px;
+  }
+
+  .blog-byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    flex-shrink: 0;
+  }
+
+  .blog-wrap p {
+    margin-bottom: 1.6rem;
+    color: #3a3a3a;
+    font-weight: 300;
+  }
+
+  .blog-wrap p strong {
+    font-weight: 700;
+    color: #0f0f0f;
+  }
+
+  .blog-wrap p em {
+    font-style: italic;
+    color: #5f5e5a;
+  }
+
+  .blog-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f0f0f;
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e2de;
+  }
+
+  .pullquote {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--theme-color);
+    background: #fafaf8;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pullquote p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #767676;
+    font-style: normal;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: #767676;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 16px;
+    border-left: 2px solid var(--theme-color);
+    line-height: 1.6;
+  }
+
+  .callout {
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-left: 3px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 2.5rem 0;
+  }
+
+  .callout-label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #767676;
+    margin-bottom: 16px;
+  }
+
+  .callout ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .callout li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .callout li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    margin-top: 9px;
+  }
+
+  .network-grid {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .std-card { 
-      border-radius: 10px; 
-      padding: 20px 18px; 
-      border: 1px solid #e2e2de; 
-  }
-
-  .std-card.s1 { background: #fafaf8; border-top: 4px solid #888780; }
-  .std-card.s2 { background: var(--theme-bg-light); border-top: 4px solid var(--theme-color); }
-  .std-card.s3 { background: #e1f5ee; border-top: 4px solid #0f6e56; }
+  .network-card {
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .network-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--theme-bg-light);
+    color: var(--theme-color);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .network-card strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+  }
 
-  .std-badge { 
-      font-size: 13px; 
-      font-weight: 700; 
-      margin-bottom: 4px; 
+  .network-card p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 300;
   }
 
-  .std-badge.b1 { color: #444441; }
-  .std-badge.b2 { color: var(--theme-text-dark); }
-  .std-badge.b3 { color: #04342c; }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 2rem 0;
+  }
+
+  .stat-card {
+    background: var(--theme-bg-light);
+    border-radius: 8px;
+    padding: 18px 16px;
+    text-align: center;
+  }
 
-  .std-year { 
-      font-size: 10px; 
-      font-weight: 600; 
-      letter-spacing: .1em; 
-      text-transform: uppercase; 
-      color: #767676; 
-      margin-bottom: 8px; 
+  .stat-val {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--theme-text-dark);
+    line-height: 1;
+    margin-bottom: 6px;
   }
 
-  .std-headline { 
-      font-size: 12px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 6px; 
+  .stat-val span {
+    color: var(--theme-color);
   }
 
-  .std-tag { 
-      display: inline-block; 
-      font-size: 10px; 
-      font-weight: 600; 
-      padding: 2px 7px; 
-      border-radius: 3px; 
-      margin-bottom: 8px; 
+  .stat-lbl {
+    font-size: 12px;
+    color: var(--theme-color);
+    font-weight: 400;
+    line-height: 1.4;
   }
 
-  .std-tag.card { background: #eeedfe; color: #534ab7; }
-  .std-tag.global { background: var(--theme-bg-light); color: var(--theme-color); }
-  .std-tag.rest { background: #e8f5ee; color: #1a6b3c; }
+  .std-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 2rem 0;
+  }
 
-  .std-list { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 5px; 
+  .std-card {
+    border-radius: 8px;
+    padding: 20px 18px;
+    border: 1px solid #e2e2de;
+    background: #fff;
   }
 
-  .std-list li { 
-      font-size: 12px; 
-      color: #3a3a3a; 
-      font-weight: 300; 
-      line-height: 1.5; 
-      display: flex; 
-      gap: 5px; 
+  .std-card.s1 {
+    border-top: 4px solid #888780;
   }
 
-  .std-list li::before { 
-      content: '·'; 
-      font-weight: 700; 
-      flex-shrink: 0; 
+  .std-card.s2 {
+    background: var(--theme-bg-light);
+    border-top: 4px solid var(--theme-color);
   }
 
-  .std-card.s1 .std-list li::before { color: #888780; }
-  .std-card.s2 .std-list li::before { color: var(--theme-color); }
-  .std-card.s3 .std-list li::before { color: #0f6e56; }
+  .std-card.s3 {
+    border-top: 4px solid #0f6e56;
+  }
 
-  .comp-table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      margin: 2rem 0; 
-      font-size: 13px; 
+  .std-year {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--theme-text-dark);
+    margin-bottom: 12px;
+    display: block;
   }
 
-  .comp-table th { 
-      background: #0f0f0f; 
-      color: #fff; 
-      padding: 10px 12px; 
-      text-align: left; 
-      font-weight: 600; 
-      font-size: 12px; 
-      letter-spacing: .04em; 
+  .std-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .comp-table th:first-child { 
-      width: 26%; 
+  .std-list li {
+    font-size: 13px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.5;
+    display: flex;
+    gap: 6px;
   }
 
-  .comp-table td { 
-      padding: 10px 12px; 
-      border-bottom: 1px solid #e2e2de; 
-      vertical-align: top; 
-      line-height: 1.5; 
-      color: #3a3a3a; 
-      font-weight: 300; 
+  .std-list li::before {
+    content: '·';
+    font-weight: 700;
+    flex-shrink: 0;
   }
 
-  .comp-table tr:nth-child(even) td { 
-      background: #fafaf8; 
+  .std-card.s1 .std-list li::before {
+    color: #888780;
   }
 
-  .comp-table tr:last-child td { 
-      border-bottom: none; 
+  .std-card.s2 .std-list li::before {
+    color: var(--theme-color);
   }
 
-  .comp-table td:first-child { 
-      font-weight: 600; 
-      color: #0f0f0f; 
-      font-size: 12px; 
+  .std-card.s3 .std-list li::before {
+    color: #0f6e56;
   }
 
-  .flow { 
-      margin: 2.5rem 0; 
-      display: flex; 
-      flex-direction: column; 
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 13px;
   }
 
-  .flow-step { 
-      display: flex; 
-      gap: 20px; 
-      align-items: flex-start; 
-      padding: 20px 0; 
-      border-bottom: 1px solid #e2e2de; 
+  .comp-table th {
+    background: #0f0f0f;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
   }
 
-  .flow-step:last-child { 
-      border-bottom: none; 
+  .comp-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e2de;
+    vertical-align: top;
+    line-height: 1.5;
+    color: #3a3a3a;
+    font-weight: 300;
   }
 
-  .step-num { 
-      flex-shrink: 0; 
-      width: 32px; 
-      height: 32px; 
-      border-radius: 50%; 
-      background: var(--theme-color); 
-      color: #ffffff; 
-      font-size: 13px; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-top: 2px; 
+  .comp-table tr:nth-child(even) td {
+    background: #fafaf8;
   }
 
-  .step-content strong { 
-      display: block; 
-      font-size: 15px; 
-      font-weight: 700; 
-      color: #0f0f0f; 
-      margin-bottom: 6px; 
+  .comp-table tr:last-child td {
+    border-bottom: none;
   }
 
-  .step-content p { 
-      font-size: 15px; 
-      color: #3a3a3a; 
-      margin: 0; 
-      line-height: 1.65; 
+  .comp-table td:first-child {
+    font-weight: 600;
+    color: #0f0f0f;
+    font-size: 12px;
   }
 
-  .tag-inst { 
-      display: inline-block; 
-      font-size: 10px; 
-      font-weight: 600; 
-      padding: 2px 7px; 
-      border-radius: 3px; 
-      background: #e1f5ee; 
-      color: #0f6e56; 
+  .flow {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  .tag-std { 
-      display: inline-block; 
-      font-size: 10px; 
-      font-weight: 600; 
-      padding: 2px 7px; 
-      border-radius: 3px; 
-      background: var(--theme-bg-light); 
-      color: var(--theme-color); 
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2de;
   }
 
-  /* STANDARD DARK FEATURE BOX (Injected for safety and future-proofing) */
-  .dark-feature-box { 
-      margin: 2.5rem 0; 
-      padding: 28px 32px; 
-      background: #0f0f0f; 
-      border-radius: 12px; 
-      color: #fff; 
+  .flow-step:last-child {
+    border-bottom: none;
   }
 
-  .dark-feature-box h3 { 
-      font-size: 18px; 
-      font-weight: 700; 
-      color: #fff; 
-      margin-bottom: 14px; 
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
   }
 
-  .dark-feature-box p { 
-      font-size: 15px; 
-      color: #b0b0a8; 
-      font-weight: 300; 
-      line-height: 1.7; 
-      margin-bottom: 10px; 
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 6px;
   }
 
-  .dark-feature-box p:last-child { 
-      margin-bottom: 0; 
+  .step-content p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.65;
   }
 
-  /* Specificity fix applied dynamically to all dark boxes */
-  .dark-feature-box p strong { 
-      color: #85b7eb; /* Light blue highlight for dark mode readability */
-      font-weight: 600; 
+  .code-block {
+    background: #0f0f0f;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
   }
 
-  .read-next { 
-      padding: 20px 24px; 
-      border-radius: 8px; 
-      background: var(--theme-bg-light); 
-      border: 1px solid #85b7eb; 
-      font-size: 14px; 
-      color: var(--theme-text-dark); 
-      line-height: 1.6; 
+  .code-block pre {
+    font-family: monospace;
+    font-size: 12px;
+    color: #c2c0b6;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre;
   }
 
-  .read-next strong { 
-      color: var(--theme-text-dark); 
-      font-weight: 700; 
+  .code-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    margin-bottom: 8px;
   }
 
-  .ref-box { 
-      margin-top: 3rem; 
-      padding: 20px 24px; 
-      border-radius: 8px; 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
+  .ref-box {
+    margin-top: 3rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
   }
 
-  .ref-label { 
-      font-size: 11px; 
-      font-weight: 700; 
-      letter-spacing: .12em; 
-      text-transform: uppercase; 
-      color: #767676; 
-      margin-bottom: 12px; 
+  .ref-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #767676;
+    margin-bottom: 12px;
   }
 
-  .ref-list { 
-      list-style: none; 
-      padding: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 8px; 
+  .ref-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .ref-list li { 
-      font-size: 13px; 
-      color: #767676; 
-      line-height: 1.6; 
-      font-weight: 300; 
-      display: flex; 
-      gap: 10px; 
+  .ref-list li {
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.6;
+    font-weight: 300;
+    display: flex;
+    gap: 10px;
   }
 
-  .ref-list li::before { 
-      content: '[' attr(data-n) ']'; 
-      color: var(--theme-color); 
-      font-weight: 600; 
-      font-size: 12px; 
-      flex-shrink: 0; 
-      margin-top: 1px; 
+  .ref-list li::before {
+    content: '[' attr(data-n) ']';
+    color: var(--theme-color);
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
   }
 
-  .disclaimer { 
-      margin-top: 1.5rem; 
-      padding: 20px 24px; 
-      border-radius: 8px; 
-      background: #fafaf8; 
-      border: 1px solid #e2e2de; 
-      font-size: 13px; 
-      color: #767676; 
-      line-height: 1.7; 
+  .disclaimer {
+    margin-top: 1.5rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.7;
   }
 
-  .disclaimer strong { 
-      color: #3a3a3a; 
-      font-weight: 700; 
+  .disclaimer strong {
+    color: #3a3a3a;
+    font-weight: 700;
   }
 
   /* Diagram styles */
-  .diagram-wrap { width: 100%; background: #ffffff; border: 1px solid #e2e2de; border-radius: 12px; overflow: hidden; margin: 2rem 0 2.5rem; }
-  .diagram-title { background: #0f0f0f; color: #ffffff; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 12px 20px; }
-  .lane { display: flex; align-items: center; border-bottom: 1px solid #e2e2de; min-height: 68px; }
-  .lane:last-of-type { border-bottom: none; }
-  .lane-label { width: 110px; flex-shrink: 0; font-size: 11px; color: #767676; font-weight: 400; padding: 0 10px; border-right: 1px solid #e2e2de; background: #fafaf8; align-self: stretch; display: flex; align-items: center; line-height: 1.4; }
-  .lane-content { flex: 1; padding: 10px 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .dnode { border-radius: 8px; padding: 7px 12px; text-align: center; flex-shrink: 0; }
-  .dnode-title { font-size: 12px; font-weight: 700; line-height: 1.3; }
-  .dnode-sub { font-size: 10px; font-weight: 300; margin-top: 2px; line-height: 1.3; }
-  
-  /* Diagram visual key colors retained */
-  .dnode-gray { background: #f1efe8; border: 1px solid #b4b2a9; color: #2c2c2a; }
-  .dnode-gray .dnode-sub { color: #5f5e5a; }
-  .dnode-blue { background: var(--theme-bg-light); border: 1px solid #85b7eb; color: var(--theme-text-dark); }
-  .dnode-blue .dnode-sub { color: var(--theme-color); }
-  .dnode-teal { background: #e1f5ee; border: 1px solid #5dcaa5; color: #04342c; }
-  .dnode-teal .dnode-sub { color: #0f6e56; }
-  .dnode-amber { background: #faeeda; border: 1px solid #ef9f27; color: #412402; }
-  .dnode-amber .dnode-sub { color: #854f0b; }
-  .dnode-purple { background: #eeedfe; border: 1px solid #afa9ec; color: #26215c; }
-  .dnode-purple .dnode-sub { color: #534ab7; }
-  
-  .darrow { font-size: 13px; color: #888780; flex-shrink: 0; }
-  .diagram-legend { display: flex; gap: 16px; padding: 10px 20px; background: #fafaf8; border-top: 1px solid #e2e2de; flex-wrap: wrap; }
-  .dlegend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #767676; }
-  .dlegend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .diagram-source { font-size: 10px; color: #aaa; text-align: center; padding: 6px 20px 10px; font-style: italic; }
-  
-  .code-block { background: #0f0f0f; border-radius: 8px; padding: 18px 22px; margin: 1.5rem 0; overflow-x: auto; }
-  .code-block pre { font-family: monospace; font-size: 12px; color: #c2c0b6; line-height: 1.6; margin: 0; white-space: pre; }
-  .code-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--theme-color); margin-bottom: 8px; }
+  .diagram-wrap {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0 2.5rem;
+  }
+
+  .diagram-title {
+    background: #0f0f0f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+
+  .lane {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2de;
+    min-height: 68px;
+  }
+
+  .lane:last-of-type {
+    border-bottom: none;
+  }
+
+  .lane-label {
+    width: 110px;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #767676;
+    font-weight: 400;
+    padding: 0 10px;
+    border-right: 1px solid #e2e2de;
+    background: #fafaf8;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .lane-content {
+    flex: 1;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .dnode {
+    border-radius: 8px;
+    padding: 7px 12px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .dnode-title {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .dnode-sub {
+    font-size: 10px;
+    font-weight: 300;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  .dnode-gray {
+    background: #f1efe8;
+    border: 1px solid #b4b2a9;
+    color: #2c2c2a;
+  }
+
+  .dnode-gray .dnode-sub {
+    color: #5f5e5a;
+  }
+
+  .dnode-blue {
+    background: var(--theme-bg-light);
+    border: 1px solid #85b7eb;
+    color: var(--theme-text-dark);
+  }
+
+  .dnode-blue .dnode-sub {
+    color: var(--theme-color);
+  }
+
+  .dnode-teal {
+    background: #e1f5ee;
+    border: 1px solid #5dcaa5;
+    color: #04342c;
+  }
+
+  .dnode-teal .dnode-sub {
+    color: #0f6e56;
+  }
+
+  .dnode-amber {
+    background: #faeeda;
+    border: 1px solid #ef9f27;
+    color: #412402;
+  }
+
+  .dnode-amber .dnode-sub {
+    color: #854f0b;
+  }
+
+  .dnode-purple {
+    background: #eeedfe;
+    border: 1px solid #afa9ec;
+    color: #26215c;
+  }
+
+  .dnode-purple .dnode-sub {
+    color: #534ab7;
+  }
+
+  .darrow {
+    font-size: 13px;
+    color: #888780;
+    flex-shrink: 0;
+  }
+
+  .diagram-legend {
+    display: flex;
+    gap: 16px;
+    padding: 10px 20px;
+    background: #fafaf8;
+    border-top: 1px solid #e2e2de;
+    flex-wrap: wrap;
+  }
+
+  .dlegend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #767676;
+  }
+
+  .dlegend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .diagram-source {
+    font-size: 10px;
+    color: #aaa;
+    text-align: center;
+    padding: 6px 20px 10px;
+    font-style: italic;
+  }
 </style>
 
 <div class="blog-wrap">
 
-    <div class="blog-tag">Regulatory Deep Dive · SEPA</div>
-    <h1 class="blog-title">SEPA: <span>The Harmonization of European Payments</span> and the Instant Revolution</h1>
-    <p class="blog-standfirst">The Single Euro Payments Area (SEPA) was designed to make a payment from Munich to Madrid
-        as simple as a local transfer. Two decades in, the mission is evolving from basic interoperability to a mandated
-        24/7/365 instant reality.</p>
+  <div class="blog-tag">Regulatory Deep Dive · SEPA</div>
+  <h1 class="blog-title">SEPA Instant &amp; the Mandate for <span>Change</span></h1>
+  <p class="blog-standfirst">As of 2026, real-time liquidity is no longer a premium feature but the structural baseline
+    for 41 countries. With Regulation (EU) 2024/886 — commonly known as the Instant Payments Regulation (IPR) — in full
+    effect, the transition to SCT Inst marks the most significant shift in retail payments since the Euro's inception.
+  </p>
 
-    <div class="blog-byline">
-        <span>Payments Engineering &amp; Strategy</span>
-        <div class="blog-byline-dot"></div>
-        <span>10 min read</span>
+  <div class="blog-byline">
+    <span>Payments Engineering &amp; Strategy</span>
+    <div class="blog-byline-dot"></div>
+    <span>10 min read</span>
+  </div>
+
+  <p>After working across global payment rails, I have seen that SEPA is the unsung hero of
+    European trade. Before SEPA's launch in 2002, moving Euros between countries was a maze of varying formats, slow
+    execution times, and high fees. Today, it is a unified zone of 41 countries where technical barriers are virtually
+    non-existent, underpinned by the high-data standards of <strong>ISO 20022</strong>.</p>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-val">41</div>
+      <div class="stat-lbl">SEPA Member States</div>
     </div>
-
-    <p>After working across global payment rails at Mastercard and Wirecard, I have seen that SEPA is the unsung hero of
-        European trade. Before SEPA's launch in 2002, moving Euro between countries was a maze of varying formats, slow
-        execution times, and high fees. Today, it is a unified zone of 36 countries where technical barriers are
-        virtually non-existent, underpinned by the high-data standards of <strong>ISO 20022</strong>.</p>
-
-    <div class="stat-row">
-        <div class="stat-card">
-            <div class="stat-val">36</div>
-            <div class="stat-lbl">Countries within the SEPA geographical scope</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-val">16.8<span>bn</span></div>
-            <div class="stat-lbl">Credit transfers in the Euro area (H1 2025)</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-val">&lt;10<span>s</span></div>
-            <div class="stat-lbl">Maximum execution for SEPA Instant transactions</div>
-        </div>
+    <div class="stat-card">
+      <div class="stat-val">100<span>%</span></div>
+      <div class="stat-lbl">Eurozone Reachability</div>
     </div>
-
-    <h2>The Four Pillars: Understanding SEPA Schemes</h2>
-    <p class="section-intro">SEPA isn't a single product; it is a set of rulebooks (schemes) that standardize different
-        ways to move money.</p>
-
-    <table class="comp-table">
-        <tr>
-            <th>Scheme</th>
-            <th>Function</th>
-            <th>Standard Rule</th>
-        </tr>
-        <tr>
-            <td><strong>SCT</strong> (Credit Transfer)</td>
-            <td>Standard push payment.</td>
-            <td>Settlement typically within 1 business day. IBAN-only.</td>
-        </tr>
-        <tr>
-            <td><strong>SCT Inst</strong> (Instant)</td>
-            <td>24/7/365 real-time transfer.</td>
-            <td>Funds available in &lt;10 seconds. Irrevocable.</td>
-        </tr>
-        <tr>
-            <td><strong>SDD Core</strong> (Direct Debit)</td>
-            <td>Recurring pull payments.</td>
-            <td>8-week "no-questions-asked" consumer refund right.</td>
-        </tr>
-        <tr>
-            <td><strong>SDD B2B</strong> (Direct Debit)</td>
-            <td>Business-only pull payments.</td>
-            <td>No refund right for authorized transactions.</td>
-        </tr>
-    </table>
-
-    <h2>The technical foundation: IBAN and ISO 20022</h2>
-    <p class="section-intro">The success of SEPA relies completely on standardising account addresses (IBAN) and the
-        message structure (ISO 20022 XML) that flows between banks.</p>
-
-    <p>Before SEPA, every country had its own format. Germany had BLZ and Kontonummer, France had RIB, and the UK used
-        Sort Codes and Account Numbers. SEPA forced the adoption of the International Bank Account Number
-        (<strong>IBAN</strong>). While the length of an IBAN varies by country, the structure is rigorously consistent:
-        a two-letter country code, two check digits, followed by the country-specific account identifier.</p>
-
-    <p>Equally important is the underlying message format. SEPA uses structured XML files to ensure that data like
-        names, remittance information, and bank details never gets truncated or lost when moving between systems in
-        different countries.</p>
-
-    <div class="diagram-wrap">
-        <div class="diagram-title">SEPA Credit Transfer (SCT) Message Flow</div>
-        <div class="lane">
-            <div class="lane-label">Initiation</div>
-            <div class="lane-content" style="gap:8px;">
-                <div class="dnode dnode-gray" style="min-width:100px;">
-                    <div class="dnode-title">Payer</div>
-                    <div class="dnode-sub">E-banking / App</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-blue" style="min-width:130px;">
-                    <div class="dnode-title">pain.001</div>
-                    <div class="dnode-sub">Customer-to-Bank msg</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-blue" style="min-width:100px;">
-                    <div class="dnode-title">Originator Bank</div>
-                    <div class="dnode-sub">Validation &amp; Debiting</div>
-                </div>
-            </div>
-        </div>
-        <div class="lane">
-            <div class="lane-label">Clearing &amp; Settlement</div>
-            <div class="lane-content" style="gap:8px;">
-                <div class="dnode dnode-amber" style="min-width:120px;">
-                    <div class="dnode-title">pacs.008</div>
-                    <div class="dnode-sub">Interbank Clearing msg</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-amber" style="min-width:120px;">
-                    <div class="dnode-title">CSM (e.g., STEP2)</div>
-                    <div class="dnode-sub">Clearing &amp; Settlement</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-amber" style="min-width:100px;">
-                    <div class="dnode-title">pacs.008</div>
-                    <div class="dnode-sub">Forwarded to Beneficiary</div>
-                </div>
-            </div>
-        </div>
-        <div class="lane" style="border-bottom:none;">
-            <div class="lane-label">Reporting</div>
-            <div class="lane-content" style="gap:6px;">
-                <div class="dnode dnode-teal" style="min-width:100px;">
-                    <div class="dnode-title">Beneficiary Bank</div>
-                    <div class="dnode-sub">Crediting Account</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-purple" style="min-width:120px;">
-                    <div class="dnode-title">camt.053 / 054</div>
-                    <div class="dnode-sub">Bank-to-Customer Stmt</div>
-                </div>
-                <div class="darrow">&rarr;</div>
-                <div class="dnode dnode-gray" style="min-width:100px;">
-                    <div class="dnode-title">Payee</div>
-                    <div class="dnode-sub">Funds available</div>
-                </div>
-            </div>
-        </div>
-        <div class="diagram-legend">
-            <div class="dlegend-item">
-                <div class="dlegend-dot" style="background:#888780;"></div>End Users
-            </div>
-            <div class="dlegend-item">
-                <div class="dlegend-dot" style="background:#185fa5;"></div>Initiation (pain)
-            </div>
-            <div class="dlegend-item">
-                <div class="dlegend-dot" style="background:#854f0b;"></div>Clearing (pacs)
-            </div>
-            <div class="dlegend-item">
-                <div class="dlegend-dot" style="background:#534ab7;"></div>Reporting (camt)
-            </div>
-        </div>
-        <div class="diagram-source">Source: EPC SEPA Credit Transfer Rulebook. Showing illustrative flow.</div>
+    <div class="stat-card">
+      <div class="stat-val">&lt;10<span>s</span></div>
+      <div class="stat-lbl">Max Execution Time</div>
     </div>
+  </div>
 
-    <div class="code-block">
-        <div class="code-label">SEPA ISO 20022 &mdash; pain.001 Payment Initiation Request (simplified XML)</div>
-        <pre>&lt;Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"&gt;
+  <p>To navigate the 2026 landscape, we must first map the functional components of the SEPA network. The system is
+    managed by three distinct layers of actors, each responsible for a different phase of the payment lifecycle.</p>
+
+  <div class="network-grid">
+    <div class="network-card">
+      <div class="network-icon">S</div>
+      <div>
+        <strong>SCT Inst Scheme</strong>
+        <p>Funds available in &lt;10s. Mandated fee parity ensures zero cost-barrier.</p>
+      </div>
+    </div>
+    <div class="network-card">
+      <div class="network-icon" style="background: #f1efe8; color: #888780;">C</div>
+      <div>
+        <strong>CSM Connectivity</strong>
+        <p>High-availability hubs like RT1 and TIPS processing 24/7 liquidity.</p>
+      </div>
+    </div>
+    <div class="network-card">
+      <div class="network-icon" style="background: #e1f5ee; color: #0f6e56;">T</div>
+      <div>
+        <strong>TIPS Participation</strong>
+        <p>The Eurosystem's settlement service providing full reachability across the EEA.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Geographic Expansion &amp; Western Balkans</h2>
+  <p>The SEPA region now encompasses <strong>41 countries</strong>. This growth is driven by the Western Balkans Growth
+    Plan, treating SEPA membership as a tool for economic alignment. Albania, Montenegro, and North Macedonia officially
+    joined in October 2025, with Serbia scheduled for accession in May 2026.</p>
+
+  <h2>The Four Pillars: Understanding SEPA Schemes</h2>
+  <p class="section-intro">SEPA isn't a single product; it is a set of rulebooks (schemes) that standardize different
+    ways to move money.</p>
+
+  <table class="comp-table">
+    <tr>
+      <th>Scheme</th>
+      <th>Function</th>
+      <th>Standard Rule</th>
+    </tr>
+    <tr>
+      <td><strong>SCT</strong> (Credit Transfer)</td>
+      <td>Standard push payment.</td>
+      <td>Settlement typically within 1 business day. IBAN-only.</td>
+    </tr>
+    <tr>
+      <td><strong>SCT Inst</strong> (Instant)</td>
+      <td>24/7/365 real-time transfer.</td>
+      <td>Funds available in &lt;10 seconds. Irrevocable.</td>
+    </tr>
+    <tr>
+      <td><strong>SDD Core</strong> (Direct Debit)</td>
+      <td>Recurring pull payments.</td>
+      <td>8-week "no-questions-asked" consumer refund right.</td>
+    </tr>
+    <tr>
+      <td><strong>SDD B2B</strong> (Direct Debit)</td>
+      <td>Business-only pull payments.</td>
+      <td>No refund right for authorized transactions.</td>
+    </tr>
+  </table>
+
+  <h2>Regulatory Evolution (S-Framework)</h2>
+  <p>The transition from legacy batch processing to real-time interactions is best categorized via the Tiered Framework,
+    which has evolved from a roadmap into a series of binding legal mandates.</p>
+
+  <div class="std-grid">
+    <div class="std-card s1">
+      <span class="std-year">S1: SCT Standard</span>
+      <ul class="std-list">
+        <li>Legacy Standard (2008)</li>
+        <li>Next-day (D+1) settlement</li>
+        <li>Batch-based processing</li>
+      </ul>
+    </div>
+    <div class="std-card s2">
+      <span class="std-year">S2: SCT Instant</span>
+      <ul class="std-list">
+        <li>Mandatory Utility (2025)</li>
+        <li>&lt;10s real-time clearing</li>
+        <li>Mandatory VoP matching</li>
+      </ul>
+    </div>
+    <div class="std-card s3">
+      <span class="std-year">S3: Request-to-Pay</span>
+      <ul class="std-list">
+        <li>Rulebook v4.0 (2026)</li>
+        <li>Integrated messaging</li>
+        <li>Card-free pull logic</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The 2025 Mandate: The Instant Payment Regulation (IPR)</h2>
+  <p>The <strong>Instant Payments Regulation (IPR)</strong> has fundamentally altered the economics of European
+    transfers. By removing the "instant premium," the European Commission has mandated that SCT Inst become the new
+    normal. It forces the hand of every EU bank to align with the real-time economy.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Jan 9, 2025: Mandatory Reception</strong>
+        <p>Banks must be technically capable of receiving instant payments and apply harmonized sanctions screening to
+          prevent delays.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Oct 9, 2025: Mandatory Sending</strong>
+        <p>Banks must enable customers to send instant payments. Crucially, they must offer Verification of Payee
+          (IBAN-name matching) to curb APP fraud.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>April 2027: Non-bank Entry</strong>
+        <p>Payment Institutions (PIs) and Electronic Money Institutions (EMIs) must also offer instant sending and
+          receiving.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">IPR Mandate Takeaways:</div>
+    <ul>
+      <li><strong>Fee Parity (Article 5b):</strong> Instant transfers must cost the same as standard transfers.</li>
+      <li><strong>Verification of Payee (Article 5c):</strong> Mandatory IBAN-Name matching implemented across the
+        Eurozone as of Oct 2025.</li>
+      <li><strong>Bulk Screening (Article 5d):</strong> Shift to daily database sanctions screening to maintain &lt;10s
+        speed.</li>
+    </ul>
+  </div>
+
+  <h2>The technical foundation: IBAN and ISO 20022</h2>
+  <p class="section-intro">The success of SEPA relies completely on standardising account addresses (IBAN) and the
+    message structure (ISO 20022 XML) that flows between banks.</p>
+
+  <p>Before SEPA, every country had its own format. Germany had BLZ and Kontonummer, France had RIB, and the UK used
+    Sort Codes and Account Numbers. SEPA forced the adoption of the International Bank Account Number
+    (<strong>IBAN</strong>). While the length of an IBAN varies by country, the structure is rigorously consistent: a
+    two-letter country code, two check digits, followed by the country-specific account identifier.</p>
+
+  <p>The period leading to <strong>November 15, 2026</strong> represents a "point of no return" for data quality.
+    Standard Release (SR 2026) mandates the retirement of unstructured postal addresses across the network. Interbank
+    payment messages must utilize either "Hybrid" or "Fully Structured" address formats, specifically requiring the Town
+    Name (<code>&lt;TwnNm&gt;</code>) and Country Code (<code>&lt;Ctry&gt;</code>) in dedicated XML tags.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-title">SEPA Credit Transfer (SCT) Message Flow</div>
+    <div class="lane">
+      <div class="lane-label">Initiation</div>
+      <div class="lane-content" style="gap:8px;">
+        <div class="dnode dnode-gray" style="min-width:100px;">
+          <div class="dnode-title">Payer</div>
+          <div class="dnode-sub">E-banking / App</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-blue" style="min-width:130px;">
+          <div class="dnode-title">pain.001</div>
+          <div class="dnode-sub">Customer-to-Bank msg</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-blue" style="min-width:100px;">
+          <div class="dnode-title">Originator Bank</div>
+          <div class="dnode-sub">Validation &amp; Debiting</div>
+        </div>
+      </div>
+    </div>
+    <div class="lane">
+      <div class="lane-label">Clearing &amp; Settlement</div>
+      <div class="lane-content" style="gap:8px;">
+        <div class="dnode dnode-amber" style="min-width:120px;">
+          <div class="dnode-title">pacs.008</div>
+          <div class="dnode-sub">Interbank Clearing msg</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-amber" style="min-width:120px;">
+          <div class="dnode-title">CSM (e.g., STEP2)</div>
+          <div class="dnode-sub">Clearing &amp; Settlement</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-amber" style="min-width:100px;">
+          <div class="dnode-title">pacs.008</div>
+          <div class="dnode-sub">Forwarded to Beneficiary</div>
+        </div>
+      </div>
+    </div>
+    <div class="lane" style="border-bottom:none;">
+      <div class="lane-label">Reporting</div>
+      <div class="lane-content" style="gap:6px;">
+        <div class="dnode dnode-teal" style="min-width:100px;">
+          <div class="dnode-title">Beneficiary Bank</div>
+          <div class="dnode-sub">Crediting Account</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-purple" style="min-width:120px;">
+          <div class="dnode-title">camt.053 / 054</div>
+          <div class="dnode-sub">Bank-to-Customer Stmt</div>
+        </div>
+        <div class="darrow">&rarr;</div>
+        <div class="dnode dnode-gray" style="min-width:100px;">
+          <div class="dnode-title">Payee</div>
+          <div class="dnode-sub">Funds available</div>
+        </div>
+      </div>
+    </div>
+    <div class="diagram-legend">
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#888780;"></div>End Users
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#185fa5;"></div>Initiation (pain)
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#854f0b;"></div>Clearing (pacs)
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#534ab7;"></div>Reporting (camt)
+      </div>
+    </div>
+    <div class="diagram-source">Source: EPC SEPA Credit Transfer Rulebook. Showing illustrative flow.</div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-label">SEPA ISO 20022 &mdash; pain.001 Payment Initiation Request (simplified XML)</div>
+    <pre>&lt;Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"&gt;
   &lt;CstmrCdtTrfInitn&gt;
     &lt;GrpHdr&gt;
       &lt;MsgId&gt;ABC-12345678&lt;/MsgId&gt;
@@ -783,133 +959,143 @@
     &lt;/PmtInf&gt;
   &lt;/CstmrCdtTrfInitn&gt;
 &lt;/Document&gt;</pre>
+  </div>
+
+  <h2>Direct Debits &amp; R-Messages: Handling exceptions</h2>
+
+  <p>While credit transfers (pushing money) were relatively easy to standardise, direct debits are notoriously complex.
+    Because you are pulling money from someone else's account, strict rules must govern authorization, liability, and
+    dispute resolution. In SEPA, when things go wrong, they do so via <strong>R-messages</strong> (so named because the
+    message types begin with 'R'). Dealing with these is one of the hardest parts of building a robust SEPA integration.
+  </p>
+
+  <div class="network-grid">
+    <div class="network-card">
+      <div class="network-icon">&#128100;</div>
+      <div><strong>SDD Core (B2C)</strong>
+        <p>Designed for consumer payments. The consumer enjoys an unconditional "no questions asked" right to refund any
+          charge for 8 weeks after being debited. If an unauthorised charge occurs, they have up to 13 months to dispute
+          it.</p>
+      </div>
     </div>
-
-    <h2>Direct Debits: Handling the complexities of pulling money</h2>
-
-    <p>While credit transfers (pushing money) were relatively easy to standardise, direct debits are notoriously
-        complex. Because you are pulling money from someone else's account, strict rules must govern authorization,
-        liability, and dispute resolution.</p>
-
-    <div class="network-grid">
-        <div class="network-card">
-            <div class="network-icon">&#128100;</div>
-            <div><strong>SDD Core (B2C)</strong>
-                <p>Designed for consumer payments (like gym memberships and utilities). The consumer enjoys an
-                    unconditional "no questions asked" right to refund any charge for 8 weeks after being debited. If an
-                    unauthorised charge occurs, they have up to 13 months to dispute it.</p>
-            </div>
-        </div>
-        <div class="network-card">
-            <div class="network-icon">&#127970;</div>
-            <div><strong>SDD B2B</strong>
-                <p>Strictly for business-to-business transactions. Unlike Core, SDD B2B offers absolutely NO refund
-                    right once the transaction is executed. Because it is final, payer banks are legally obligated to
-                    verify that the mandate exists before clearing the debit.</p>
-            </div>
-        </div>
+    <div class="network-card">
+      <div class="network-icon">&#127970;</div>
+      <div><strong>SDD B2B</strong>
+        <p>Strictly for business-to-business transactions. Unlike Core, SDD B2B offers absolutely NO refund right once
+          the transaction is executed. Because it is final, payer banks are legally obligated to verify that the mandate
+          exists before clearing the debit.</p>
+      </div>
     </div>
-
-    <div class="pullquote">
-        <p>A well-built SEPA Direct Debit engine doesn't just generate XML files. It acts as a state machine tracking
-            mandate signatures, handling "R-messages" (rejects, returns, refunds, reversals), and managing customer
-            notifications automatically.</p>
+    <div class="network-card">
+      <div class="network-icon">R</div>
+      <div><strong>The R-Transaction Lifecycle</strong>
+        <p><strong>Reject:</strong> Fails before clearing (e.g. invalid IBAN).<br><strong>Return:</strong> Clears, but
+          recipient bank bounces it.<br><strong>Refund:</strong> End-customer requests money
+          back.<br><strong>Reversal:</strong> Initiated by sender in error.</p>
+      </div>
     </div>
+  </div>
 
-    <h2>R-Messages: The exception handling of Europe</h2>
+  <h2>Technical Infrastructure: TIPS vs RT1</h2>
+  <p class="section-intro">The speed of SEPA Instant requires a "central" clearing layer that never sleeps.</p>
 
-    <p>In SEPA, when things go wrong, they do so via <strong>R-messages</strong> (so named because the message types
-        begin with 'R'). Dealing with these is one of the hardest parts of building a robust SEPA integration.</p>
+  <p>Two primary systems handle this pan-European clearing: <strong>TIPS</strong> (TARGET Instant Payment Settlement),
+    operated by the ECB, and <strong>RT1</strong>, operated by EBA CLEARING. In H1 2025, retail systems processed 55.7
+    billion transactions worth €26.2 trillion. As volume shifts toward instant, these engines are being optimized for
+    massive horizontal scale.</p>
 
-    <div class="callout">
-        <div class="callout-label">The R-Transaction Lifecycle</div>
-        <ul>
-            <li><strong>Reject:</strong> Fails before clearing. For example, the IBAN format is invalid, or the bank is
-                sanctioned. Funds never move.</li>
-            <li><strong>Return:</strong> Clears successfully, but the recipient bank bounces it. Typically due to
-                "Account closed". Usually happens within 1-3 days.</li>
-            <li><strong>Refund:</strong> Specific to SDD Core. The end-customer decides they want their money back. Can
-                happen up to 8 weeks post-settlement.</li>
-            <li><strong>Reversal:</strong> Initiated by the sender (or sending bank) when a payment was sent in error.
-            </li>
-        </ul>
+  <div style="margin:2rem 0;">
+    <div style="display:flex;gap:16px;margin-bottom:10px;font-size:12px;color:#767676;flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:4px;"><span
+          style="width:10px;height:10px;border-radius:2px;background:#185fa5;display:inline-block;"></span>Estimated
+        SCT Inst Penetration (%) across Eurozone</span>
     </div>
+    <div style="position:relative;width:100%;height:240px;"><canvas id="adoptionChart"></canvas></div>
+    <div style="font-size:10px;color:#aaa;text-align:center;margin-top:8px;font-style:italic;">Source: ECB and EPC
+      statistics (Illustrative estimates showing the shift toward instant).</div>
+  </div>
 
-    <h2>The 2025 Mandate: The Instant Payment Regulation (IPR)</h2>
-    <p>While SCT Inst has existed since 2017, adoption was voluntary, leading to fragmented availability. The
-        <strong>Instant Payment Regulation (IPR)</strong>, which entered into force in April 2024, has changed the game.
-        It forces the hand of every EU bank to align with the real-time economy.</p>
+  <h2>Comparative Analysis: Legacy vs. Instant</h2>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Protocol Aspect</th>
+        <th>Standard SCT (S1)</th>
+        <th>SEPA Instant (S2)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Settlement Window</strong></td>
+        <td>D+1 Business Day </td>
+        <td>&lt; 10 Seconds (24/7/365) </td>
+      </tr>
+      <tr>
+        <td><strong>Message Protocol</strong></td>
+        <td>ISO 20022 (pacs.008)</td>
+        <td>ISO 20022 Real-time interaction</td>
+      </tr>
+      <tr>
+        <td><strong>Fraud Check</strong></td>
+        <td>Standard KYC</td>
+        <td>Mandatory VoP Matching </td>
+      </tr>
+      <tr>
+        <td><strong>Sanctions</strong></td>
+        <td>Per-transaction screening</td>
+        <td>Daily Database Bulk-screening </td>
+      </tr>
+      <tr>
+        <td><strong>Address Data</strong></td>
+        <td>Unstructured allowed</td>
+        <td>Structured (Mandatory Nov '26)</td>
+      </tr>
+      <tr>
+        <td><strong>Max Amount</strong></td>
+        <td>No theoretical limit</td>
+        <td>€100,000 per transaction</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="flow">
-        <div class="flow-step">
-            <div class="step-num">1</div>
-            <div class="step-content"><strong>Jan 9, 2025 Mandatory Reception</strong>
-                <p>Banks must be technically capable of receiving instant payments and apply harmonized sanctions
-                    screening to prevent delays.</p>
-            </div>
-        </div>
-        <div class="flow-step">
-            <div class="step-num">2</div>
-            <div class="step-content"><strong>Oct 9, 2025 Mandatory Sending</strong>
-                <p>Banks must enable customers to send instant payments. Crucially, they must offer <strong>Verification
-                        of Payee</strong> (IBAN-name matching) to curb APP fraud.</p>
-            </div>
-        </div>
-        <div class="flow-step">
-            <div class="step-num">3</div>
-            <div class="step-content"><strong>April 2027 Non-bank Entry</strong>
-                <p>Payment Institutions (PIs) and Electronic Money Institutions (EMIs) must also offer instant sending
-                    and receiving.</p>
-            </div>
-        </div>
-    </div>
+  <h2>The "Swiss Finish" &amp; SIC5 Infrastructure</h2>
+  <p>Switzerland remains a unique technical environment. The <strong>SIC5</strong> infrastructure now handles over 95%
+    of retail payments, with full participation of all financial institutions required by November 2026. A critical
+    integration rule is the logic of the <strong>QR-IBAN</strong>. Payments using a 27-digit structured reference
+    (QR-Referenz) <em>must</em> be routed to a QR-IBAN, distinguished by an IID range in positions 5-9 of 30000–31999.
+    In addition, <strong>TWINT</strong> continues its dominance with over 6M+ users completing 901M payments in 2025.
+  </p>
 
-    <div class="pullquote">
-        <p>Instant is no longer a premium feature; it is the new baseline for European banking. By late 2025, 'pending'
-            will be a concept of the past for SEPA transactions.</p>
-        <cite> Soma Bhagat, Payments Product Leader | PayTech Blog</cite>
-    </div>
+  <div class="pullquote">
+    <p>"The transition from 'optional' to 'mandatory' utility marks the most significant shift in European retail
+      payments since the Euro's inception."</p>
+    <cite>— ECB Payments Outlook 2026 </cite>
+  </div>
 
-    <h2>Technical Infrastructure: TIPS vs RT1</h2>
-    <p class="section-intro">The speed of SEPA Instant requires a "central" clearing layer that never sleeps.</p>
+  <p>For product leaders, real-time settlement is no longer the competitive advantage—it is the baseline. The next wave
+    of value lies in how we leverage this 10-second window to automate corporate treasury, simplify cross-border trade,
+    and phase out the legacy "black box" of manual payment processing.</p>
 
-    <p>Two primary systems handle this pan-European clearing: <strong>TIPS</strong> (TARGET Instant Payment Settlement),
-        operated by the ECB, and <strong>RT1</strong>, operated by EBA CLEARING. In H1 2025, retail systems processed
-        55.7 billion transactions worth €26.2 trillion. As volume shifts toward instant, these engines are being
-        optimized for massive horizontal scale.</p>
+  <div class="ref-box">
+    <div class="ref-label">References &amp; Further Reading</div>
+    <ul class="ref-list">
+      <li data-n="1">European Central Bank (2026). Payments statistics: first half of 2025. ecb.europa.eu.</li>
+      <li data-n="2">De Nederlandsche Bank (2025). Instant Payments Regulation: new obligations. dnb.nl.</li>
+      <li data-n="3">European Payments Council (2025). SEPA Direct Debit (SDD) Scheme. europeanpaymentscouncil.eu.</li>
+      <li data-n="4">Atlar (2024). A guide to payments in the SEPA zone. atlar.com.</li>
+      <li data-n="5">Bird &amp; Bird (2024). Instant Payments Regulation. twobirds.com.</li>
+    </ul>
+  </div>
 
-    <div style="margin:2rem 0;">
-        <div style="display:flex;gap:16px;margin-bottom:10px;font-size:12px;color:#767676;flex-wrap:wrap;">
-            <span style="display:flex;align-items:center;gap:4px;"><span
-                    style="width:10px;height:10px;border-radius:2px;background:#185fa5;display:inline-block;"></span>Estimated
-                SCT Inst Penetration (%) across Eurozone</span>
-        </div>
-        <div style="position:relative;width:100%;height:240px;"><canvas id="adoptionChart"></canvas></div>
-        <div style="font-size:10px;color:#aaa;text-align:center;margin-top:8px;font-style:italic;">Source: ECB and EPC
-            statistics (Illustrative estimates showing the shift toward instant).</div>
-    </div>
-
-    <div class="ref-box">
-        <div class="ref-label">References &amp; Further Reading</div>
-        <ul class="ref-list">
-            <li data-n="1">European Central Bank (2026). Payments statistics: first half of 2025. ecb.europa.eu.</li>
-            <li data-n="2">De Nederlandsche Bank (2025). Instant Payments Regulation: new obligations. dnb.nl.</li>
-            <li data-n="3">European Payments Council (2025). SEPA Direct Debit (SDD) Scheme. europeanpaymentscouncil.eu.
-            </li>
-            <li data-n="4">Atlar (2024). A guide to payments in the SEPA zone. atlar.com.</li>
-            <li data-n="5">Bird &amp; Bird (2024). Instant Payments Regulation. twobirds.com.</li>
-        </ul>
-    </div>
-
-    <div class="disclaimer">
-        <strong>Note:</strong> SEPA rules and Instant Payment deadlines vary between Eurozone and non-Eurozone member
-        states. Verify current compliance deadlines with the European Payments Council (EPC) for specific corridors.
-        This analysis reflects data available as of early 2026.
-    </div>
+  <div class="disclaimer">
+    <strong>Note:</strong> SEPA rules and Instant Payment deadlines vary between Eurozone and non-Eurozone member
+    states. Verify current compliance deadlines with the European Payments Council (EPC) for specific corridors. This
+    analysis reflects data available as of early 2026.
+  </div>
 
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-    new Chart(document.getElementById('adoptionChart'), { type: 'bar', data: { labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'], datasets: [{ label: 'SCT Inst Adoption (%)', data: [5, 12, 25, 40, 55, 65, 75, 85, 95], backgroundColor: '#185fa5', borderRadius: 3 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#767676', font: { size: 12 } } }, y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#767676', font: { size: 12 }, callback: v => v + '%' }, max: 100 } } } });
+  new Chart(document.getElementById('adoptionChart'), { type: 'bar', data: { labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'], datasets: [{ label: 'SCT Inst Adoption (%)', data: [5, 12, 25, 40, 55, 65, 75, 85, 95], backgroundColor: '#185fa5', borderRadius: 3 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#767676', font: { size: 12 } } }, y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#767676', font: { size: 12 }, callback: v => v + '%' }, max: 100 } } } });
 </script>
