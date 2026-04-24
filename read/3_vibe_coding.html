@@ -1,0 +1,804 @@
+<style>
+  .blog-wrap * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .blog-wrap {
+    /* --- THEME VARIABLES FOR THIS POST --- */
+    --theme-color: #1a6b3c;
+    --theme-bg-light: #e8f5ee;
+    --theme-text-dark: #0e3d21;
+
+    /* --- BASE STYLES --- */
+    max-width: 680px;
+    color: #3a3a3a;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    background: var(--theme-bg-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .blog-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0f0f0f;
+    margin-bottom: 20px;
+    letter-spacing: -.01em;
+    border-bottom: 3px solid var(--theme-color);
+    padding-bottom: 20px;
+  }
+
+  .blog-title span {
+    color: var(--theme-color);
+  }
+
+  .blog-standfirst {
+    font-size: 19px;
+    font-weight: 300;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .blog-byline {
+    font-size: 13px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2de;
+    margin-bottom: 36px;
+  }
+
+  .blog-byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    flex-shrink: 0;
+  }
+
+  .blog-wrap p {
+    margin-bottom: 1.6rem;
+    color: #3a3a3a;
+    font-weight: 300;
+  }
+
+  .blog-wrap p strong {
+    font-weight: 700;
+    color: #0f0f0f;
+  }
+
+  .blog-wrap p em {
+    font-style: italic;
+    color: #5f5e5a;
+  }
+
+  .blog-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f0f0f;
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e2de;
+  }
+
+  .pullquote {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--theme-color);
+    background: #fafaf8;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pullquote p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #767676;
+    font-style: normal;
+  }
+
+  .flow {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e2de;
+  }
+
+  .flow-step:last-child {
+    border-bottom: none;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 6px;
+  }
+
+  .step-content p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .callout {
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-left: 3px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 2.5rem 0;
+  }
+
+  .callout-label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #767676;
+    margin-bottom: 16px;
+  }
+
+  .callout ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .callout li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .callout li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    margin-top: 9px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: #767676;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 16px;
+    border-left: 2px solid var(--theme-color);
+    line-height: 1.6;
+  }
+
+  /* Dark Feature Box standard injected for safety and future-proofing */
+  .dark-feature-box {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    background: #0f0f0f;
+    border-radius: 12px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .dark-feature-box-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .dark-feature-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .dark-feature-box p {
+    font-size: 15px;
+    color: #b0b0a8;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .dark-feature-box p strong {
+    color: var(--theme-color);
+    font-weight: 600;
+  }
+
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.7;
+  }
+
+  .disclaimer strong {
+    color: #3a3a3a;
+    font-weight: 700;
+  }
+
+  /* Diagram styles retained */
+  .diagram-wrap {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e2de;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0 2.5rem;
+  }
+
+  .diagram-title {
+    background: #0f0f0f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+
+  .lane {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2de;
+    min-height: 72px;
+  }
+
+  .lane:last-of-type {
+    border-bottom: none;
+  }
+
+  .lane-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #767676;
+    font-weight: 400;
+    padding: 0 12px;
+    border-right: 1px solid #e2e2de;
+    background: #fafaf8;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .lane-content {
+    flex: 1;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .dnode {
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .dnode-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .dnode-sub {
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  .dnode-gray {
+    background: #f1efe8;
+    border: 1px solid #b4b2a9;
+    color: #2c2c2a;
+  }
+
+  .dnode-gray .dnode-sub {
+    color: #5f5e5a;
+  }
+
+  .dnode-green {
+    background: #e8f5ee;
+    border: 1px solid #5dcaa5;
+    color: #04342c;
+  }
+
+  .dnode-green .dnode-sub {
+    color: #1a6b3c;
+  }
+
+  .dnode-purple {
+    background: #eeedfe;
+    border: 1px solid #afa9ec;
+    color: #26215c;
+  }
+
+  .dnode-purple .dnode-sub {
+    color: #534ab7;
+  }
+
+  .dnode-amber {
+    background: #faeeda;
+    border: 1px solid #ef9f27;
+    color: #412402;
+  }
+
+  .dnode-amber .dnode-sub {
+    color: #854f0b;
+  }
+
+  .dnode-blue {
+    background: #e6f1fb;
+    border: 1px solid #85b7eb;
+    color: #042c53;
+  }
+
+  .dnode-blue .dnode-sub {
+    color: #185fa5;
+  }
+
+  .dbadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .darrow {
+    font-size: 15px;
+    color: #888780;
+    flex-shrink: 0;
+  }
+
+  .dline {
+    flex: 1;
+    border-top: 1.5px solid #c8c8c0;
+  }
+
+  .dvert {
+    position: absolute;
+    left: 168px;
+    top: -16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dvert-line {
+    width: 1.5px;
+    height: 16px;
+    background: #c8c8c0;
+  }
+
+  .dvert-arrow {
+    font-size: 12px;
+    color: #888780;
+    line-height: 1;
+    margin-top: -2px;
+  }
+
+  .diagram-legend {
+    display: flex;
+    gap: 20px;
+    padding: 12px 20px;
+    background: #fafaf8;
+    border-top: 1px solid #e2e2de;
+    flex-wrap: wrap;
+  }
+
+  .dlegend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #767676;
+  }
+
+  .dlegend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .diagram-source {
+    font-size: 10px;
+    color: #aaa;
+    text-align: center;
+    padding: 8px 20px 12px;
+    font-style: italic;
+  }
+</style>
+
+<div class="blog-wrap">
+
+  <div class="blog-tag">Payments &amp; AI</div>
+
+  <h1 class="blog-title">Precision Meets Vibes: How <span>Vibe Coding</span> and MCP Are Redefining Payment
+    Orchestration</h1>
+
+  <p class="blog-standfirst">In payments we deal in ISO 8583, PCI-DSS, and zero-error-tolerance clearing cycles. "Vibes"
+    have no place here — until now. Here is what happens when you apply the principles of agentic AI development to the
+    most precision-driven industry in tech.</p>
+
+  <div class="blog-byline">
+    <span>Payments &amp; AI</span>
+    <div class="blog-byline-dot"></div>
+    <span>6 min read</span>
+  </div>
+
+  <p>I recently finished reading the book <em>Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents,
+      and Beyond</em> by Gene Kim and Steve Yegge. The title is provocative by design — and in fintech, it lands like a
+    provocation. We do not do "vibes." We do compliance frameworks, audit trails, and settlement reconciliation. Every
+    decimal point matters.</p>
+
+  <p>But the book's central argument is not about being loose with logic. It is about <strong>radically accelerating the
+      path from intent to production-grade reality</strong>. Read through that lens, it is one of the most relevant
+    things a payments product leader could read right now. Here is how I am applying it.</p>
+
+  <div class="pullquote">
+    <p>"Vibe Coding isn't about being loose with logic — it's about radically accelerating the path from intent to
+      production-grade reality."</p>
+    <cite>— Gene Kim &amp; Steve Yegge, Vibe Coding (2026)</cite>
+  </div>
+
+  <h2>The vibe coding kitchen: my prototyping stack</h2>
+
+  <p class="section-intro">The book's "Kitchen" chapter categorises tools not by what they do, but by the friction they
+    remove. That framing is exactly right for payments product work.</p>
+
+  <p>For years, payments product development followed a familiar and slow rhythm: six months of discovery, three months
+    of design, a sprint cycle, and a waterfall release into a system that had changed in the meantime. Vibe Coding's
+    kitchen metaphor reframes this entirely — you pick the right tool for the right moment, and you move.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-title">The Vibe Coding Kitchen — Payments Tooling by Friction Layer</div>
+
+    <div class="lane">
+      <div class="lane-label">Architecture &amp; discovery</div>
+      <div class="lane-content">
+        <div class="dnode dnode-purple">
+          <div class="dnode-title">Claude Code</div>
+          <div class="dnode-sub">Legacy mapping</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">+</span>
+        <div class="dline"></div>
+        <div class="dnode dnode-purple">
+          <div class="dnode-title">Sourcegraph</div>
+          <div class="dnode-sub">Codebase search</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">→</span>
+        <div class="dnode dnode-green">
+          <div class="dnode-title">Surgical refactor</div>
+          <div class="dnode-sub">No 6-month discovery</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane">
+      <div class="lane-label">UI/UX validation</div>
+      <div class="lane-content">
+        <div class="dnode dnode-amber">
+          <div class="dnode-title">Lovable / Bolt</div>
+          <div class="dnode-sub">Visual prototyping</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">+</span>
+        <div class="dline"></div>
+        <div class="dnode dnode-amber">
+          <div class="dnode-title">Replit</div>
+          <div class="dnode-sub">Live environment</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">→</span>
+        <div class="dnode dnode-green">
+          <div class="dnode-title">Hours not sprints</div>
+          <div class="dnode-sub">Test vibe first</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane" style="border-bottom:none;">
+      <div class="lane-label">Data &amp; fraud logic</div>
+      <div class="lane-content">
+        <div class="dnode dnode-blue">
+          <div class="dnode-title">Claude Artifacts</div>
+          <div class="dnode-sub">Pattern analysis</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">+</span>
+        <div class="dline"></div>
+        <div class="dnode dnode-blue">
+          <div class="dnode-title">Code Interpreter</div>
+          <div class="dnode-sub">Clearing file logic</div>
+        </div>
+        <div class="dline"></div>
+        <span class="darrow">→</span>
+        <div class="dnode dnode-green">
+          <div class="dnode-title">Fraud visualisation</div>
+          <div class="dnode-sub">Real-time insight</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diagram-legend">
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#534ab7;"></div>AI tooling
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#854f0b;"></div>Prototyping environment
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#185fa5;"></div>Data &amp; analysis
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#1a6b3c;"></div>Payments outcome
+      </div>
+    </div>
+    <div class="diagram-source">Personal tooling stack — applied to payments product development</div>
+  </div>
+
+  <p>In payments specifically, the architecture and discovery layer is where the most time has historically been lost.
+    Legacy banking cores are not well-documented. Mapping a transaction flow across a ten-year-old codebase used to take
+    months. With Claude Code and Sourcegraph working in tandem, you can achieve precise, targeted changes to live
+    systems without the risk of touching something you did not mean to.</p>
+
+  <p>The UI/UX validation layer is equally powerful for payments product work. Before committing to a full sprint cycle
+    on a merchant payout dashboard or a dispute resolution workflow, you can build a functional prototype in Lovable or
+    Bolt.new in hours and test whether the interaction model actually works. You are testing the vibe before you write a
+    single line of production code.</p>
+
+  <h2>The missing link: Model Context Protocol</h2>
+
+  <p class="section-intro">MCP is the infrastructure layer that transforms AI from a chatbot into a genuine fintech
+    agent. It is the piece the book points toward but the industry is only now building.</p>
+
+  <p>Every payments organisation I have worked with — from large schemes to specialist PSPs — has the same structural
+    problem: <strong>data siloed across systems that were never designed to talk to each other</strong>. SQL databases
+    holding transaction records. Jira tracking exceptions. Confluence storing runbooks. API logs scattered across
+    environments. The AI tools we use today can reason brilliantly — but only over what they can see.</p>
+
+  <p>Model Context Protocol changes this. MCP acts as a universal, secure bridge that allows AI agents to read context
+    from these disparate systems in real time. It is not a data warehouse or an ETL pipeline. It is a live connection
+    layer — governed, auditable, and permissioned — that gives an AI agent the same situational awareness a senior
+    payments analyst would have after six years on the job.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-title">MCP as the Fintech Intelligence Bridge</div>
+
+    <div class="lane">
+      <div class="lane-label">Data sources</div>
+      <div class="lane-content" style="gap:8px;">
+        <div class="dnode dnode-gray" style="min-width:80px;">
+          <div class="dnode-title">SQL DB</div>
+          <div class="dnode-sub">Transactions</div>
+        </div>
+        <div class="dnode dnode-gray" style="min-width:80px;">
+          <div class="dnode-title">Jira</div>
+          <div class="dnode-sub">Exceptions</div>
+        </div>
+        <div class="dnode dnode-gray" style="min-width:80px;">
+          <div class="dnode-title">Confluence</div>
+          <div class="dnode-sub">Runbooks</div>
+        </div>
+        <div class="dnode dnode-gray" style="min-width:80px;">
+          <div class="dnode-title">API logs</div>
+          <div class="dnode-sub">Live traffic</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane">
+      <div class="lane-label">MCP bridge</div>
+      <div class="lane-content" style="justify-content:center;">
+        <div class="dnode dnode-green" style="min-width:320px; padding:14px 20px;">
+          <div class="dnode-title" style="font-size:14px;">Model Context Protocol</div>
+          <div class="dnode-sub" style="font-size:12px;">Secure · Permissioned · Real-time · Auditable</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane" style="border-bottom:none;">
+      <div class="lane-label">AI agent output</div>
+      <div class="lane-content" style="gap:8px;">
+        <div class="dnode dnode-purple" style="min-width:100px;">
+          <div class="dnode-title">Reconcile</div>
+          <div class="dnode-sub">Accounts</div>
+        </div>
+        <div class="dnode dnode-purple" style="min-width:100px;">
+          <div class="dnode-title">Flag</div>
+          <div class="dnode-sub">Anomalies</div>
+        </div>
+        <div class="dnode dnode-purple" style="min-width:100px;">
+          <div class="dnode-title">Route</div>
+          <div class="dnode-sub">Exceptions</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diagram-legend">
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#888780;"></div>Siloed data sources
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#1a6b3c;"></div>MCP unification layer
+      </div>
+      <div class="dlegend-item">
+        <div class="dlegend-dot" style="background:#534ab7;"></div>Agent-driven outcomes
+      </div>
+    </div>
+    <div class="diagram-source">MCP architecture — applied to payments intelligence</div>
+  </div>
+
+  <p>The practical effect is transformative. Without MCP, an AI assistant looking at a failed payout sees only what you
+    paste into the chat window. With MCP, the agent sees the transaction record, the exception log, the routing rule
+    that applied, the merchant's historical dispute rate, and the runbook for that exception type — simultaneously, in
+    real time. It stops being a chatbot and starts being a fintech agent.</p>
+
+  <div class="pullquote">
+    <p>MCP transforms AI from a simple chatbot into a fintech agent that can intelligently reconcile accounts or flag
+      anomalies — because it actually sees the data.</p>
+  </div>
+
+  <h2>Beyond testing the waters: the advanced tier</h2>
+
+  <p>The book offers solid starter projects for agentic AI. My focus is further along the maturity curve — the use cases
+    where agentic AI stops being a productivity tool and starts being a core part of the payments processing stack.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>AI-driven fraud orchestration</strong>
+        <p>Static fraud rules are a known weakness. They are either too aggressive (high false positive rates, merchant
+          friction) or too permissive (fraud slips through). Agentic AI changes the model entirely — instead of rules,
+          you have agents that reason through transaction anomalies based on historical context, merchant behaviour
+          patterns, device fingerprints, and real-time network signals. The agent does not just flag; it explains, and
+          its reasoning is auditable.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Autonomous payout workflows</strong>
+        <p>Exception handling in payout workflows is one of the most labour-intensive processes in payments operations.
+          An agent with MCP access can read the exception, identify the root cause, cross-reference the relevant
+          runbook, attempt automated remediation, and escalate only the cases that genuinely require a human — with full
+          context already assembled. The operations team stops being a processing unit and starts being a decision
+          layer.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Intelligent clearing file analysis</strong>
+        <p>Clearing files are dense, structured, and unforgiving. Errors are expensive. Using Claude Artifacts and code
+          interpreter tools, you can build agentic workflows that parse clearing files, flag discrepancies against
+          expected settlement amounts, and surface reconciliation gaps before the clearing window closes — not after.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <h2>The precision mandate</h2>
+
+  <p>There is a tension at the heart of applying Vibe Coding to payments. The book celebrates speed and iteration.
+    Payments demands precision and auditability. These are not opposites — but holding both requires deliberate
+    architectural thinking.</p>
+
+  <p>My recent IHK Strategic Deep-Dive into Software Architecture was a deliberate step in this direction. As we
+    accelerate with GenAI and agentic workflows, the engineering foundations have to be able to carry the weight.
+    <strong>Intent must always be governed by integrity.</strong> An AI agent that can initiate a payout must do so
+    within a framework that is auditable, permissioned, and recoverable.</p>
+
+  <div class="callout">
+    <div class="callout-label">The precision checklist for agentic payments</div>
+    <ul>
+      <li>Every agent action is logged with full reasoning trace — not just the outcome</li>
+      <li>Spending and execution limits are defined in the mandate layer, not in the agent</li>
+      <li>MCP connections are permissioned and scoped — agents see only what they need</li>
+      <li>Human escalation paths are designed in, not bolted on</li>
+      <li>Rollback and recovery are first-class requirements, not afterthoughts</li>
+      <li>Regulatory alignment is validated before any agent enters a live processing stack</li>
+    </ul>
+  </div>
+
+  <p>Vibe Coding accelerates the journey. Architecture ensures we arrive at the right destination. The two are not in
+    conflict — but it takes product leaders who understand both to hold that balance.</p>
+
+  <div class="pullquote">
+    <p>In payments, "intent" must always be governed by "integrity." Speed without architecture is just technical debt
+      at scale.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Note:</strong> Tool references reflect personal experience and evaluation as of early 2026. This post
+    references <em>Vibe Coding</em> by Gene Kim and Steve Yegge for conceptual framing. Views are the author's own and
+    do not represent any current or former employer.
+  </div>
+
+</div>
