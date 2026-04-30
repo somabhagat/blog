@@ -54,7 +54,7 @@ Don't use the Windows Command Prompt. Use the **Terminal window at the bottom of
 - **Engineering & AI (Green):** The "Builder" perspective. Includes DevOps, AI Agents in Payments, and technical architecture.
 - **Motivational & Resilience (Yellow):** The "Human" perspective. Personal branding, career navigation, and industry mindset.
 
-## Social Media Schedule
+## Linkedin Post Schedule
 | Day | Time Window | Content Format | Strategy |
 | :--- | :--- | :--- | :--- |
 | **Tuesday** | 10:00 AM – 11:00 AM | Carousel (Technical) | "Power Day" for deep insights. Senior tech professionals check LinkedIn after morning stand-ups. |
@@ -66,36 +66,28 @@ Don't use the Windows Command Prompt. Use the **Terminal window at the bottom of
 
 ## Next Priority Topics (Germany/EU Focus)
 - **Bill Payments:** The friction in recurring household payments.
-- **Stablecoins:** Corporate treasury use cases vs. retail hype.
-- **Wero:** The final battle for the European checkout interface.
 - **The EU AI Act & Payments:** Mapping compliance to actual code.
-
-## Global Market Research (Secondary Focus)
-- **Pix (Brazil):** The global benchmark for central-bank-driven instant payment adoption.
-- **UPI (India):** How interoperability solved the "last mile" of financial inclusion.
-- **FedNow vs. RTP (USA):** The fragmentation of the American instant payment landscape.
-- **The Nordic Model (Swish/Vipps/MobilePay):** Cross-border P2P consolidation.
-
----
 
 # AI Content Generation Prompts
 
 ## Low Friction LinkedIn Posts
-- **Authority-First Listicle:** Create a list of 5 "Technical Truths" that sales decks usually miss. Tone: "I’ve seen the backend, here is the reality."
+- **Authority-First Listicle:** Create a listicle that is easy to read in **20 seconds** with 5 "Technical Truths" that sales decks usually miss. Tone: "I’ve seen the backend, here is the reality."
 - **Regulatory Translation:** Take a dry regulatory update (e.g., PSR) and translate it into "Human" for Product Managers.
 - **Dual-Profile Hook:** Frame career transitions as a "Research & Specialization" phase. Turns a gap into a strength.
 
 ## Informative Blog Deep Dives
 - **Technical Depth:** Ensure blogs reflect 13 years of seniority (Mastercard/IHK background).
-- **Shared Industry Trauma:** Use "Insider" jokes to build tribe engagement. See the **Reference Section** below for inspiration.
-- **The Hook:** Use "Dwell Time" optimization (e.g., "I spent 13 years in Payments and 6 months in AI Agents...").
+- **Shared Industry Trauma:** Use "Insider" jokes to build tribe engagement but ensure to never insult or offend anyone or any company. Stay professional. See the **Reference Section** below for inspiration.
+- Ensure **factually correct** Blog on given topic by using **reliable sources**.
+-  Avoid **name dropping** the companies I worked at. 
+- Please consider my **Standard Design Principles** for brand identity, and apply it to the blog.
 
 ---
 
 # Technical & Design Standards
 
 ## Design Principles
-- **Color System:** Blue (Payments), Green (Engineering), Yellow (Motivational). Red is merged into Blue for German/EU market focus.
+- **Color System:** Blue (Payments), Green (Engineering). 
 - **Golden Template:** Every blog MUST include a "References & Resources" section to ensure academic integrity.
 - **Byline:** Use "Soma Bhagat, Payments Product Leader | Payment Strategy Blog".
 
