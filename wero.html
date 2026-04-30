@@ -1,0 +1,1293 @@
+<style>
+  .blog-wrap * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .blog-wrap {
+    --theme-color: #185fa5;
+    --theme-bg-light: #e6f1fb;
+    --theme-text-dark: #042c53;
+    max-width: 680px;
+    color: #3a3a3a;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin: 0 auto;
+  }
+  .blog-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--theme-color);
+    background: var(--theme-bg-light);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .blog-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #0f0f0f;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    border-bottom: 3px solid var(--theme-color);
+    padding-bottom: 20px;
+  }
+  .blog-title span {
+    color: var(--theme-color);
+  }
+  .blog-standfirst {
+    font-size: 19px;
+    font-weight: 300;
+    color: #3a3a3a;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .blog-byline {
+    font-size: 13px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e2e2de;
+    margin-bottom: 36px;
+  }
+  .blog-byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    flex-shrink: 0;
+  }
+  .blog-wrap p {
+    margin-bottom: 1.6rem;
+    color: #3a3a3a;
+    font-weight: 300;
+  }
+  .blog-wrap p strong {
+    font-weight: 700;
+    color: #0f0f0f;
+  }
+  .blog-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #0f0f0f;
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e2de;
+  }
+  .blog-wrap ul {
+    margin: 0 0 1.6rem 1.2rem;
+  }
+  .blog-wrap ul li {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    color: #3a3a3a;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 2rem 0;
+  }
+  .stat-card {
+    background: var(--theme-bg-light);
+    border-radius: 8px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat-val {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--theme-text-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-val span {
+    color: var(--theme-color);
+  }
+  .stat-lbl {
+    font-size: 12px;
+    color: var(--theme-color);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .network-grid {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .network-card {
+    background: #fff;
+    border: 1px solid #e2e2de;
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .network-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: var(--theme-bg-light);
+    color: var(--theme-color);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .network-card strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+  }
+  .network-card p {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .diagram-wrap {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e2e2de;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2.5rem 0;
+  }
+  .diagram-title {
+    background: #0f0f0f;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+  }
+  .diagram-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .flow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .flow-box {
+    background: var(--theme-bg-light);
+    border: 1px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 10px 12px;
+    flex: 1;
+  }
+  .flow-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--theme-color);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .flow-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f0f0f;
+    line-height: 1.3;
+  }
+  .flow-tech {
+    font-size: 10px;
+    color: #767676;
+    font-family: monospace;
+    margin-top: 4px;
+  }
+  .flow-arrow {
+    color: #888780;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .flow-path-connector {
+    height: 25px;
+    display: flex;
+    position: relative;
+  }
+  .path-right {
+    justify-content: flex-end;
+    padding-right: 85px;
+  }
+  .path-left {
+    justify-content: flex-start;
+    padding-left: 85px;
+  }
+  .path-line {
+    width: 2px;
+    height: 100%;
+    background: #888780;
+    position: relative;
+  }
+  .path-line::after {
+    content: "▼";
+    position: absolute;
+    bottom: -8px;
+    left: -3.5px;
+    font-size: 10px;
+    color: #888780;
+  }
+  .diagram-source {
+    font-size: 11px;
+    color: #767676;
+    background: #fafaf8;
+    padding: 12px 20px;
+    border-top: 1px solid #e2e2de;
+    line-height: 1.5;
+  }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 13px;
+  }
+  .comp-table th {
+    background: #0f0f0f;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .comp-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e2e2de;
+    vertical-align: top;
+    line-height: 1.5;
+    color: #3a3a3a;
+    font-weight: 300;
+  }
+  .comp-table tr:nth-child(even) td {
+    background: #fafaf8;
+  }
+  .comp-table tr:last-child td {
+    border-bottom: none;
+  }
+  .comp-table td:first-child {
+    font-weight: 600;
+    color: #0f0f0f;
+    font-size: 12px;
+  }
+  .dark-feature-box {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    background: #0f0f0f;
+    border-radius: 12px;
+    color: #fff;
+  }
+  .dark-feature-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .dark-feature-box p {
+    font-size: 15px;
+    color: #b0b0a8;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .dark-feature-box p strong {
+    color: #85b7eb;
+    font-weight: 600;
+  }
+  .timeline-wrap {
+    position: relative;
+    padding-left: 30px;
+    margin: 2rem 0;
+  }
+  .timeline-wrap::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: var(--theme-color);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -25px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid var(--theme-color);
+    border-radius: 50%;
+  }
+  .timeline-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--theme-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f0f0f;
+    margin-bottom: 4px;
+  }
+  .timeline-body {
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.6;
+  }
+  .pullquote {
+    margin: 2.5rem 0;
+    padding: 28px 32px;
+    border-left: 3px solid var(--theme-color);
+    background: #fafaf8;
+    border-radius: 0 8px 8px 0;
+  }
+  .pullquote p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .pullquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #767676;
+    font-style: normal;
+  }
+  .callout {
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-left: 3px solid var(--theme-color);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 2.5rem 0;
+  }
+  .callout-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #767676;
+    margin-bottom: 16px;
+  }
+  .callout ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .callout li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3a3a3a;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .callout li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--theme-color);
+    margin-top: 9px;
+  }
+  .ref-box {
+    margin-top: 3rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+  }
+  .ref-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #767676;
+    margin-bottom: 12px;
+  }
+  .ref-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ref-list li {
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.6;
+    font-weight: 300;
+    display: flex;
+    gap: 10px;
+  }
+  .ref-list li::before {
+    content: "[" attr(data-n) "]";
+    color: var(--theme-color);
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .disclaimer {
+    margin-top: 1.5rem;
+    padding: 20px 24px;
+    border-radius: 8px;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    font-size: 13px;
+    color: #767676;
+    line-height: 1.7;
+  }
+  .disclaimer strong {
+    color: #3a3a3a;
+    font-weight: 700;
+  }
+  .blog-figure {
+    margin: 2rem 0;
+  }
+  .blog-figure img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e2e2de;
+    display: block;
+  }
+  .blog-figure figcaption {
+    font-size: 12px;
+    color: #767676;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .stack-diagram {
+    margin: 2.5rem 0;
+    background: #fafaf8;
+    border: 1px solid #e2e2de;
+    border-radius: 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    overflow: hidden;
+  }
+  .stack-title {
+    width: 100%;
+    background: #0f0f0f;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
+  .stack-body {
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .stack-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 0;
+  }
+  .stack-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-color);
+  }
+  .stack-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .stack-layer {
+    flex-grow: 1;
+    padding: 18px 24px;
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    position: relative;
+  }
+  .layer-title {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .layer-detail {
+    font-size: 12px;
+    color: inherit;
+    opacity: 0.8;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .layer-top {
+    background: var(--theme-bg-light);
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+  }
+  .layer-mid {
+    background: #85b7eb;
+    color: #fff;
+    border-color: #74a6d9;
+  }
+  .layer-bot {
+    background: var(--theme-color);
+    color: #fff;
+    border-color: #14508c;
+  }
+  .stack-spacer {
+    height: 30px;
+    width: 2px;
+    background: #e2e2de;
+    margin-left: 64px;
+    position: relative;
+  }
+  .stack-spacer::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: -3px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #e2e2de;
+  }
+  .stack-caption {
+    font-size: 12px;
+    color: #767676;
+    font-style: italic;
+    text-align: center;
+    margin-top: 32px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+</style>
+
+<div class="blog-wrap">
+  <div class="blog-tag">Strategy &middot; Infrastructure</div>
+  <h1 class="blog-title">
+    Wero and the <span>European Payments Sovereignty</span> Stack
+  </h1>
+
+  <p class="blog-standfirst">
+    With 43 million registered users and &euro;7.5 billion processed in its
+    first year, Wero is not another fintech experiment. It is the banking
+    sector&rsquo;s most serious attempt to reclaim the European payments stack
+    from global Big Tech platforms.
+  </p>
+
+  <figure class="blog-figure">
+    <img
+      src="images/wero_map.svg"
+      alt="A geographical map of Europe with Germany, France, and Belgium highlighted in dark blue, and Netherlands and Luxembourg in light blue"
+      style="background: #e6f1fb"
+    />
+    <figcaption>
+      Figure 1: Wero operates as a sovereign European payment network,
+      connecting bank accounts across Germany, France, and Belgium in real time
+      via SCT Inst rails. (Netherlands and Luxembourg rolling out in next
+      phase). Map base: Wikimedia Commons (Public Domain).
+    </figcaption>
+  </figure>
+
+  <div class="blog-byline">
+    <span>Payments Engineering &amp; Strategy</span>
+    <div class="blog-byline-dot"></div>
+    <span>12 min read</span>
+  </div>
+
+  <p>
+    Wero is the consumer-facing product of the
+    <strong>European Payments Initiative (EPI)</strong> &mdash; a consortium of
+    major European banks across Germany, France, Belgium, and the Netherlands.
+    Built on <strong>SEPA Instant Credit Transfer (SCT Inst)</strong> rails and
+    <strong>ISO 20022</strong> messaging standards, it operates as a
+    pass-through wallet: no stored balance, no intermediary float, just a direct
+    real-time link to the user&rsquo;s existing bank account. Money moves in
+    under 10 seconds, 24/7, 365 days a year.
+  </p>
+
+  <p>
+    After a decade of watching fragmented national schemes &mdash; Paylib in
+    France, Payconiq in Belgium, iDEAL in the Netherlands &mdash; each solve the
+    same problem in isolation, EPI made a deliberate architectural decision:
+    consolidate at the rails level first, then build a unified consumer
+    interface on top. The result is Wero: a wallet that is technically thin by
+    design and strategically consequential by intent.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-val">43<span>M+</span></div>
+      <div class="stat-lbl">
+        Registered users across DE, FR, BE (early 2026)
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">&euro;7.5<span>B+</span></div>
+      <div class="stat-lbl">
+        Transaction volume in first 12 months of operation
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">&lt;10<span>s</span></div>
+      <div class="stat-lbl">
+        SCT Inst settlement time, 24/7/365, irrevocable
+      </div>
+    </div>
+  </div>
+
+  <h2>What Wero Actually Is (and Is Not)</h2>
+
+  <p>
+    The single most important technical clarification about Wero is what it does
+    <em>not</em> do: it does not hold funds. This is not a Venmo or PayPal model
+    where a balance sits inside a platform. Understanding this distinction is
+    foundational to understanding both its architecture and its regulatory
+    positioning.
+  </p>
+
+  <div class="network-grid">
+    <div class="network-card">
+      <div class="network-icon">&#127968;</div>
+      <div>
+        <strong>Pass-Through Architecture</strong>
+        <p>
+          Wero holds no funds. Every euro flows directly between bank accounts
+          via SCT Inst. The wallet is a UX abstraction layer, not a stored-value
+          account. This keeps Wero outside the e-money institution regulatory
+          perimeter and anchors it firmly within existing banking supervision.
+        </p>
+      </div>
+    </div>
+    <div class="network-card">
+      <div class="network-icon">&#128241;</div>
+      <div>
+        <strong>Dual Access Model</strong>
+        <p>
+          Available as a standalone app or embedded natively inside partner
+          banking apps. Users authenticate via their bank&rsquo;s existing
+          Strong Customer Authentication (SCA) &mdash; biometric or device-based
+          &mdash; meaning no separate credential layer to maintain or breach.
+        </p>
+      </div>
+    </div>
+    <div class="network-card">
+      <div class="network-icon">&#128279;</div>
+      <div>
+        <strong>Proxy-Based Initiation</strong>
+        <p>
+          Payments are triggered via phone number or QR code. The
+          <strong>SEPA Proxy Lookup (SPL)</strong> directory, operated by
+          equensWorldline, maps the proxy to the recipient&rsquo;s IBAN in real
+          time &mdash; without exposing account details to either party in the
+          transaction.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <h2>The Technical Stack: Three Layers That Matter</h2>
+
+  <p>
+    Wero&rsquo;s architecture separates concerns cleanly across three layers:
+    the consumer UX, the messaging protocol, and the settlement infrastructure.
+    Each layer operates independently but is tightly coupled by ISO 20022
+    message standards. A payment engineer approaching a Wero integration needs
+    to think in terms of all three simultaneously.
+  </p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-title">Wero: The Three-Layer Payment Stack</div>
+    <div class="diagram-content">
+      <div class="flow-row">
+        <div class="flow-box">
+          <div class="flow-label">UX Layer</div>
+          <div class="flow-text">Wero App / Bank App Embed</div>
+          <div class="flow-tech">iOS / Android / Web SDK</div>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box">
+          <div class="flow-label">Authentication</div>
+          <div class="flow-text">SCA via Biometric / PIN</div>
+          <div class="flow-tech">PSD2 Art. 4 Compliant</div>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div class="flow-box">
+          <div class="flow-label">Proxy Resolution</div>
+          <div class="flow-text">Phone / QR &rarr; IBAN via SPL</div>
+          <div class="flow-tech">equensWorldline Directory</div>
+        </div>
+      </div>
+      <div class="flow-path-connector path-right">
+        <div class="path-line"></div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-box" style="background: #fff">
+          <div class="flow-label">Status Confirmation</div>
+          <div class="flow-text">Payment Status Report</div>
+          <div class="flow-tech">pacs.002.001.10</div>
+        </div>
+        <div class="flow-arrow">&larr;</div>
+        <div class="flow-box" style="background: #fff">
+          <div class="flow-label">Interbank Clearing</div>
+          <div class="flow-text">SCT Inst Instruction</div>
+          <div class="flow-tech">pacs.008.001.08</div>
+        </div>
+        <div class="flow-arrow">&larr;</div>
+        <div class="flow-box" style="background: #fff">
+          <div class="flow-label">Initiation</div>
+          <div class="flow-text">ISO 20022 Payment Instruction</div>
+          <div class="flow-tech">pain.001.001.09</div>
+        </div>
+      </div>
+      <div class="flow-path-connector path-left">
+        <div class="path-line"></div>
+      </div>
+      <div class="flow-row">
+        <div
+          class="flow-box"
+          style="background: #e8f5ee; border-color: #1a6b3c"
+        >
+          <div class="flow-label" style="color: #1a6b3c">Settlement</div>
+          <div class="flow-text">Central Bank Money Movement</div>
+          <div class="flow-tech">TIPS / RT1 Infrastructure</div>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div
+          class="flow-box"
+          style="background: #e8f5ee; border-color: #1a6b3c"
+        >
+          <div class="flow-label" style="color: #1a6b3c">Finality</div>
+          <div class="flow-text">Irrevocable in &lt;10 Seconds</div>
+          <div class="flow-tech">Settlement Finality Guaranteed</div>
+        </div>
+        <div class="flow-arrow">&rarr;</div>
+        <div
+          class="flow-box"
+          style="background: #e8f5ee; border-color: #1a6b3c"
+        >
+          <div class="flow-label" style="color: #1a6b3c">Notification</div>
+          <div class="flow-text">Credit Advice to Payee Bank</div>
+          <div class="flow-tech">camt.054 Credit Advice</div>
+        </div>
+      </div>
+    </div>
+    <div class="diagram-source">
+      <strong>Figure 2: The Wero Payment Lifecycle.</strong> Read this diagram
+      top-to-bottom: The UX layer handles consumer interaction and
+      authentication. The messaging layer orchestrates the ISO 20022 instruction
+      chain. The settlement layer delivers irrevocable finality in central bank
+      money via TIPS or RT1.
+    </div>
+  </div>
+
+  <p>
+    While the step-by-step lifecycle illustrates the real-time nature of the
+    transaction, the true engineering achievement lies in the structural
+    decoupling of these layers. By isolating the consumer-facing UX from the
+    high-availability settlement rails, the European Payments Initiative has
+    created a "plug-and-play" ecosystem. This architectural separation ensures
+    that banks can iterate on the mobile experience without touching the
+    heavy-duty clearing infrastructure, and vice-versa. To visualize this
+    separation of concerns, the static stack blueprint below illustrates how
+    these layers sit on top of one another.
+  </p>
+
+  <div class="stack-diagram">
+    <div class="stack-title">The Wero Sovereign Architecture Stack</div>
+    <div class="stack-body">
+      <!-- Layer 1: UX -->
+      <div class="stack-row">
+        <div class="stack-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <div class="stack-layer layer-top">
+          <div class="layer-title">Wero Wallet UX Layer</div>
+          <div class="layer-detail">
+            P2P (Phone/Email), QR Scan &amp; Pay, E-commerce Checkout. Native
+            iOS/Android app &amp; Bank App SDK Integration.
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-spacer"></div>
+
+      <!-- Layer 2: Messaging -->
+      <div class="stack-row">
+        <div class="stack-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="stack-layer layer-mid">
+          <div class="layer-title">ISO 20022 Messaging &amp; SPL</div>
+          <div class="layer-detail">
+            Standardized Proxy Lookup (SPL), Verification of Payee (VoP), and
+            rich XML message orchestration (pain.001 / pacs.008).
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-spacer"></div>
+
+      <!-- Layer 3: Settlement -->
+      <div class="stack-row">
+        <div class="stack-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 20h20"></path>
+            <path d="M5 20V8"></path>
+            <path d="M9 20V8"></path>
+            <path d="M13 20V8"></path>
+            <path d="M17 20V8"></path>
+            <path d="M21 20V8"></path>
+            <path d="M2 8l10-5 10 5"></path>
+          </svg>
+        </div>
+        <div class="stack-layer layer-bot">
+          <div class="layer-title">SCT Inst Settlement Rails</div>
+          <div class="layer-detail">
+            Interbank clearing via TIPS or RT1. Finality of payment in &lt;10
+            seconds in central bank money. 24/7/365 operational availability.
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-caption">
+        Figure 3: The Wero sovereign stack. By decoupling the UX from the
+        clearing rails through an intelligent messaging layer, Wero provides the
+        first pan-European alternative to international card schemes.
+      </div>
+    </div>
+  </div>
+
+  <h2>The Strategic Logic: Why Banks Built This</h2>
+
+  <p>
+    To understand why a consortium of competing banks invested hundreds of
+    millions in a shared infrastructure, the payment economics must be unpacked.
+    Every card transaction carries a
+    <strong>Merchant Discount Rate (MDR)</strong> &mdash; a percentage-based fee
+    that functions as a tax on merchant revenue. The MDR umbrella covers three
+    components that A2A effectively eliminates:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Interchange Fee</strong> &mdash; paid to the cardholder&rsquo;s
+      issuing bank to cover credit risk and reward programs.
+    </li>
+    <li>
+      <strong>Acquirer Markup</strong> &mdash; paid to the merchant&rsquo;s
+      acquiring bank for processing and settlement services.
+    </li>
+    <li>
+      <strong>Scheme Fees</strong> &mdash; paid to the card network for the
+      privilege of using its global infrastructure, brand, and fraud tools.
+    </li>
+  </ul>
+
+  <p>
+    A Wero payment via SCT Inst <strong>bypasses the scheme entirely</strong>.
+    Money flows directly from Bank A to Bank B. The card network has no role in
+    the transaction and, critically, no fee to collect. For merchants processing
+    high volumes, replacing a 1&ndash;2% MDR with a flat PSP fee of
+    approximately 0.7% is a structural cost reduction, not a marginal one.
+  </p>
+
+  <p>
+    For the banks, the calculus is different but equally compelling. As open
+    banking APIs commoditize account access, the risk is that Big Tech captures
+    the primary customer relationship, the "moment of intent" and UX layer
+    &mdash; while banks are relegated to the background settlement layer. Wero
+    is the banking sector&rsquo;s answer: own the interface before the interface
+    becomes irrelevant.
+  </p>
+
+  <div class="pullquote">
+    <p>
+      &ldquo;The battle for payments is a battle for the interface. Wero is our
+      collective effort to ensure European banks remain the primary point of
+      contact for their customers.&rdquo;
+    </p>
+    <cite
+      >&mdash; Martina Weimert, CEO of the European Payments Initiative
+      (EPI)</cite
+    >
+  </div>
+
+  <p>
+    This strategic shift from a scheme-based model to a direct-rail architecture
+    has profound implications for the unit economics of every transaction. While
+    traditional card payments are encumbered by legacy settlement windows and
+    multi-party fee structures, Wero leverages the native speed of SCT Inst to
+    drastically simplify the value chain. To understand why this is a structural
+    threat to the status quo, we must compare the two models across the
+    dimensions of speed, cost, and operational control.
+  </p>
+  <table class="comp-table">
+    <tr>
+      <th>Dimension</th>
+      <th>Card Scheme (MDR)</th>
+      <th>Wero (A2A via SCT Inst)</th>
+    </tr>
+    <tr>
+      <td>Settlement Speed</td>
+      <td>T+1 / T+2 (Batch)</td>
+      <td>&lt;10 Seconds, Irrevocable</td>
+    </tr>
+    <tr>
+      <td>Merchant Cost</td>
+      <td>0.3%&ndash;2%+ (MDR)</td>
+      <td>~0.7% or Fixed PSP Fee</td>
+    </tr>
+    <tr>
+      <td>Scheme Dependency</td>
+      <td>Visa / Mastercard Required</td>
+      <td>None &mdash; Bank-to-Bank Direct</td>
+    </tr>
+    <tr>
+      <td>Data Standard</td>
+      <td>Proprietary ARN</td>
+      <td>ISO 20022 (Rich, Structured)</td>
+    </tr>
+    <tr>
+      <td>Reversibility</td>
+      <td>Up to 120-day chargeback window</td>
+      <td>Irrevocable on Settlement</td>
+    </tr>
+    <tr>
+      <td>Consumer Auth</td>
+      <td>3DS Redirect / OTP</td>
+      <td>SCA via Native Banking Biometric</td>
+    </tr>
+  </table>
+
+  <h2>Rollout Phases and What the Roadmap Signals</h2>
+
+  <p>
+    Wero&rsquo;s deployment follows a disciplined phased approach: lead with P2P
+    to build user habit, then extend to merchant use cases once the
+    authentication and proxy infrastructure is proven at scale. The sequencing
+    is deliberate and reflects lessons from schemes that tried to launch
+    commerce-first and failed on consumer adoption.
+  </p>
+
+  <div class="timeline-wrap">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Mid-2024</div>
+      <div class="timeline-title">
+        P2P Launch &mdash; Germany, France, Belgium
+      </div>
+      <div class="timeline-body">
+        Phone-to-phone instant transfers go live. Paylib (France) and Payconiq
+        (Belgium) are absorbed into the Wero brand. The consolidation strategy
+        begins at the consumer layer.
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2025</div>
+      <div class="timeline-title">P2Pro + E-Commerce Integration</div>
+      <div class="timeline-body">
+        Person-to-Professional payments extend the use case to freelancers,
+        service providers, and small merchants. Initial online checkout flows
+        via redirect API are made available to PSP partners.
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2026</div>
+      <div class="timeline-title">POS / NFC + Netherlands iDEAL Migration</div>
+      <div class="timeline-body">
+        In-store point-of-sale payments via NFC begin rollout. iDEAL &mdash;
+        with over 70% e-commerce penetration in the Netherlands &mdash; begins
+        its technical migration to Wero rails. Luxembourg joins the live
+        network.
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2027+</div>
+      <div class="timeline-title">
+        BNPL, Loyalty &amp; European Digital Identity
+      </div>
+      <div class="timeline-body">
+        Buy-Now-Pay-Later, installment payments, and merchant loyalty program
+        integration are on the confirmed roadmap. Critically, Wero is slated to
+        link with the <strong>EU Digital Identity (EUDI) Wallet</strong>. This
+        pan-European initiative (under the eIDAS 2.0 framework) provides a
+        secure, mobile-based identification system for all EU citizens. For
+        Wero, this integration enables seamless cross-border KYC, instant
+        account onboarding, and the ability to link payments directly to
+        verified digital credentials, creating a truly unified European digital
+        ecosystem.
+      </div>
+    </div>
+  </div>
+
+  <h2>The Sovereign Stack: A Geopolitical Infrastructure Play</h2>
+
+  <p>
+    The word &ldquo;sovereignty&rdquo; is used carefully in payments circles
+    because it is often a proxy for protectionism. In Wero&rsquo;s case, the
+    concern is substantive: over
+    <strong>90% of European card transactions</strong> are processed through
+    infrastructure owned and operated outside the European Union. Data generated
+    by European consumers and merchants flows through non-European systems,
+    creating both a regulatory exposure and a strategic dependency.
+  </p>
+
+  <div class="dark-feature-box">
+    <h3>The Geopolitical Layer</h3>
+    <p>
+      <strong>Payment Sovereignty:</strong> Wero is the first credible at-scale
+      answer to Europe&rsquo;s dependency on non-European payment
+      infrastructure. Every transaction that settles on SCT Inst via TIPS or RT1
+      settles in Eurosystem central bank money &mdash; fully within European
+      jurisdiction.
+    </p>
+    <p>
+      <strong>Digital Identity Synergy:</strong> By aligning with the
+      <strong>EU Digital Identity (EUDI) Wallet</strong>, Wero moves beyond
+      being a "payment app" and becomes a pillar of the European digital
+      ecosystem. This allows for sovereign control over both identity and money—the
+      two most critical data streams in a modern digital economy.
+    </p>
+    <p>
+      <strong>National Scheme Consolidation:</strong> EPI has systematically
+      absorbed fragmented domestic schemes rather than building alongside them.
+      This is deliberate architecture: scale through consolidation, not
+      coexistence. A fragmented European market cannot compete with a unified
+      global platform.
+    </p>
+    <p>
+      <strong>The iDEAL Precedent:</strong> The Netherlands&rsquo; iDEAL
+      achieved over 70% e-commerce penetration &mdash; one of the highest
+      domestic scheme adoption rates in the world. Its migration to Wero rails
+      demonstrates that even a highly successful national scheme can be brought
+      into the EPI architecture. If iDEAL can be absorbed, the consolidation
+      thesis applies across every European market.
+    </p>
+    <p>
+      <strong>Regulatory Tailwind:</strong> The Instant Payments Regulation
+      (IPR, EU 2024/886) mandates that Eurozone banks offer SCT Inst at parity
+      price with standard transfers by October 2025. Wero is built on the
+      infrastructure this regulation is forcing banks to build anyway. The
+      regulatory cost is already being paid; Wero is the application layer on
+      top.
+    </p>
+  </div>
+
+  <h2>The Product Gaps: What Still Needs to Work</h2>
+
+  <p>
+    A technically rigorous assessment of Wero must acknowledge the gaps
+    alongside the strengths. Four critical open questions remain as of mid-2026
+    that will determine whether Wero achieves full-stack payment dominance or
+    remains a strong P2P product with limited commercial reach.
+  </p>
+
+  <div class="callout">
+    <div class="callout-label">Critical Open Questions &mdash; Mid-2026</div>
+    <ul>
+      <li>
+        <strong>Merchant Checkout UX:</strong> The redirect-based checkout flow
+        introduces friction versus one-click card-on-file. Until Wero achieves
+        tokenized credentials-on-file for returning customers, conversion rates
+        will lag at the point of payment decision &mdash; the highest-risk
+        moment in any checkout flow.
+      </li>
+      <li>
+        <strong>Cross-Border P2P:</strong> Wero currently operates within
+        national silos. The SPL interoperability layer that would allow a German
+        user to pay a French user directly via phone number is defined in the
+        EPC rulebook but adoption is not yet uniform across all participating
+        banks.
+      </li>
+      <li>
+        <strong>Chargeback Equivalence:</strong> Irrevocable settlement is a
+        merchant benefit but a consumer risk. The absence of a structured
+        dispute resolution framework equivalent to the card chargeback mechanism
+        remains a regulatory and consumer trust gap that PSD3 may need to
+        address explicitly.
+      </li>
+      <li>
+        <strong>Big Tech NFC Entrenchment:</strong> Apple Pay and Google Pay are
+        embedded at the hardware layer via NFC. Wero&rsquo;s in-store POS
+        strategy requires bank app activation or QR code scanning &mdash; both
+        requiring active user choice over the passive tap that consumers have
+        habituated to.
+      </li>
+    </ul>
+  </div>
+
+  <h2>The Product Leader&rsquo;s Integration Checklist</h2>
+
+  <p>
+    For product and engineering teams evaluating Wero acceptance in 2026, four
+    integration decisions require early architectural consideration. These are
+    not configuration choices &mdash; they are structural decisions that affect
+    reconciliation, dispute handling, and conversion optimization downstream.
+  </p>
+
+  <div class="callout">
+    <div class="callout-label">Integration Readiness &mdash; 2026</div>
+    <ul>
+      <li>
+        <strong>Audit PSP Wero certification:</strong> Not all payment service
+        providers have completed Wero acceptance certification. Verify the REST
+        API integration is live, the redirect flow is tested in staging, and the
+        PSP supports the pacs.008 / pacs.002 message pair for confirmation
+        handling.
+      </li>
+      <li>
+        <strong>Map ISO 20022 remittance fields:</strong> Wero&rsquo;s pacs.008
+        carries structured remittance information in the
+        RmtInf element. Ensure ERP and reconciliation logic is
+        built to consume these structured fields &mdash; not just the
+        transaction amount &mdash; to enable automated invoice matching.
+      </li>
+      <li>
+        <strong>Design for the SCA context switch:</strong> Authentication is
+        native to the user&rsquo;s banking app. Product teams must design for a
+        deliberate context switch: the user exits checkout, authenticates in the
+        bank app, and returns. Without explicit UX signposting, this reads as
+        abandonment. Reduce perceived drop-off with progress indicators and
+        deep-link return flows.
+      </li>
+      <li>
+        <strong>Define an internal dispute SLA:</strong> Until formal chargeback
+        equivalence is mandated under PSD3, define an internal dispute handling
+        procedure. The irrevocability of SCT Inst means a reversed payment
+        requires a new credit transfer &mdash; not a card-style recall. Customer
+        service teams need a documented escalation path before go-live.
+      </li>
+    </ul>
+  </div>
+
+  <div class="pullquote" style="margin-top: 4rem; border-left: none; border-right: 3px solid var(--theme-color); border-radius: 8px 0 0 8px; text-align: right; background: #fdfdfb;">
+    <p>
+      &ldquo;Wero is more than just a technical upgrade to our payment rails; it
+      is a strategic declaration of intent. For the first time, Europe is
+      building a stack that prioritizes its own sovereignty, ensuring that the
+      primary interface of our digital lives remains in trusted, local
+      hands.&rdquo;
+    </p>
+    <cite>&mdash; Soma Bhagat, Payments Product Leader | Payment Strategy Blog</cite>
+  </div>
+
+  <div class="ref-box">
+    <div class="ref-label">References &amp; Technical Sources</div>
+    <ul class="ref-list">
+      <li data-n="1">
+        EPI Company (2024&ndash;2025). Wero Product &amp; Technical Overview.
+        epicompany.eu
+      </li>
+      <li data-n="2">
+        European Payments Council (2024). SCT Inst Scheme Rulebook v2.0.
+        European Payments Council.
+      </li>
+      <li data-n="3">
+        European Commission (2024). Regulation (EU) 2024/886 &mdash; Instant
+        Payments Regulation (IPR).
+      </li>
+      <li data-n="4">
+        Flagship Advisory Partners (2025). Wero Market Positioning Report.
+        flagshipadvisorypartners.com
+      </li>
+      <li data-n="5">
+        Stripe (2025). Wero Payment Method Technical Guide. stripe.com/docs
+      </li>
+      <li data-n="6">
+        Wikipedia (2025). Wero (payment). Consortium structure, market rollout,
+        and timeline.
+      </li>
+      <li data-n="7">
+        European Business Magazine (2025). EPI reaches 43.5M users milestone.
+        europeanbusinessmagazine.com
+      </li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Note:</strong> Analysis reflects publicly available information at
+    the time of writing. EPI product roadmaps, technical specifications, and
+    market rollout timelines are subject to change. Consult official EPI and
+    European Payments Council documentation for production integration
+    standards.
+  </div>
+</div>

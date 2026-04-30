@@ -1,6 +1,11 @@
-## 1. Prompts
+# Linkedin Post Schedule
+| Day | Time Window | Content Format | Why This Works |
+|-----|-------------|----------------|----------------|
+| Tuesday | 10:00 AM – 11:00 AM | Carousel (Technical) | Tuesday morning is the "Power Day" for deep insights. Senior tech professionals check LinkedIn after their morning stand-ups. |
+| Friday | 9:00 AM – 11:00 AM | Blog Share (Summary) | Engagement drops after noon on Fridays, but the morning remains a "sprint" window where lighter summaries perform well. |
+# Prompts
 
-### **Low Friction LinkedIn Post** 
+## **Low Friction LinkedIn Post** 
 > 1. Create a **listicle** that is easy to read in **20 seconds**.
 > 2. Create the **Insider Truths List** that is **Authority-First**: Instead of defining terms, list 5 Technical Truths about the topic (that the Sales Deck misses or Product Roadmap misses to include in Horizon 3 that is long term or beyond 2 years).
 > 3. Show that I have been in the room. **Reinforce my technical background (IHK/Mastercard)** but use punchy style.
@@ -10,7 +15,7 @@
 > 7. Use **Draft Hook:** like "The EU just released 400 pages on PSD3. I read it so you don't have to. Here is the 'TL;DR' version for Product Managers:".  This is the highest form of authority. If I can simplify something complex, I prove I own the subject matter.
 
 
-### **Informative Blog** 
+## **Informative Blog** 
 > 1. Attached are my **top blogs**. Based on that please create a new **factually correct** Blog on topic X by using **reliable sources** for the blog.
 > 2. Please consider my **Standard Design Principles** for brand identity, and apply it to the blog. You can take creative freedom to make it engaging. Include Images with Captions in the blog as well.
 > 3. Use the "Hook" (example I’ve spent 13 years in Payments Technology and 6 months deep-diving into AI Agents. Here are 5 things I realized about the gap between 'Payment Regulation' and 'Actual Code'): This helps to make people to scroll down, increasing "Dwell Time," which the algorithm loves.
@@ -43,19 +48,18 @@
 > > 25. **KYC** - when merchant or bank requires you to prove your existence.
 > > 26. **Callback or webhook** - when another system telling another system a final status of a transaction.
 > > 27. **Reversal** - when you make a wrong transaction and asking to issuer bank to reverse the money.
-> > 28. **PAN / FPAN / DPAN** - because remembering only one number is too easy. Oh you've memorised those ones? Here's a flexible credential as well then.
+> > 28. **PAN / FPAN / DPAN** - because remembering one number is too easy. Oh you've memorised those ones? Here's a flexible credential as well then.
 ---
 
-## 2. Next Blog Ideas
+## Next Blog Ideas
 
 *(Strategic topics to position yourself as an analyst who can navigate the complex intersection of European regulation and modern technology.)*
 
 - **Bill Payments**
-- **A2A and P2P**
 - **Stablecoin**
 - **WERO**
 - **The EU AI Act & Payment Technology:** Building a specialized understanding of how AI agents and APIs interact within payment gateways to improve transaction success rates and system resilience.
-## 3. LinkedIn Post Drafts
+## LinkedIn Post Drafts
 
 ### Draft 1: PSD3 / PSR Regulation
 *(A "Safe & Punchy" Post Draft combining the translation format with real-world impact)*
@@ -132,7 +136,7 @@ Fellow payment nerds: Which is harder—getting your legacy stack to settle in <
 
 ---
 
-## 4. LinkedIn Comments Log
+## LinkedIn Comments Log
 
 *(A collection of engaged comments made on LinkedIn to build authority and community.)*
 
@@ -149,3 +153,14 @@ Fellow payment nerds: Which is harder—getting your legacy stack to settle in <
 > While merchants try to solve this via TOS, regulators are moving toward explicit permission dashboards and Conditional Mandate Management. Setting 'hard limits' at the PSP level ensures the agent can't buy 'something weird' in the first place.
 > 
 > It’s a fascinating time to be scaling global platforms when the legal definitions of a 'payer' are being rewritten in real-time!
+---
+
+## Blog Design & Formatting Rules (AI Instructions)
+1. **Never Hardcode Publication Dates:** Do not include specific months or years (e.g., "April 2026") in the byline or disclaimer of the HTML blogs. Use timeless phrases like "at the time of writing". The user manipulates dates independently to maintain a consistent weekly release schedule.
+2. **Use S-Curve for Multi-Row Diagrams:** When creating multi-layer .diagram-wrap flowcharts (e.g. 3-layer stacks), use the "S-Curve" (zigzag) flow path connector approach. 
+   - Row 1: Left-to-Right &rarr;, followed by .path-right drop-down.
+   - Row 2: Right-to-Left &larr; (boxes listed in reverse HTML order), followed by .path-left drop-down.
+   - Row 3: Left-to-Right &rarr;.
+   - Ensure the .flow-path-connector and .path-line CSS is included.
+3. **No C-Drive Images:** ALL generated images and saved files must be written to Q:\blog\images, never C:\. Always use relative image paths (src="images/filename.svg") in the HTML.
+4. **Prefer Factual Map Vectors over AI Images:** AI image generators hallucinate geography. For maps, download factual SVG vectors from Wikimedia Commons and programmatically style the IDs using CSS.
