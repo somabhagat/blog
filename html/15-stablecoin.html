@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="master_blog.css">
+<link rel="stylesheet" href="../others/master_blog.css" />
 <style>
   .blog-wrap {
     --theme-color: #185fa5;
@@ -138,19 +138,30 @@
         <div class="path-line"></div>
       </div>
       <div class="flow-row">
-        <div class="flow-box" style="background: #ecfdf5; border-color: #059669">
+        <div
+          class="flow-box"
+          style="background: #ecfdf5; border-color: #059669"
+        >
           <div class="flow-label" style="color: #059669">Burn Request</div>
           <div class="flow-text">Tokens Sent to Null Address</div>
           <div class="flow-tech">Redemption API</div>
         </div>
         <div class="flow-arrow">&rarr;</div>
-        <div class="flow-box" style="background: #ecfdf5; border-color: #059669">
-          <div class="flow-label" style="color: #059669">Collateral Release</div>
+        <div
+          class="flow-box"
+          style="background: #ecfdf5; border-color: #059669"
+        >
+          <div class="flow-label" style="color: #059669">
+            Collateral Release
+          </div>
           <div class="flow-text">Reserve Funds Unlocked</div>
           <div class="flow-tech">Treasury Settlement</div>
         </div>
         <div class="flow-arrow">&rarr;</div>
-        <div class="flow-box" style="background: #ecfdf5; border-color: #059669">
+        <div
+          class="flow-box"
+          style="background: #ecfdf5; border-color: #059669"
+        >
           <div class="flow-label" style="color: #059669">Fiat Payout</div>
           <div class="flow-text">User Receives Bank Credit</div>
           <div class="flow-tech">Off-ramp (SEPA/FedWire)</div>
@@ -175,44 +186,68 @@
     <div class="stack-body">
       <div class="stack-row">
         <div class="stack-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <path d="M12 8v8M8 12h8" />
           </svg>
         </div>
         <div class="stack-layer layer-top">
           <div class="layer-title">Application & UX Layer</div>
-          <div class="layer-detail">Wallets, Payment Gateways, Corporate Treasury Dashboards (e.g., Fireblocks, Gnosis, Circle Mint)</div>
+          <div class="layer-detail">
+            Wallets, Payment Gateways, Corporate Treasury Dashboards (e.g.,
+            Fireblocks, Gnosis, Circle Mint)
+          </div>
         </div>
       </div>
       <div class="stack-spacer"></div>
       <div class="stack-row">
         <div class="stack-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
           </svg>
         </div>
         <div class="stack-layer layer-mid">
           <div class="layer-title">Stability & Asset Layer</div>
-          <div class="layer-detail">Fiat Reserves, Smart Contract Vaults, Proof-of-Reserves (PoR), and Compliance Oracles</div>
+          <div class="layer-detail">
+            Fiat Reserves, Smart Contract Vaults, Proof-of-Reserves (PoR), and
+            Compliance Oracles
+          </div>
         </div>
       </div>
       <div class="stack-spacer"></div>
       <div class="stack-row">
         <div class="stack-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M4 11a9 9 0 0 1 8-7v7h7a9 9 0 0 1-7 8v-7H4z" />
           </svg>
         </div>
         <div class="stack-layer layer-bot">
           <div class="layer-title">Settlement Rail (L1/L2)</div>
-          <div class="layer-detail">Distributed Ledgers (Ethereum, Solana, Polygon) or Private Interbank Rails (JPM Coin)</div>
+          <div class="layer-detail">
+            Distributed Ledgers (Ethereum, Solana, Polygon) or Private Interbank
+            Rails (JPM Coin)
+          </div>
         </div>
       </div>
       <div class="stack-caption">
-        <strong>Figure 2: The Three-Layer Stack.</strong> Decoupling the settlement
-        rail from the liquidity management layer allows for multi-chain distribution
-        without changing the underlying reserve model.
+        <strong>Figure 2: The Three-Layer Stack.</strong> Decoupling the
+        settlement rail from the liquidity management layer allows for
+        multi-chain distribution without changing the underlying reserve model.
       </div>
     </div>
   </div>
@@ -269,14 +304,14 @@
     <p>
       The real breakthrough of stablecoins isn't the token—it's the
       <strong>shared state</strong>. When two institutions settle on a
-      distributed ledger, they are looking at the same source of truth at the same
-      time. No more "I sent it," followed by "We didn't get it."
+      distributed ledger, they are looking at the same source of truth at the
+      same time. No more "I sent it," followed by "We didn't get it."
     </p>
     <p>
       <strong>JPM Coin</strong> and <strong>Circle’s USDC</strong> are two sides
       of the same coin: institutional-grade rails designed to eliminate the
-      "reconciliation trauma" that has haunted back-offices since the invention of
-      double-entry bookkeeping.
+      "reconciliation trauma" that has haunted back-offices since the invention
+      of double-entry bookkeeping.
     </p>
   </div>
   <h2>The Road Ahead</h2>
@@ -288,10 +323,19 @@
   </p>
   <p>
     For the product leaders of tomorrow, the question isn't whether to use
-    stablecoins, but how to integrate them into a <strong>hybrid treasury model</strong>
+    stablecoins, but how to integrate them into a
+    <strong>hybrid treasury model</strong>
     that leverages the best of both worlds.
   </p>
-  <div class="pullquote" style="text-align: right; border-left: none; border-right: 3px solid var(--theme-color); border-radius: 8px 0 0 8px;">
+  <div
+    class="pullquote"
+    style="
+      text-align: right;
+      border-left: none;
+      border-right: 3px solid var(--theme-color);
+      border-radius: 8px 0 0 8px;
+    "
+  >
     <p>
       “Stablecoins are not a replacement for banks; they are the upgrade banks
       need to remain relevant in a 24/7 programmable economy.”
@@ -301,15 +345,22 @@
   <div class="ref-box">
     <div class="ref-label">Key Technical References</div>
     <ul class="ref-list">
-      <li data-n="1">MiCA Regulation (EU) 2023/1114 - Framework for EMT and ART.</li>
-      <li data-n="2">ISO 20022 - Alignment between traditional messaging and digital asset metadata.</li>
-      <li data-n="3">Circle / Tether Transparency Reports - Proof of Reserve (PoR) standards.</li>
+      <li data-n="1">
+        MiCA Regulation (EU) 2023/1114 - Framework for EMT and ART.
+      </li>
+      <li data-n="2">
+        ISO 20022 - Alignment between traditional messaging and digital asset
+        metadata.
+      </li>
+      <li data-n="3">
+        Circle / Tether Transparency Reports - Proof of Reserve (PoR) standards.
+      </li>
     </ul>
   </div>
   <div class="disclaimer">
-    <strong>Disclaimer:</strong> This analysis represents my technical perspective
-    as a payment product leader and does not constitute financial or legal
-    advice. Regulations regarding digital assets are evolving rapidly at the time
-    of writing.
+    <strong>Disclaimer:</strong> This analysis represents my technical
+    perspective as a payment product leader and does not constitute financial or
+    legal advice. Regulations regarding digital assets are evolving rapidly at
+    the time of writing.
   </div>
 </div>
