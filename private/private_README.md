@@ -1,19 +1,12 @@
-# 🚀 Antigravity Payments Blog: Infrastructure, Strategy, & Knowledge Base
+# 🚀 Antigravity Blog Project & Setup Guide
 
-Welcome to the central repository for my personal technical blog and payment strategy space. This repository serves as a fully containerized writing environment, housing my static HTML blog files, custom workspace configurations, editorial style guides, and an industry glossary.
+This repository contains my personal blog HTML files, Antigravity workspace settings, and my complete Branding & Content Strategy.
 
-As a Payments Product Leader, I use this space to bridge the gap between complex engineering realities (DevOps, ISO messaging, APIs) and strategic business drivers (regulatory frameworks, scheme economics, product localization).
+## 💻 How to Set This Up on a New PC
 
-## 💻 Local Development & Environment Setup
+If you are reading this from a brand new computer, follow these steps to get back to work:
 
-This project is configured to run in a customized development environment (using the Antigravity IDE/VS Code framework) to ensure visual consistency and streamlined deployment.
-
-### Prerequisites & Tooling
-Git: Ensure Git is installed globally on your machine.
-
-Note on Non-Standard Paths: If installing on a partition or secondary drive (e.g., D: or Q:), ensure the installation path is added to your system's Environment Variables (Add to PATH).
-
-Editor: Optimized for VS Code / Antigravity editor ecosystems.
+### Install Git
 - Download Git for Windows.
 - **Important:** If using a secondary drive (like `Q:`), remember the path! (e.g., `Q:\Program Files\Git`).
 - During installation, ensure "Add to PATH" is checked.
@@ -80,13 +73,13 @@ Don't use the Windows Command Prompt. Use the **Terminal window at the bottom of
 ## Low Friction LinkedIn Posts
 - **Authority-First Listicle:** Create a listicle that is easy to read in **20 seconds** with 5 "Technical Truths" that sales decks usually miss. Tone: "I’ve seen the backend, here is the reality."
 - **Regulatory Translation:** Take a dry regulatory update (e.g., PSR) and translate it into "Human" for Product Managers.
-- **Dual-Profile Hook:** Capitalize on "Research & Specialization" to offer both Domain and Technical perspective to create unique content.
+- **Dual-Profile Hook:** Frame career transitions as a "Research & Specialization" phase. Turns a gap into a strength.
 
 ## Informative Blog Deep Dives
 - **Technical Depth:** Ensure blogs reflect 13 years of seniority (Mastercard/IHK background).
-- **Shared Industry Trauma:** Use "Insider" jokes to build tribe engagement while ensuring fingertip feeling of emotional connection with the readers. Stay professional. See the **Reference Section** below for inspiration.
+- **Shared Industry Trauma:** Use "Insider" jokes to build tribe engagement but ensure to never insult or offend anyone or any company. Stay professional. See the **Reference Section** below for inspiration.
 - Ensure **factually correct** Blog on given topic by using **reliable sources**.
--  Instead of **name dropping** past Companies, talk about the scale of the problem you solved and the impact it had. 
+-  Avoid **name dropping** the companies I worked at. 
 - Please consider my **Standard Design Principles** for brand identity, and apply it to the blog.
 
 ---

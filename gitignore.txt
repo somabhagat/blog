@@ -1,0 +1,12 @@
+# Ignore the entire private folder and all its contents
+private/
+
+# Ignore workspace specific files if they ever end up in the root
+*.code-workspace
+
+# Ignore temporary logs, session summaries, and ratings
+migration_log.txt
+toDoBlog.txt
+session_summary*.md
+others/Blog Rating.ods
+others/LinkedIn_Comments.md
