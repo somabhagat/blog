@@ -1,6 +1,7 @@
-# 🚀 Antigravity Payments Blog: Infrastructure, Strategy, & Knowledge Base
+# [Payment-Strategy Blog](https://bhagatsoma.wixsite.com/payment-strategy)
+# 🚀 Antigravity: Infrastructure, Strategy, & Knowledge Base
 
-Welcome to the central repository for my personal technical blog and payment strategy space. This repository serves as a fully containerized writing environment, housing my static HTML blog files, custom workspace configurations, editorial style guides, and an industry glossary.
+Welcome to the central repository for my technical blog and payment strategy space. This repository serves as a fully containerized writing environment, housing my static HTML blog files, custom workspace configurations, editorial style guides, and an industry glossary.
 
 As a Payments Product Leader, I use this space to bridge the gap between complex engineering realities (DevOps, ISO messaging, APIs) and strategic business drivers (regulatory frameworks, scheme economics, product localization).
 
