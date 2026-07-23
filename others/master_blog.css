@@ -1336,27 +1336,26 @@ strong {
   background: #fff;
   border: 1px solid #e2e2de;
   border-radius: 8px;
-  padding: 18px 20px;
+  padding: 10px 10px;
 }
 .impact-who {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--theme-color);
   margin-bottom: 6px;
 }
 .impact-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: #0f0f0f;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .impact-list {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 .impact-list li {
   font-size: 12px;
@@ -1364,7 +1363,13 @@ strong {
   line-height: 1.5;
   font-weight: 300;
   display: flex;
-  gap: 5px;
+  gap: 5px; /* Horizontal spacing between arrow, label, and text */
+}
+/* Rule to force the bold labels to align perfectly */
+.impact-list li strong {
+  width: 100px;
+  flex-shrink: 0;
+  display: inline-block;
 }
 .impact-list li::before {
   content: "→";
@@ -1394,4 +1399,86 @@ strong {
   margin: 0;
   line-height: 1.65;
   font-weight: 300;
+}
+/* --- S-CURVE DIAGRAM CROPPING & BRANCHING FIXED --- */
+.diagram-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.flow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.row-context-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #767676;
+  width: 100%;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Creates clean breathing room specifically above the Compliant Model label */
+.flow-row + .row-context-label {
+  margin-top: 32px;
+}
+
+.branch-fork {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1.3;
+}
+
+.branch-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.branch-label {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.label-valid {
+  background-color: rgba(9, 110, 86, 0.1);
+  color: #0f6e56;
+}
+.label-invalid {
+  background-color: rgba(200, 16, 46, 0.1);
+  color: #c8102e;
+}
+
+@media (max-width: 768px) {
+  .flow-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px;
+  }
+  .flow-row > .flow-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+  .flow-path-connector {
+    display: none;
+  }
+  .branch-line {
+    flex-direction: row;
+  }
 }

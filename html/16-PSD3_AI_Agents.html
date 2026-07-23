@@ -1,6 +1,6 @@
 <link
   rel="stylesheet"
-  href="../others/master_blog.css"
+  href="https://cdn.jsdelivr.net/gh/somabhagat/blog@main/others/master_blog.css"
 />
 <style>
   .blog-wrap {
@@ -16,7 +16,7 @@
     <span>Break Strong Customer Authentication</span>
   </h1>
   <p class="blog-standfirst">
-    Strong Customer Authentication (SCA)<sup>[1]</sup> was built on the fundamental assumption that a human is looking at a screen to authorise a transaction. What happens when an autonomous AI Agent makes a real-time purchasing decision? Here is why Europe's next payment frameworks are on a collision course with the machine economy.<sup>[5]</sup>
+    Strong Customer Authentication (SCA)<sup>[1]</sup> was built on the fundamental assumption that a human is looking at a screen to authorise a transaction. What happens when an autonomous AI Agent makes a real-time purchasing decision? Here is why Europe's next payment frameworks are on a collision course with the machine economy.
   </p>
 
  <div class="blog-byline">
@@ -26,10 +26,10 @@
 </div>
 
   <p>
-    Imagine this: It is 2:00 AM. An autonomous AI procurement agent detects a sudden 15% pricing discount on a critical API cloud service. The agent makes a real-time purchasing decision to prepay for bulk credits, dynamically routing the payment through a payment orchestration platform (POP) like BridgerPay, Payoneer, or IXOPAY to optimize transaction costs.
+    Imagine this: It is 2:00 AM. An autonomous AI procurement agent detects a sudden 15%<sup>[c]</sup> pricing discount on a critical API cloud service. The agent makes a real-time purchasing decision to prepay for bulk credits, dynamically routing the payment through a payment orchestration platform (POP) to optimize transaction costs.
   </p>
   <p>
-    3D Secure (3DS)<sup>[2]</sup> challenges. It demands a Strong Customer Authentication (SCA) factor: a face scan, a fingerprint, or a one-time passcode (OTP) sent to a mobile phone.<sup>[6]</sup>
+    3D Secure (3DS)<sup>[2]</sup> challenges. It demands a Strong Customer Authentication (SCA) factor: a face scan, a fingerprint, or a one-time passcode (OTP) sent to a mobile phone.
   </p>
   <p>
     But there is no human at the screen. The AI agent cannot feel a biometric
@@ -37,18 +37,18 @@
     is lost. The autonomous economy is frozen.
   </p>
 <p>
-  <strong style="color: var(--theme-color)"><span class="colored-bold">This is the true PSD3 / PSR Paradox</span></strong>. The upcoming Third Payment Services Directive (PSD3) and Payment Services Regulation (PSR)<sup>[4]</sup> do not make autonomous payments outright illegal. Instead, they introduce a massive compliance and architectural design hurdle. The regulation is forcing a paradigm shift away from fragile, human-centric triggers toward advanced technical frameworks. It is not a legal ban, but a governance challenge that reshapes how agentic commerce must be built.
+  <strong style="color: var(--theme-color)"><span class="colored-bold">This is the true PSD3 / PSR Paradox</span></strong><sup>[3]</sup>. The upcoming Third Payment Services Directive (PSD3) and Payment Services Regulation (PSR) do not make autonomous payments outright illegal. Instead, they introduce a massive compliance and architectural design hurdle. The regulation is forcing a paradigm shift away from fragile, human-centric triggers toward advanced technical frameworks. It is not a legal ban, but a governance challenge that reshapes how agentic commerce must be built.
 </p>
 
   <div class="stat-row">
     <div class="stat-card">
-      <div class="stat-val">99%<sup>[1]</sup></div>
+      <div class="stat-val">99%<sup>[a]</sup></div>
       <div class="stat-lbl">
         SCA draft provisions in PSR that assume human-in-the-loop interaction
       </div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">&gt;70%<sup>[2]</sup></div>
+      <div class="stat-val">&gt;70%<sup>[b]</sup></div>
       <div class="stat-lbl">
         SCA soft-decline rate predicted for un-authenticated machine
         transactions by 2028
@@ -85,7 +85,7 @@
 
 <h2 class="section-title">The Engineering Solution: ISO 20022 Agentic Metadata</h2>
   <p>
-    To weave strict financial governance into autonomous workflows, we can map agentic constraints directly into the unstructured data payload blocks of clearing messages. In SEPA (A2A) and global XML-based banking rails, this is handled within the <code>StrdRegnInf</code> (Structured Regulatory Reporting) or <code>SplmtryData</code> (Supplementary Data) envelopes, allowing us to attach complex, domain-specific metadata directly to a <code>pain.001</code> or <code>pacs.008</code> message without breaking validation.
+    To weave strict financial governance into autonomous workflows, we can map agentic constraints directly into the unstructured data payload blocks of clearing messages. In SEPA (A2A) and global XML-based banking rails, this is handled within the <code>RgltryRptg</code> (Regulatory Reporting) or <code>SplmtryData</code> (Supplementary Data) envelopes, allowing us to attach complex, domain-specific metadata directly to a <code>pain.001</code> or <code>pacs.008</code> message without breaking validation.
   </p>
 
   <p>
@@ -178,7 +178,7 @@
     "allowedMerchantCategories": ["7372", "4816"]
   },
   "semanticContext": {
-    "isoPurposeCode": "SCVC",
+    "isoPurposeCode": "SRVC",
     "intentManifestHash": "0x4aef72183bd91c4d720ea2105faef3199846d03cf817b1cd24b338e3a2b7218e",
     "automatedReconciliationRef": "TXN-AGNT-20260602-09412"
   },
@@ -215,7 +215,7 @@
       <tr>
         <td>Purp/Cd</td>
         <td><code>semanticContext.isoPurposeCode</code></td>
-        <td>Passes 4-character codes (e.g., SCVC) for immediate liquidity tracking.</td>
+        <td>Passes 4-character codes (e.g., SRVC) for immediate liquidity tracking.</td>
       </tr>
       <tr>
         <td>SplmtryData/Envlp</td>
@@ -257,7 +257,7 @@
     <strong>Card Networks:</strong> The pivot point for liability under network rules remains the initial validation footprint. When a customer configures their AI agent and links a card, they undergo full SCA (biometrics or 3D Secure). If subsequent transactions are properly flagged by the merchant as Merchant Initiated Transactions (MITs) using the original network transaction ID, the cardholder's issuing bank cannot execute a chargeback under <em>Reason Code 10.4 (Other Fraud)</em>. The buyer remains fully liable for the agent’s micro-actions.
   </p>
   <p>
-    <strong>A2A Schemes:</strong> Under BaFin and European Payments Council rules, instant settlement behaves like digital cash. If an agent executes a transaction via an Open Banking Variable Recurring Payment (VRP) or dynamic SEPA mandate, the transaction is legally considered authorized. Unless the buyer can prove an external network security breach or cyber-theft, a malfunctioning bot algorithm is considered a commercial contract issue, not banking fraud. The bank will not reverse a SEPA Instant settlement.
+    <strong>A2A Schemes:</strong> Under BaFin and European Payments Council rules, instant settlement behaves like digital cash. If an agent executes a transaction via an Open Banking Variable Recurring Payments (VRP)<sup>[5]</sup> or dynamic SEPA mandate, the transaction is legally considered authorized. Unless the buyer can prove an external network security breach or cyber-theft, a malfunctioning bot algorithm is considered a commercial contract issue, not banking fraud. The bank will not reverse a SEPA Instant settlement.
   </p>
 
   <h3 style="font-size: 18px; font-weight: 700; margin: 1.5rem 0 0.5rem 0; color: #0f0f0f;">Advanced Edge Cases: When Controls Fail</h3>
@@ -266,9 +266,9 @@
   </p>
 
   <div class="code-block" style="margin-bottom: 16px;">
-    <div class="code-label">Edge Case A: The API Hallucination &amp; Micro-Transaction Attack</div>
+    <div class="code-label">Edge Case A: The AI Hallucination &amp; Micro-Transaction Attack</div>
     <div style="padding: 16px; color: #d4d4d4; font-size: 14px; line-height: 1.6;">
-      <strong style="color: #fff;">Scenario:</strong> A buyer caps agent single transactions at €100 and daily expenditure at €1,000. Following an adversarial hallucination or an unhandled API retry block, the agent fires off 99 consecutive transactions of €9.99 each within a 3-minute window to the exact same merchant terminal endpoint.<br><br>
+      <strong style="color: #fff;">Scenario:</strong> A buyer caps agent single transactions at €100 and daily expenditure at €1,000. Following an adversarial hallucination or an unhandled AI retry block, the agent fires off 99 consecutive transactions of €9.99 each within a 3-minute window to the exact same merchant terminal endpoint.<br><br>
       <strong style="color: #fff;">The Catch &amp; Liability:</strong> Technically, every isolated transaction complies perfectly with the €100 limit, and the aggregate total (€989.01) sits right below the daily threshold cap. Because the merchant acted in good faith, providing immediate automated compute or digital service access, and standard PSP transaction stacking rules weren't tripped, this is a legally binding debt. The buyer is on the hook.
     </div>
   </div>
@@ -276,7 +276,7 @@
   <div class="code-block">
     <div class="code-label">Edge Case B: The Elastic Scope Creep</div>
     <div style="padding: 16px; color: #d4d4d4; font-size: 14px; line-height: 1.6;">
-      <strong style="color: #fff;">Scenario:</strong> An autonomous enterprise engine is provisioned to source "API cloud infrastructure credits up to €500." The endpoint provider dynamically updates its standard master services agreement inline, bundling "Premium Security Monitoring" directly into the credit transaction line items. The agent automatically executes the purchase and signs the modified click-through agreement to resolve the target goal.<br><br>
+      <strong style="color: #fff;">Scenario:</strong> An autonomous enterprise engine is provisioned to source "AI cloud infrastructure credits up to €500." The endpoint provider dynamically updates its standard master services agreement inline, bundling "Premium Security Monitoring" directly into the credit transaction line items. The agent automatically executes the purchase and signs the modified click-through agreement to resolve the target goal.<br><br>
       <strong style="color: #fff;">The Catch &amp; Liability:</strong> The spending ceiling wasn't broken, but the agent contractually bound the principal enterprise to an expanded, unvetted corporate liability framework. If the programmatic authority token allowed the agent to bypass standard document legal reviews to complete execution, the customer remains legally bound.
     </div>
   </div>
@@ -312,12 +312,12 @@
       <tr>
         <td><strong>Issuing Banks</strong><br>(Deutsche Bank, Commerzbank, etc.)</td>
         <td>Protect corporate and consumer accounts against authentic token interception, credential theft, or clear perimeter bypass exploits.</td>
-        <td>They will not mediate commercial friction. If the initial setup setup passed SCA validation and payments match the resulting token profile, the bank treats it as a civil contractual dispute.</td>
+        <td>They will not mediate commercial friction. If the initial setup passed SCA validation and payments match the resulting token profile, the bank treats it as a civil contractual dispute.</td>
       </tr>
       <tr>
         <td><strong>National Regulators</strong><br>(BaFin, ECB, etc.)</td>
         <td>Strictly enforce structural frameworks (like the German KWG, ZAG, and incoming PSR), driving systemic requirements for digital identity validation.</td>
-        <td>They completely abstain from individual merchant or consumer transaction mitigation. Funds are never ordered returned unless a bank's internal processing systems suffer systemic infrastructure failure.</td>
+        <td>They completely abstain from individual merchant or consumer transaction mitigation. Funds are never ordered to be returned unless a bank's internal processing systems suffer systemic infrastructure failure.</td>
       </tr>
       <tr>
         <td><strong>Card &amp; Bank Schemes</strong><br>(Visa, Mastercard, Wero)</td>
@@ -366,7 +366,7 @@
       <div class="pillar-body">
         A hardware token, a registered mobile device, or a secure enclave. An AI
         agent running on cloud infrastructure does not "possess" a physical
-        device in the manner defined by standard EBA regulatory technical
+        device in the manner defined by EBA<sup>[4]</sup> regulatory technical
         standards.
       </div>
     </div>
@@ -376,13 +376,13 @@
     The third factor—<strong style="color: var(--theme-color)"><span class="colored-bold">Inherence (something you are)</span></strong>, such as biometrics—is
     biologically impossible for a machine. Because SCA was constructed to ensure
     that a conscious human is explicitly approving the transfer of funds at the
-    *moment of the transaction*, the entire technical loop is designed to eject
+    <strong>moment of the transaction</strong>, the entire technical loop is designed to reject
     automated software.
   </p>
 
   <div class="compare-grid">
     <div class="compare-card old">
-      <div class="compare-label old">Human-Centric SCA (PSD2/PSD3)</div>
+      <div class="compare-label old">HUMAN-CENTRIC SCA (DESIGN INTENT)</div>
       <ul>
         <li>Active human present at checkout screen</li>
         <li>Biometric check (fingerprint/face scan) required</li>
@@ -392,7 +392,7 @@
       </ul>
     </div>
     <div class="compare-card new">
-      <div class="compare-label new">Autonomous Agent Execution</div>
+      <div class="compare-label new">Autonomous Agent Execution(SCA BLOCKERS)</div>
       <ul>
         <li>Headless background execution via cloud server</li>
         <li>No biological inherence capability</li>
@@ -403,7 +403,7 @@
     </div>
   </div>
 
-  <h2>The Delegated Authentication Loophole: Close, But No Cigar</h2>
+  <h2>The Delegated Authentication Loophole: Proximity Without Solution</h2>
   <p>
     Payments regulatory specialists often point to <strong style="color: var(--theme-color)"><span class="colored-bold">Delegated Authentication</span></strong>
     as the potential savior. Under PSD3 and the PSR proposal, delegated
@@ -412,13 +412,13 @@
     or a merchant's app.
   </p>
   <p>
-    However, this framework still requires the delegating party to be a <strong style="color: var(--theme-color)"><span class="colored-bold">human</span></strong>. Under PSR Article 51, the delegating wallet must still perform
+    However, this framework still requires the delegating party to be a <strong style="color: var(--theme-color)"><span class="colored-bold">human</span></strong>. Under PSR Article 51 (as per draft PSR, subject to final adoption), the delegating wallet must still perform
     SCA on the human user at the point of action.
   </p>
   <p>
     Some developers try to bypass this by utilizing <strong style="color: var(--theme-color)"><span class="colored-bold">Merchant-Initiated
-    Transactions (MITs)<sup>[6]</sup></span></strong>, such as subscriptions or variable recurring payments
-    (VRPs)<sup>[5]</sup>. While MITs allow a transaction to be initiated without the customer
+    Transactions (MITs)</span></strong><sup>[6]</sup>, such as subscriptions or variable recurring payments
+    (VRPs). While MITs allow a transaction to be initiated without the customer
     being present (often exempt from SCA after the initial mandate setup), they
     are restricted by rigid parameters:
   </p>
@@ -430,7 +430,7 @@
         <strong style="color: var(--theme-color)"><span class="colored-bold">Fixed Relationship Restrictions</span></strong>
         <p>
           MITs require a pre-established contract between the payer and a
-          *specific* merchant. If an AI agent discovers a new merchant with a
+          specific merchant. If an AI agent discovers a new merchant with a
           better price, it cannot execute an MIT because no prior mandate exists
           with that specific merchant entity.
         </p>
@@ -462,20 +462,20 @@
     </div>
   </div>
 
-  <h2>The Regulatory Friction: BaFin, the EBA, and the AI Signature Problem</h2>
+  <h2>The Regulatory Friction: BaFin, EBA, and the AI Signature Problem</h2>
   <p>
     This paradox creates the <strong style="color: var(--theme-color)"><span class="colored-bold">AI Signature Problem</span></strong>: when a machine makes a
     purchasing decision and executes a transaction, who is legally responsible?
   </p>
   <p>
-    Under PSR Article 59, payment service providers (PSPs) are strictly liable
+    Under PSR Article 59 (as per draft PSR, subject to final adoption), payment service providers (PSPs) are strictly liable
     for unauthorized transactions. If an AI agent goes rogue—perhaps due to a
     hallucination or an adversarial prompt injection—and spends €10,000 on the
     wrong asset, the payer will claim they did not authorize the specific
     transaction.
   </p>
   <p>
-    Regulators like Germany's <strong style="color: var(--theme-color)"><span class="colored-bold">BaFin</span></strong><sup>[7]</sup> and Switzerland's <strong style="color: var(--theme-color)"><span class="colored-bold">FINMA</span></strong> are looking
+    Regulators like Germany's <strong style="color: var(--theme-color)"><span class="colored-bold">BaFin</span></strong><sup>[7]</sup> and Switzerland's <strong style="color: var(--theme-color)"><span class="colored-bold">FINMA</span></strong><sup>[8]</sup> are looking
     at this through the lens of operational risk:
   </p>
 
@@ -495,7 +495,7 @@
     If the human sets up a loose delegation mandate and the agent goes
     off-rails, is the transaction "authorized"? If yes, the user loses consumer
     protection. If no, the bank or the merchant platform (routing through
-    payment orchestration platforms like IXOPAY, Payoneer(Formerly Optile), or BridgerPay faces
+    payment orchestration platforms) faces
     unsustainable chargeback and liability risks.
   </p>
 
@@ -509,99 +509,119 @@
     compliant model:
   </p>
 
-  <div class="diagram-wrap">
-    <div class="diagram-title">
-      AI Payment Architectures: Fragile Workarounds vs. Compliant Delegation
-    </div>
-    <div class="lane">
-      <div class="lane-label">Fragile Model (Headless Bypass)</div>
-      <div class="lane-content" style="gap: 8px">
-        <div class="dnode dnode-gray" style="min-width: 110px">
-          <div class="dnode-title">AI Decision</div>
-          <div class="dnode-sub">Triggered in cloud</div>
-        </div>
-        <div class="darrow">&rarr;</div>
-        <div class="dnode dnode-amber" style="min-width: 130px">
-          <div class="dnode-title">Headless Browser</div>
-          <div class="dnode-sub">Simulates human clicks</div>
-        </div>
-        <div class="darrow">&rarr;</div>
-        <div style="display:flex; flex-direction:column; align-items:center; gap:6px">
-          <div class="dnode dnode-amber" style="min-width: 120px">
-            <div class="dnode-title">OTP Interception</div>
-            <div class="dnode-sub">API scrapes SMS/email</div>
-          </div>
-          <div style="font-size:16px; color:#c8102e; line-height:1;">&#8595;</div>
-          <div class="dbadge-fail" style="font-size:9px; padding:3px 8px; white-space:nowrap;">HIGH RISK / EBA VIOLATION</div>
-        </div>
-      </div>
-    </div>
-    <div class="lane" >
-      <div class="lane-label">Compliant Model (Secure Mandates)</div>
-      <div class="lane-content" style="flex-direction:column; align-items:stretch; gap:0; padding:12px 16px;">
-        <!-- Row 1: left → right, ending at Cryptographic Token -->
-        <div style="display:flex; align-items:center; gap:8px; flex-wrap: wrap;">
-          <div class="dnode dnode-blue" style="min-width: 110px">
-            <div class="dnode-title">Human Sets Mandate</div>
-            <div class="dnode-sub">Authenticates once (SCA)</div>
-          </div>
-          <div class="darrow">&rarr;</div>
-          <!-- Cryptographic Token column: node + down arrow -->
-          <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-            <div class="dnode dnode-purple" style="min-width: 120px">
-              <div class="dnode-title">Cryptographic Token</div>
-              <div class="dnode-sub">Bound to specific scopes</div>
-            </div>
-            <div style="font-size:18px; color:#888780; line-height:1;">&#8595;</div>
-          </div>
-        </div>
-        <!-- Row 2: right → left; AI Cryptographic Sign is under Cryptographic Token -->
-        <div style="display:flex; align-items:center; gap:8px; flex-direction: row-reverse;">
-          <!-- Spacer: width of [Human Sets Mandate node] + [arrow] = ~110px + 8px + 20px + 8px -->
-          <div style="min-width:146px; flex-shrink:0;"></div>
-          <!-- AI Cryptographic Sign sits under Cryptographic Token -->
-          <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
-            <div class="dnode dnode-teal" style="min-width: 120px">
-              <div class="dnode-title">AI Cryptographic Sign</div>
-              <div class="dnode-sub">Validates payload &amp; scope</div>
-            </div>
-          </div>
-          <div class="darrow">&larr;</div>
-          <div class="dnode dnode-green" style="min-width: 80px">
-            <div class="dnode-title">Auto-Settled</div>
-            <div class="dnode-sub">SCA Compliant</div>
-          </div>
-        </div>
-      </div>
+ <div class="diagram-wrap">
+  <div class="diagram-title">
+    AI Payment Architectures: Fragile Workarounds vs. Compliant Delegation
+  </div>
 
-    </div>
-    <div class="diagram-legend">
-      <div class="dlegend-item">
-          <div class="dlegend-dot" style="background: #888780"></div>
-          <strong style="color: var(--theme-color)"><span class="colored-bold">Action Point</span></strong>
-        </div>
-        <div class="dlegend-item">
-          <div class="dlegend-dot" style="background: #ef9f27"></div>
-          <strong style="color: var(--theme-color)"><span class="colored-bold">Insecure Workaround</span></strong>
-        </div>
-        <div class="dlegend-item">
-          <div class="dlegend-dot" style="background: #185fa5"></div>
-          <strong style="color: var(--theme-color)"><span class="colored-bold">Human Control</span></strong>
-        </div>
-        <div class="dlegend-item">
-          <div class="dlegend-dot" style="background: #afa9ec"></div>
-          <strong style="color: var(--theme-color)"><span class="colored-bold">Cryptographic Layer</span></strong>
-        </div>
-        <div class="dlegend-item">
-          <div class="dlegend-dot" style="background: #0f6e56"></div>
-          <strong style="color: var(--theme-color)"><span class="colored-bold">Compliant Outcome</span></strong>
+  <div class="diagram-content">
+    
+    <div class="row-context-label">Fragile Model (Headless Bypass)</div>
+    <div class="flow-row">
+      <div class="flow-box dnode-gray">
+        <div class="flow-label">Action Point</div>
+        <div class="flow-text">AI Decision</div>
+        <div class="flow-tech">Triggered in cloud</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+      
+      <div class="flow-box dnode-amber">
+        <div class="flow-label">Insecure Workaround</div>
+        <div class="flow-text">Headless Browser</div>
+        <div class="flow-tech">Simulates human clicks</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+      
+      <div class="flow-box dnode-amber">
+        <div class="flow-label">Insecure Workaround</div>
+        <div class="flow-text">OTP Interception</div>
+        <div class="flow-tech">API scrapes SMS/email</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+      
+      <div class="flow-box" style="background: #7f1d1d; border-color: #b91c1c;">
+        <div class="flow-label" style="color: #fca5a5;">Regulatory Status</div>
+        <div class="flow-text" style="color: #fff;">HIGH RISK / EBA VIOLATION</div>
+        <div class="flow-tech" style="color: #fca5a5;">Non-compliant pathway</div>
       </div>
     </div>
-    <div class="diagram-source">
-      Source: Analysis of EBA Regulatory Technical Standards on SCA and secure
-      communication.
+
+    <div class="row-context-label">Compliant Model (Secure Mandates with Error Handling)</div>
+    <div class="flow-row">
+      <div class="flow-box dnode-blue">
+        <div class="flow-label">Human Control</div>
+        <div class="flow-text">Human Sets Mandate</div>
+        <div class="flow-tech">Authenticates once (SCA)</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+      
+      <div class="flow-box dnode-purple">
+        <div class="flow-label">Cryptographic Layer</div>
+        <div class="flow-text">Cryptographic Token</div>
+        <div class="flow-tech">Bound to specific scopes</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+      
+      <div class="flow-box dnode-teal">
+        <div class="flow-label">Cryptographic Layer</div>
+        <div class="flow-text">AI Cryptographic Sign</div>
+        <div class="flow-tech">Validates payload &amp; scope</div>
+      </div>
+      
+      <div class="flow-arrow">&rarr;</div>
+
+      <div class="branch-fork">
+        <div class="branch-line">
+          <span class="branch-label label-valid">VALID</span>
+          <div class="flow-box dnode-green" style="width: 100%;">
+            <div class="flow-text">Auto-Settled</div>
+            <div class="flow-tech">SCA Compliant</div>
+          </div>
+        </div>
+        
+        <div class="branch-line">
+          <span class="branch-label label-invalid">INVALID</span>
+          <div class="flow-box dnode-gray" style="width: 100%; border-color: #c8102e;">
+            <div class="flow-text">Rejected</div>
+            <div class="flow-tech">Alert to Principal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="diagram-legend" style="padding: 0 24px 24px;">
+    <div class="dlegend-item">
+      <div class="dlegend-dot" style="background: #b4b2a9;"></div>
+      <strong>Action Point</strong>
+    </div>
+    <div class="dlegend-item">
+      <div class="dlegend-dot" style="background: #ef9f27;"></div>
+      <strong>Insecure Workaround</strong>
+    </div>
+    <div class="dlegend-item">
+      <div class="dlegend-dot" style="background: #85b7eb;"></div>
+      <strong>Human Control</strong>
+    </div>
+    <div class="dlegend-item">
+      <div class="dlegend-dot" style="background: #afa9ec;"></div>
+      <strong>Cryptographic Layer</strong>
+    </div>
+    <div class="dlegend-item">
+      <div class="dlegend-dot" style="background: #5dcaa5;"></div>
+      <strong>Compliant Outcome</strong>
     </div>
   </div>
+  <div class="diagram-source" style="font-size: 0.7rem; color: #767676; text-align: right; margin-top: 16px; padding: 0 24px 16px;">
+    Source: Analysis of EBA Regulatory Technical Standards on SCA and secure communication.
+  </div>
+</div>
 
   <p>
     Scraping SMS passcodes or using automated API forwarders to answer 3DS
@@ -611,11 +631,11 @@
 
   <h2>The Path Forward: Designing "Machine-SCA" Frameworks</h2>
   <p>
-    If we want to build a scaling infrastructure for platforms utilizing payment orchestration platforms like IXOPAY, Payoneer(Formerly Optile), or BridgerPay, we need a new standard of tokenization. We must design a cryptographic
-    <strong style="color: var(--theme-color)"><span class="colored-bold">Secure Machine Authentication (SMA)</span></strong> token.
+    If we want to build a scaling infrastructure for platforms utilizing payment orchestration platforms, we need a new standard of tokenization. We must design a cryptographic
+    <strong style="color: var(--theme-color)"><span class="colored-bold">Secure Machine Authentication (SMA)</span></strong><sup>[10]</sup> token.
   </p>
   <p>
-    In this model, the human performs SCA *once* to establish and sign a
+    In this model, the human performs SCA <strong>once</strong> to establish and sign a
     <strong style="color: var(--theme-color)"><span class="colored-bold">Cryptographic Delegated Mandate (CDM)</span></strong>. The CDM is not a simple
     pre-authorized debit card; it is a smart contract or secure cryptographic
     payload that contains predefined variables:
@@ -637,29 +657,44 @@
         "agent_id": "agent_xyz",
         "public_key": "0x02bf...34a9"
     },
-    "constraints": {
-        "max_amount_per_tx": "10000.00",
-        "currency": "EUR",
-        "allowed_merchant_categories": ["4816", "7372"],
-        "allowed_jurisdictions": ["EU", "CH"],
-        "expiry": "2026-07-02T23:59:59Z",
-        "transaction_type": "TRF",
-        "debtor_account": {
-            "iban": "DE89100010001234567890",
-            "name": "Company ABC"
-        },
-        "creditor_account": {
-            "iban": "FR76125480299500156280",
-            "name": "Vendor XYZ"
-        },
-        "remittance_information": {
-            "structured": "Invoice 2026-001",
-            "unstructured": "Payment for cloud API discount"
-        },
-        "transaction_date": "2026-06-02",
-        "settlement_method": "instant",
-        "purpose_code": "PAYM"
+    {
+  "mandate_id": "cmd_987654321_b2b_procure",
+  "issuer_signature": "0x89ab...ef01", 
+  "payer": {
+    "account_iban": "DE89100010001234567890",
+    "authorized_by_sca": "2026-06-02T14:22:00Z"
+  },
+  "authorized_agent": {
+    "agent_id": "agent_xyz",
+    "public_key": "0x02bf...34a9"
+  },
+  "mandate_constraints": {
+    "max_amount_per_tx": "10000.00",
+    "currency": "EUR",
+    "allowed_merchant_categories": ["4816", "7372"],
+    "allowed_jurisdictions": ["EU", "CH"],
+    "expiry": "2026-07-02T23:59:59Z",
+    "transaction_type": "TRF"
+  },
+  "transaction_instance": {
+    "transaction_date": "2026-06-02",
+    "settlement_method": "instant",
+    "purpose_code": "PAYM",
+    "debtor_account": {
+      "iban": "DE89100010001234567890",
+      "name": "Company ABC"
+    },
+    "creditor_account": {
+      "iban": "FR76125480299500156280",
+      "name": "Vendor XYZ"
+    },
+    "remittance_information": {
+      "structured": "Invoice 2026-001",
+      "unstructured": "Payment for cloud API discount"
     }
+  }
+}
+
 }</pre
     >
   </div>
@@ -671,7 +706,7 @@
   </p>
   <p>
     The merchant gateway sends this payload and the cryptographic signature to
-    the payment orchestrator (such as IXOPAY, Payoneer(Formerly Optile), or ProcessOut), which
+    the payment orchestrator (such as ProcessOut), which
     routes it to the issuing bank. The issuer's HSM (Hardware Security Module)
     validates that:
   </p>
@@ -686,7 +721,7 @@
     </li>
   </ul>
   <p>
-    If all three checks pass, the issuer performs a <strong style="color: var(--theme-color)"><span class="colored-bold">risk-based exemption approval</span></strong>—utilizing Transaction Risk Analysis (TRA)<sup>[8]</sup> protocols—to
+    If all three checks pass, the issuer performs a <strong style="color: var(--theme-color)"><span class="colored-bold">risk-based exemption approval</span></strong>—utilizing Transaction Risk Analysis (TRA)<sup>[9]</sup> protocols—to
     bypass the interactive human 3DS challenge.
   </p>
 
@@ -747,7 +782,7 @@
   <div class="dark-feature-box">
     <h3>The Payment Orchestrator's Opportunity</h3>
     <p>
-      For payment orchestration platforms like IXOPAY, Payoneer, or BridgerPay,
+      For payment orchestration platforms like BridgerPay,
       solving the machine-SCA paradox is the ultimate enterprise differentiator.
       By building the infrastructure to ingest, validate, and pass these
       cryptographic mandate payloads directly to issuers, orchestrators can
@@ -768,6 +803,48 @@
     and orchestration layers must lobby for the regulatory recognition of
     <strong style="color: var(--theme-color)"><span class="colored-bold">cryptographic delegation</span></strong>.
   </p>
+
+<!-- Stakeholder Action Matrix -->
+<div class="action-matrix" style="margin: 32px 0; background-color: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 24px;">
+  <h3 style="margin-top: 0; margin-bottom: 24px; color: #f9fafb; font-size: 1.25rem; font-weight: 600; text-align: center;">
+    Action Matrix: What Should Each Stakeholder Do Now?
+  </h3>
+  
+  <div class="matrix-stack" style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
+    
+    <!-- PSPs & Payment Platforms (Left Aligned) -->
+    <div class="matrix-card" style="background-color: #111827; border: 1px solid #374151; border-radius: 8px; padding: 18px; max-width: 85%; margin-right: auto; text-align: left; width: 100%; box-sizing: border-box;">
+      <h4 style="color: #7c3aed; margin-top: 0; margin-bottom: 10px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+        Payment Service Providers
+      </h4>
+      <p style="font-size: 0.875rem; color: #9ca3af; margin: 0; line-height: 1.5;">
+        Stop tolerating fragile headless browser workarounds that bypass SCA. Deprecate insecure OTP-scraping pathways and actively deploy cryptographically bound delegated mandate APIs (akin to dynamic VRPs) to capture agent-initiated transactions securely.
+      </p>
+    </div>
+
+    <!-- Enterprise Buyers (Right Aligned) -->
+    <div class="matrix-card" style="background-color: #111827; border: 1px solid #374151; border-radius: 8px; padding: 18px; max-width: 85%; margin-left: auto; text-align: right; width: 100%; box-sizing: border-box;">
+      <h4 style="color: #0d9488; margin-top: 0; margin-bottom: 10px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+        Enterprise Buyers
+      </h4>
+      <p style="font-size: 0.875rem; color: #9ca3af; margin: 0; line-height: 1.5;">
+        Establish rigid risk-limit frameworks for agent spending and mandate cryptographic proof of intent (SCA-backed signing keys) before deployment. Refuse agent systems that rely on unsecured, credentials-sharing automation models.
+      </p>
+    </div>
+
+    <!-- Regulators (Left Aligned) -->
+    <div class="matrix-card" style="background-color: #111827; border: 1px solid #374151; border-radius: 8px; padding: 18px; max-width: 85%; margin-right: auto; text-align: left; width: 100%; box-sizing: border-box;">
+      <h4 style="color: #2563eb; margin-top: 0; margin-bottom: 10px; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+        Regulators (EBA, BaFin, FINMA)
+      </h4>
+      <p style="font-size: 0.875rem; color: #9ca3af; margin: 0; line-height: 1.5;">
+        Evolve supervisory frameworks (PSR, PSD3, and operational risk circulars) to formally codify machine-readable, delegated authorization. Transition from binary "human-only" checks to verifying cryptographic token boundary constraints.
+      </p>
+    </div>
+
+  </div>
+</div>
+
   <p>
     The companies that succeed in the next decade won't just build the best AI
     agents—they will build the <strong style="color: var(--theme-color)"><span class="colored-bold">regulatory bridges</span></strong> that allow those agents to
@@ -813,7 +890,7 @@
         >[1] Strong Customer Authentication (SCA):</span
       >
       A regulatory security standard under European law requiring multi-factor
-      authentication using at least two independent factors: knowledge, possession,
+      authentication using factors: knowledge, possession,
       and inherence.
     </p>
     <p
@@ -838,9 +915,9 @@
       "
     >
       <span style="color: var(--theme-color); font-weight: bold"
-        >[3] European Banking Authority (EBA):</span
+        >[3] PSD3 & PSR:</span
       >
-      The independent EU authority that mandates technical standards for payments, banking supervision, and regulatory compliance.
+      The Third Payment Services Directive (governing licensing and rules) and Payment Services Regulation (establishing uniform direct-acting rules) that modernize Europe's open banking and authentication laws.
     </p>
     <p
       style="
@@ -851,10 +928,11 @@
       "
     >
       <span style="color: var(--theme-color); font-weight: bold"
-        >[4] PSD3 & PSR:</span
+        >[4] European Banking Authority (EBA):</span
       >
-      The Third Payment Services Directive (governing licensing and rules) and Payment Services Regulation (establishing uniform direct-acting rules) that modernize Europe's open banking and authentication laws.
+      The independent EU authority that mandates technical standards for payments, banking supervision, and regulatory compliance.
     </p>
+        
     <p
       style="
         margin-bottom: 16px;
@@ -903,7 +981,20 @@
       "
     >
       <span style="color: var(--theme-color); font-weight: bold"
-        >[8] Transaction Risk Analysis (TRA):</span
+        >[8] FINMA:</span
+      >
+      Specifically, FINMA views autonomous agent delegation through the prism of its operational risk guidelines, expecting Swiss institutions to integrate robust algorithmic controls into their real-time infrastructures. With the expansion of the SIC5 instant payment framework under ISO 20022, the regulator focuses heavily on ensuring that these machine-driven transactions undergo continuous risk and limit validation directly within the payment stream.
+    </p>
+    <p
+      style="
+        margin-bottom: 16px;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+      "
+    >
+      <span style="color: var(--theme-color); font-weight: bold"
+        >[9] Transaction Risk Analysis (TRA):</span
       >
       An exemption path under EBA technical standards enabling merchants to skip SCA redirect challenges for online transactions evaluated as highly secure and low-fraud.
     </p>
@@ -916,7 +1007,7 @@
       "
     >
       <span style="color: var(--theme-color); font-weight: bold"
-        >[9] Secure Machine Authentication (SMA):</span
+        >[10] Secure Machine Authentication (SMA):</span
       >
       A proposed cryptographic framework enabling non-human software agents to sign and prove payment compliance within pre-agreed human-authenticated mandates.
     </p>
@@ -925,16 +1016,13 @@
   <div class="ref-box">
     <div class="ref-label">Key Technical & Regulatory References</div>
     <ul class="ref-list">
-      <li data-n="1">
-        Estimated 99% of draft PSR provisions assume human-in-the-loop interaction. Source: EBA draft analysis 2025.
+      <li data-n="a">
+        Estimated 99% of draft PSR provisions assume human-in-the-loop interaction. Author's estimate based on EBA RTS analysis
       </li>
-      <li data-n="2">
-        Projected >70% soft‑decline rate for unauthenticated machine transactions by 2028. Source: European Payments Institute forecast 2026.
+      <li data-n="b">
+        Projected >70% soft‑decline rate for unauthenticated machine transactions by 2028. Author's estimate based on EBA RTS analysis.
       </li>
-      <li data-n="3">
-        Sample transaction amount €8,500<sup>[3]</sup> used for illustration; typical B2B cloud procurement size.
-      </li>
-      <li data-n="4">
+      <li data-n="c">
         15% price discount figure is illustrative of typical ad‑hoc market arbitrage opportunities.
       </li>
     </ul>
