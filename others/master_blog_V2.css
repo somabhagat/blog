@@ -1,0 +1,954 @@
+﻿/* =============================================================================
+   UNIVERSAL BLOG DESIGN SYSTEM — V2
+   master_blog_V2.css — clean, deduplicated canonical stylesheet
+   Sections:
+     1.  CSS Custom Properties & Reset
+     2.  Typography & Base Text
+     3.  Header (Tag, Title, Standfirst, Byline)
+     4.  Body Prose (paragraphs, headings, lists)
+     5.  Stat Row
+     6.  Diagrams — Lane & Flow (nodes, arrows, badges, legend)
+     7.  Diagrams — S-Flow Grid (responsive S-shaped layout)
+     8.  Diagrams — Stacked Layers
+     9.  Diagrams — Flow Path (legacy connector + timeline)
+    10.  Comparisons & Player Grids
+    11.  Quotes & Callouts
+    12.  Tables (comp-table)
+    13.  Dark Feature Box
+    14.  Reference Box & Disclaimer
+    15.  Media (figures, hero images)
+    16.  Standards, API & Code Grids
+    17.  Network & Service Grids
+    18.  Geographic, Pillar & Gap Grids
+    19.  DACH Regional Grids
+    20.  Comparative & Impact Components
+    21.  Alert Box
+    22.  Responsive Overrides
+============================================================================= */
+
+
+/* =============================================================================
+   1. CSS CUSTOM PROPERTIES & RESET
+============================================================================= */
+.blog-wrap {
+  --theme-color:     #185fa5;
+  --theme-bg-light:  #e6f1fb;
+  --theme-text-dark: #042c53;
+  max-width: 680px;
+  color: #3a3a3a;
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.blog-wrap * {
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =============================================================================
+   2. TYPOGRAPHY & BASE TEXT
+============================================================================= */
+strong {
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.colored-bold {
+  font-weight: 700;
+  color: var(--theme-color);
+}
+
+.section-intro {
+  font-size: 15px;
+  color: #767676;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  padding-left: 16px;
+  border-left: 2px solid var(--theme-color);
+  line-height: 1.6;
+}
+
+
+/* =============================================================================
+   3. HEADER — TAG, TITLE, STANDFIRST, BYLINE
+============================================================================= */
+.blog-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-color);
+  background: var(--theme-bg-light);
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.blog-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0f0f0f;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+  border-bottom: 3px solid var(--theme-color);
+  padding-bottom: 20px;
+}
+
+.blog-title span {
+  color: var(--theme-color);
+}
+
+.blog-standfirst {
+  font-size: 19px;
+  font-weight: 300;
+  color: #3a3a3a;
+  line-height: 1.6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.blog-byline {
+  font-size: 13px;
+  color: #767676;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e2e2de;
+  margin-bottom: 36px;
+}
+
+.blog-byline strong,
+.blog-byline strong span {
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.blog-byline-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  flex-shrink: 0;
+}
+
+
+/* =============================================================================
+   4. BODY PROSE — PARAGRAPHS, HEADINGS, LISTS
+============================================================================= */
+.blog-wrap p {
+  margin-bottom: 1.6rem;
+  color: #3a3a3a;
+  font-weight: 300;
+}
+
+.blog-wrap p strong {
+  font-weight: 700;
+  color: var(--theme-color);
+}
+
+.blog-wrap p em {
+  font-style: italic;
+  color: #5f5e5a;
+}
+
+.blog-wrap h2,
+.section-h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f0f0f;
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e2de;
+}
+
+.blog-wrap ul {
+  margin: 0 0 1.6rem 1.2rem;
+}
+
+.blog-wrap ul li {
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  color: #3a3a3a;
+}
+
+.arrow-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.arrow-list li {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.arrow-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--theme-color);
+  font-weight: 700;
+}
+
+.flow {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid #e2e2de;
+}
+
+.flow-step:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.step-content strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f0f0f;
+  margin-bottom: 6px;
+}
+
+.step-content p {
+  font-size: 15px;
+  color: #3a3a3a;
+  margin: 0;
+  line-height: 1.65;
+}
+
+
+/* =============================================================================
+   5. STAT ROW
+============================================================================= */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: var(--theme-bg-light);
+  border-radius: 8px;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.stat-val {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--theme-text-dark);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-lbl {
+  font-size: 12px;
+  color: var(--theme-color);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+/* =============================================================================
+   6. DIAGRAMS — LANE & FLOW
+   Wrapping container, lane rows, nodes, arrows, badges, legend.
+============================================================================= */
+
+/* Wrapper */
+.diagram-wrap {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e2e2de;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+
+.diagram-title {
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+}
+
+.diagram-source {
+  font-size: 11px;
+  color: #767676;
+  padding: 8px 20px 12px;
+  font-style: italic;
+}
+
+/* Lanes */
+.lane {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2de;
+  min-height: 72px;
+}
+
+.lane:last-of-type {
+  border-bottom: none;
+}
+
+.lane-label {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #767676;
+  padding: 0 12px;
+  border-right: 1px solid #e2e2de;
+  background: #fafaf8;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.lane-content {
+  flex: 1;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Nodes */
+.dnode {
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dnode-title { font-size: 13px; font-weight: 700; }
+.dnode-sub   { font-size: 11px; font-weight: 300; margin-top: 3px; }
+
+.dnode-gray   { background: #f1efe8; border: 1px solid #b4b2a9; color: #2c2c2a; }
+.dnode-blue   { background: #e6f1fb; border: 1px solid #85b7eb; color: #042c53; }
+.dnode-teal   { background: #e1f5ee; border: 1px solid #5dcaa5; color: #04342c; }
+.dnode-amber  { background: #faeeda; border: 1px solid #ef9f27; color: #412402; }
+.dnode-purple { background: #eeedfe; border: 1px solid #afa9ec; color: #26215c; }
+.dnode-green  { background: #e8f5ee; border: 1px solid #5dcaa5; color: #04342c; }
+
+/* Arrows & connectors */
+.darrow { font-size: 15px; color: #888780; flex-shrink: 0; }
+.dline  { flex: 1; border-top: 1.5px solid #c8c8c0; }
+
+.dline-fail {
+  width: 50px;
+  border-top: 1.5px dashed #c8102e;
+  flex-shrink: 0;
+}
+
+.dvert {
+  position: absolute;
+  left: 168px;
+  top: -16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dvert-line  { width: 1.5px; height: 16px; background: #c8c8c0; }
+.dvert-arrow { font-size: 12px; color: #888780; line-height: 1; margin-top: -2px; }
+
+/* Badges */
+.dbadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.dbadge-fail {
+  background: #c8102e;
+  font-size: 9px;
+  width: auto;
+  padding: 0 6px;
+  border-radius: 10px;
+  height: 16px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.lane .dbadge-fail {
+  margin-left: 0;
+  align-self: center;
+}
+
+/* Legend */
+.diagram-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 20px;
+  border-top: 1px solid #e2e2de;
+}
+
+.dlegend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.dlegend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.diagram-legend .dlegend-item strong,
+.diagram-legend .dlegend-item strong span {
+  color: var(--theme-color);
+  font-weight: 700;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Branch fork */
+.row-context-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #767676;
+  width: 100%;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.flow-row + .row-context-label { margin-top: 32px; }
+
+.branch-fork  { display: flex; flex-direction: column; gap: 8px; flex: 1.3; }
+.branch-line  { display: flex; align-items: center; gap: 8px; width: 100%; }
+
+.branch-label {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.label-valid   { background-color: rgba(9, 110, 86, 0.1);  color: #0f6e56; }
+.label-invalid { background-color: rgba(200, 16, 46, 0.1); color: #c8102e; }
+
+
+/* =============================================================================
+   7. DIAGRAMS — S-FLOW GRID
+   CSS Grid-based S-shaped layout.
+
+   Wide layout:
+     [mandate]  [→]  [token]
+                      [↓]
+     [settled]  [←]  [sign]
+
+   Narrow (≤ 580px): single column, arrows rotate to point downward.
+
+   Usage: class="lane-content s-flow" on the container; wrap each child
+   with the matching .s-flow-* class.
+============================================================================= */
+.s-flow {
+  display: grid !important;
+  grid-template-areas:
+    "mandate  arrow1  token"
+    ".        .       down "
+    "settled  arrow2  sign ";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  justify-items: center;
+  gap: 6px 8px;
+  padding: 12px 16px;
+  flex-direction: unset;
+  flex-wrap: unset;
+}
+
+.s-flow-mandate { grid-area: mandate; justify-self: stretch; }
+.s-flow-arrow1  { grid-area: arrow1; }
+.s-flow-token   { grid-area: token;  justify-self: stretch; }
+.s-flow-down    { grid-area: down;   font-size: 18px; color: #888780; line-height: 1; }
+.s-flow-settled { grid-area: settled; justify-self: stretch; }
+.s-flow-arrow2  { grid-area: arrow2; }
+.s-flow-sign    { grid-area: sign;   justify-self: stretch; }
+
+@media (max-width: 580px) {
+  .s-flow {
+    grid-template-areas:
+      "mandate"
+      "arrow1"
+      "token"
+      "down"
+      "sign"
+      "arrow2"
+      "settled";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+  }
+  .s-flow-arrow1 { transform: rotate(90deg); }
+  .s-flow-arrow2 { transform: rotate(-90deg); }
+}
+
+
+/* =============================================================================
+   8. DIAGRAMS — STACKED LAYERS
+============================================================================= */
+.stack-diagram {
+  margin: 2.5rem 0;
+  background: #fafaf8;
+  border: 1px solid #e2e2de;
+  border-radius: 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.stack-title {
+  width: 100%;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+.stack-body {
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stack-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+.stack-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-color);
+}
+
+.stack-icon svg { width: 32px; height: 32px; }
+
+.stack-layer {
+  flex-grow: 1;
+  padding: 18px 24px;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.layer-title { font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+.layer-detail { font-size: 12px; opacity: 0.8; line-height: 1.4; }
+
+.layer-top { background: var(--theme-bg-light); color: var(--theme-color); border: 1px solid var(--theme-color); }
+.layer-mid { background: #5eead4; color: #134e4a; border-color: #2dd4bf; }
+.layer-bot { background: var(--theme-color); color: #fff; border-color: #0f766e; }
+
+.stack-spacer {
+  height: 30px;
+  width: 2px;
+  background: #e2e2de;
+  margin-left: 64px;
+  position: relative;
+}
+
+.stack-spacer::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: -3px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #e2e2de;
+}
+
+
+/* =============================================================================
+   9. DIAGRAMS — FLOW PATH (legacy snake connector + timeline)
+============================================================================= */
+.diagram-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.flow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.flow-box {
+  background: var(--theme-bg-light);
+  border: 1px solid var(--theme-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+  flex: 1;
+}
+
+.flow-label  { font-size: 10px; font-weight: 700; color: var(--theme-color); text-transform: uppercase; margin-bottom: 4px; }
+.flow-text   { font-size: 13px; font-weight: 600; color: #0f0f0f; line-height: 1.3; }
+.flow-tech   { font-size: 10px; color: #767676; font-family: monospace; margin-top: 4px; }
+.flow-arrow  { color: #888780; font-weight: 700; flex-shrink: 0; }
+
+.flow-path-connector { height: 25px; display: flex; position: relative; }
+.path-right { justify-content: flex-end;   padding-right: 85px; }
+.path-left  { justify-content: flex-start; padding-left: 85px; }
+
+.path-line { width: 2px; height: 100%; background: #888780; position: relative; }
+.path-line::after {
+  content: "▼";
+  position: absolute;
+  bottom: -8px;
+  left: -3.5px;
+  font-size: 10px;
+  color: #888780;
+}
+
+/* Timeline */
+.timeline-wrap { position: relative; padding-left: 30px; margin: 2rem 0; }
+.timeline-wrap::before {
+  content: "";
+  position: absolute;
+  left: 10px; top: 5px; bottom: 5px;
+  width: 2px;
+  background: var(--theme-color);
+}
+
+.timeline-item  { position: relative; margin-bottom: 24px; }
+.timeline-dot   { position: absolute; left: -25px; top: 6px; width: 12px; height: 12px; background: #fff; border: 2px solid var(--theme-color); border-radius: 50%; }
+.timeline-date  { font-size: 11px; font-weight: 700; color: var(--theme-color); margin-bottom: 4px; text-transform: uppercase; }
+.timeline-title { font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.timeline-body  { font-size: 14px; color: #767676; line-height: 1.6; }
+
+
+/* =============================================================================
+   10. COMPARISONS & PLAYER GRIDS
+============================================================================= */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 2rem 0; }
+.compare-card { border-radius: 8px; padding: 20px 22px; border: 1px solid #e2e2de; }
+.compare-card.old { background: #fafaf8; }
+.compare-card.new { background: var(--theme-bg-light); border-color: var(--theme-color); }
+
+.compare-label { font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
+.compare-label.old { color: #888780; }
+.compare-label.new { color: var(--theme-color); }
+
+.compare-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.compare-card li { font-size: 14px; display: flex; gap: 8px; line-height: 1.5; }
+.compare-card.old li::before { content: "✕"; color: #b4b2a9; font-size: 12px; }
+.compare-card.new li::before { content: "✓"; color: var(--theme-color); font-size: 12px; }
+
+.player-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 2rem 0; }
+.player-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 16px 18px; }
+.player-city { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--theme-color); margin-bottom: 6px; }
+.player-name { font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.player-desc { font-size: 13px; color: #767676; font-weight: 300; line-height: 1.5; }
+
+
+/* =============================================================================
+   11. QUOTES & CALLOUTS
+============================================================================= */
+.pullquote {
+  margin: 2.5rem 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--theme-color);
+  background: #fafaf8;
+  border-radius: 0 8px 8px 0;
+}
+
+.pullquote p    { font-size: 20px; line-height: 1.5; color: #0f0f0f; margin: 0; font-weight: 400; font-style: italic; }
+.pullquote cite { display: block; margin-top: 12px; font-size: 13px; color: #767676; font-style: normal; }
+
+.callout {
+  background: #fafaf8;
+  border: 1px solid #e2e2de;
+  border-left: 3px solid var(--theme-color);
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin: 2.5rem 0;
+}
+
+.callout-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #767676; margin-bottom: 16px; }
+
+.callout li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #3a3a3a;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.callout li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  margin-top: 9px;
+}
+
+
+/* =============================================================================
+   12. TABLES (comp-table)
+============================================================================= */
+.comp-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 13px; }
+.comp-table th { background: #0f0f0f; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; }
+.comp-table td { padding: 10px 12px; border-bottom: 1px solid #e2e2de; vertical-align: top; line-height: 1.5; color: #3a3a3a; font-weight: 300; }
+.comp-table tr:nth-child(even) td { background: #fafaf8; }
+.comp-table td:first-child { font-weight: 600; color: #0f0f0f; font-size: 12px; width: 28%; }
+
+
+/* =============================================================================
+   13. DARK FEATURE BOX
+============================================================================= */
+.dark-feature-box { margin: 2.5rem 0; padding: 28px 32px; background: #0f0f0f; border-radius: 12px; color: #fff; }
+.dark-feature-box h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.dark-feature-box p  { font-size: 15px; color: #b0b0a8; line-height: 1.7; margin-bottom: 10px; }
+.dark-feature-box p strong { color: #5eead4; font-weight: 600; }
+
+
+/* =============================================================================
+   14. REFERENCE BOX & DISCLAIMER
+============================================================================= */
+.ref-box   { margin-top: 3rem; padding: 20px 24px; border-radius: 8px; background: #fafaf8; border: 1px solid #e2e2de; }
+.ref-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #767676; margin-bottom: 12px; }
+.ref-list  { list-style: none; padding: 0; }
+.ref-list li { font-size: 13px; color: #767676; margin-bottom: 8px; display: flex; gap: 10px; }
+.ref-list li::before { content: "[" attr(data-n) "]"; color: var(--theme-color); font-weight: 600; }
+
+.disclaimer { margin-top: 1.5rem; padding: 20px 24px; background: #fafaf8; border: 1px solid #e2e2de; font-size: 13px; color: #767676; line-height: 1.7; }
+.disclaimer strong { color: #3a3a3a; font-weight: 700; }
+
+
+/* =============================================================================
+   15. MEDIA — FIGURES & HERO IMAGES
+============================================================================= */
+.blog-figure { margin: 2rem 0; }
+.blog-figure img { width: 100%; border-radius: 8px; border: 1px solid #e2e2de; display: block; }
+.blog-figure figcaption { font-size: 12px; color: #767676; margin-top: 8px; font-style: italic; line-height: 1.5; }
+
+.hero-img-wrap { width: 100%; margin: 1.5rem 0 2.5rem; border-radius: 8px; overflow: hidden; border: 1px solid #e2e2de; }
+.hero-img-wrap img { width: 100%; height: auto; display: block; }
+.img-caption { font-size: 12px; color: #767676; padding: 8px 12px; background: #fafaf8; border-top: 1px solid #e2e2de; }
+
+
+/* =============================================================================
+   16. STANDARDS, API & CODE GRIDS
+============================================================================= */
+.std-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 2rem 0; }
+.std-card { border-radius: 10px; padding: 20px 18px; border: 1px solid #e2e2de; }
+.std-card.s1 { background: #fafaf8;           border-top: 4px solid #888780; }
+.std-card.s2 { background: var(--theme-bg-light); border-top: 4px solid var(--theme-color); }
+.std-card.s3 { background: #e1f5ee;           border-top: 4px solid #0f6e56; }
+
+.std-badge    { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.std-badge.b1 { color: #444441; }
+.std-badge.b2 { color: var(--theme-text-dark); }
+.std-badge.b3 { color: #04342c; }
+
+.std-year     { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #767676; margin-bottom: 8px; }
+.std-headline { font-size: 12px; font-weight: 700; color: #0f0f0f; margin-bottom: 6px; }
+
+.std-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 3px; margin-bottom: 8px; }
+.std-tag.card   { background: #eeedfe; color: #534ab7; }
+.std-tag.global { background: var(--theme-bg-light); color: var(--theme-color); }
+.std-tag.rest   { background: #e8f5ee; color: #1a6b3c; }
+
+.std-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.std-list li { font-size: 12px; color: #3a3a3a; font-weight: 300; line-height: 1.5; display: flex; gap: 5px; }
+.std-list li::before { content: "·"; font-weight: 700; flex-shrink: 0; }
+
+.api-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 2rem 0; }
+.api-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 18px 20px; }
+.api-name     { font-size: 14px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.api-provider { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.api-card.mc     .api-provider { color: #e87722; }
+.api-card.visa   .api-provider { color: #1a1f71; }
+.api-card.stripe .api-provider { color: #6772e5; }
+.api-card.open   .api-provider { color: #0f6e56; }
+.api-desc { font-size: 13px; color: #3a3a3a; font-weight: 300; line-height: 1.55; margin-bottom: 10px; }
+.api-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.api-tag  { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; background: #f1efe8; color: #5f5e5a; }
+
+.code-block { background: #0f0f0f; border-radius: 8px; padding: 20px 24px; margin: 1.5rem 0; overflow-x: auto; }
+.code-block pre { font-family: monospace; font-size: 12px; color: #c2c0b6; line-height: 1.6; margin: 0; white-space: pre; }
+.code-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--theme-color); margin-bottom: 8px; }
+
+
+/* =============================================================================
+   17. NETWORK & SERVICE GRIDS
+============================================================================= */
+.network-grid { margin: 2rem 0; display: flex; flex-direction: column; gap: 12px; }
+.network-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 18px 22px; display: flex; gap: 16px; align-items: flex-start; }
+.network-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 6px; background: var(--theme-bg-light); color: var(--theme-color); font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.network-card strong { display: block; font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.network-card p      { font-size: 15px; color: #3a3a3a; margin: 0; line-height: 1.6; font-weight: 300; }
+
+
+/* =============================================================================
+   18. GEOGRAPHIC, PILLAR & GAP GRIDS
+============================================================================= */
+.country-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 2rem 0; }
+.country-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 14px 16px; }
+.country-flag { font-size: 20px; margin-bottom: 6px; display: block; }
+.country-name { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.country-note { font-size: 12px; color: #767676; line-height: 1.5; font-weight: 300; }
+
+.pillar-grid  { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin: 2rem 0; }
+.pillar-card  { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 20px 22px; border-top: 3px solid var(--theme-color); }
+.pillar-num   { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--theme-color); margin-bottom: 8px; }
+.pillar-title { font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 8px; }
+.pillar-body  { font-size: 14px; color: #3a3a3a; line-height: 1.6; font-weight: 300; }
+
+.gap-grid { margin: 2rem 0; display: flex; flex-direction: column; gap: 12px; }
+.gap-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.gap-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 6px; background: #fcebeb; color: #a32d2d; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.gap-card strong { display: block; font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 4px; }
+.gap-card p      { font-size: 14px; color: #3a3a3a; margin: 0; line-height: 1.6; font-weight: 300; }
+
+
+/* =============================================================================
+   19. DACH REGIONAL GRIDS
+============================================================================= */
+.dach-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 2rem 0; }
+.dach-card { border-radius: 8px; padding: 18px; border: 1px solid #e2e2de; background: #fff; }
+.dach-flag    { font-size: 22px; margin-bottom: 8px; display: block; }
+.dach-country { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--theme-color); margin-bottom: 6px; }
+.dach-name    { font-size: 15px; font-weight: 700; color: #0f0f0f; margin-bottom: 8px; }
+.dach-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+.dach-tag.mandate   { background: var(--theme-bg-light); color: var(--theme-color); }
+.dach-tag.voluntary { background: #e8f5ee; color: #1a6b3c; }
+.dach-body { font-size: 13px; color: #767676; line-height: 1.55; font-weight: 300; }
+
+
+/* =============================================================================
+   20. COMPARATIVE & IMPACT COMPONENTS
+============================================================================= */
+.split-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin: 2rem 0; }
+.split-card { border-radius: 10px; padding: 22px 20px; border: 1px solid #e2e2de; }
+.split-card.s1 { background: var(--theme-bg-light); border-top: 4px solid var(--theme-color); }
+.split-card.s2 { background: #e1f5ee;               border-top: 4px solid #0f6e56; }
+.split-badge    { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.split-type     { font-size: 10px; font-weight: 600; text-transform: uppercase; color: #767676; margin-bottom: 10px; }
+.split-headline { font-size: 13px; font-weight: 700; color: #0f0f0f; margin-bottom: 8px; }
+.split-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.split-list li { font-size: 12px; color: #3a3a3a; line-height: 1.5; font-weight: 300; display: flex; gap: 6px; }
+.split-list li::before { content: "·"; font-weight: 700; flex-shrink: 0; }
+
+.impact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin: 2rem 0; }
+.impact-card { background: #fff; border: 1px solid #e2e2de; border-radius: 8px; padding: 10px; }
+.impact-who   { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--theme-color); margin-bottom: 6px; }
+.impact-title { font-size: 12px; font-weight: 700; color: #0f0f0f; margin-bottom: 6px; }
+.impact-list  { list-style: none; padding: 0; display: flex; flex-direction: column; }
+.impact-list li { font-size: 12px; color: #3a3a3a; line-height: 1.5; font-weight: 300; display: flex; gap: 5px; }
+.impact-list li strong { width: 100px; flex-shrink: 0; display: inline-block; }
+.impact-list li::before { content: "→"; color: var(--theme-color); font-size: 11px; flex-shrink: 0; }
+
+
+/* =============================================================================
+   21. ALERT BOX
+============================================================================= */
+.alert-box   { background: #fffbf0; border: 1px solid #fac775; border-left: 4px solid #ef9f27; border-radius: 8px; padding: 20px 24px; margin: 2rem 0; }
+.alert-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #854f0b; margin-bottom: 10px; }
+.alert-box p { font-size: 14px; color: #412402; margin: 0; line-height: 1.65; font-weight: 300; }
+
+
+/* =============================================================================
+   22. RESPONSIVE OVERRIDES
+============================================================================= */
+@media (max-width: 768px) {
+  .flow-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px;
+  }
+  .flow-row > .flow-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+  .flow-path-connector { display: none; }
+  .branch-line { flex-direction: row; }
+}

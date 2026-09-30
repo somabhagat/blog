@@ -240,67 +240,67 @@ strong {
   flex-direction: column;
   gap: 16px;
 }
-.hero-img-wrap {
-  width: 100%;
-  margin: 1.5rem 0 2.5rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #e2e2de;
-}
-.hero-img-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.img-caption {
-  font-size: 12px;
-  color: #767676;
-  padding: 8px 12px;
-  background: #fafaf8;
-  border-top: 1px solid #e2e2de;
-}
-.flow {
-  margin: 2.5rem 0;
-  display: flex;
-  flex-direction: column;
-}
-.flow-step {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 20px 0;
-  border-bottom: 1px solid #e2e2de;
-}
-.flow-step:last-child {
-  border-bottom: none;
-}
-.step-num {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--theme-color);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-.step-content strong {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0f0f0f;
-  margin-bottom: 6px;
-}
-.step-content p {
-  font-size: 15px;
-  color: #3a3a3a;
-  margin: 0;
-  line-height: 1.65;
-}
+    .hero-img-wrap {
+      width: 100%;
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e2de;
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-caption {
+      font-size: 12px;
+      color: #767676;
+      padding: 8px 12px;
+      background: #fafaf8;
+      border-top: 1px solid #e2e2de;
+    } 
+    .flow {
+      margin: 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .flow-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid #e2e2de;
+    }
+    .flow-step:last-child {
+      border-bottom: none;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--theme-color);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f0f0f;
+      margin-bottom: 6px;
+    }
+    .step-content p {
+      font-size: 15px;
+      color: #3a3a3a;
+      margin: 0;
+      line-height: 1.65;
+    }
 .flow-row {
   display: flex;
   justify-content: space-between;
@@ -1542,85 +1542,5 @@ strong {
   .branch-line {
     flex-direction: row;
   }
-}
-
-/* =============================================================================
-   S-FLOW GRID — Responsive S-shaped diagram layout
-   Usage: add class="lane-content s-flow" to the lane-content div, then
-   wrap each child with the matching .s-flow-* grid-area class.
-
-   Wide layout:
-     [mandate]  [→]  [token]
-                      [↓]
-     [settled]  [←]  [sign]
-
-   Narrow (≤ 580px): collapses to single column; → and ← rotate to ↓.
-============================================================================= */
-.s-flow {
-  display: grid !important;
-  grid-template-areas:
-    "mandate  arrow1  token"
-    ".        .       down "
-    "settled  arrow2  sign ";
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto;
-  align-items: center;
-  justify-items: center;
-  gap: 6px 8px;
-  padding: 12px 16px;
-  flex-direction: unset;
-  flex-wrap: unset;
-}
-
-.s-flow-mandate {
-  grid-area: mandate;
-  justify-self: stretch;
-}
-.s-flow-arrow1 {
-  grid-area: arrow1;
-}
-.s-flow-token {
-  grid-area: token;
-  justify-self: stretch;
-}
-.s-flow-down {
-  grid-area: down;
-  font-size: 18px;
-  color: #888780;
-  line-height: 1;
-}
-.s-flow-settled {
-  grid-area: settled;
-  justify-self: stretch;
-}
-.s-flow-arrow2 {
-  grid-area: arrow2;
-}
-.s-flow-sign {
-  grid-area: sign;
-  justify-self: stretch;
-}
-
-@media (max-width: 580px) {
-  .s-flow {
-    grid-template-areas:
-      "mandate"
-      "arrow1"
-      "token"
-      "down"
-      "sign"
-      "arrow2"
-      "settled";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    justify-items: center;
-  }
-
-  /* Rotate horizontal arrows to point downward */
-  .s-flow-arrow1 {
-    transform: rotate(90deg);
-  }
-  .s-flow-arrow2 {
-    transform: rotate(-90deg);
-  }
+  
 }
