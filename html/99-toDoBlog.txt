@@ -1,0 +1,25 @@
+Check the full breakdown via the link --> 
+
+last Published 1st July Passkey 
+
+lets do now onwaords 1st of a month
+
+Always add this on top of the blog to be able to test the CSS locally
+ <link rel="stylesheet" href="../others/master_blog_V2.css">
+
+Before uploading a blog change the CSS local link to this
+ <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/somabhagat/blog@main/others/master_blog_V2.css"
+/>
+
+all image linkes to be changed before publishing
+after creating blog go to left pane + button> image> +upload media > after uploading right click on file and copy link and replace the actual file path in the blog . 
+
+always add under <div     class="pullquote" a paragraph with     <cite>— Soma Bhagat, Payments Product Leader | Payment Strategy Blog</cite>
+these sections Terms & Definitions, References, Disclaimer  
+
+At the end always clean the css component and move to master css.
+
+
+
