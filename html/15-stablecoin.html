@@ -38,21 +38,23 @@
     distributed ledger, designed to maintain price parity with a reserve
     asset—most commonly the US Dollar or the Euro.
   </p>
-  <p>
-    While clearing-based systems (like SEPA or SWIFT) rely on a complex series
-    of correspondent banking relationships and batch-processed settlement
-    cycles, stablecoins enable <strong>atomic settlement</strong>. The payment
-    and the settlement happen simultaneously, 24/7, without the need for a
-    central clearing house to "close the books" at the end of the day.
+<p>
+    While traditional correspondent banking and batch clearing cycles still
+    create multi-day delays and cutoffs, modern rails like <strong>T2</strong>
+    and <strong>TIPS</strong> already enable 24/7/365 euro settlement within
+    seconds—whereas on-chain stablecoins pair 24/7 availability with
+    <strong>atomic settlement</strong> where payment and ledger state update
+    together without batch close-of-day windows.
   </p>
   <p>
     In traditional rails, a payment is essentially a <strong>message</strong>—a
     promise that value will move later during a settlement cycle. Atomic
-    settlement turns the payment into the <strong>asset itself</strong>. This
-    effectively eliminates "settlement risk" (the danger that one side of the
-    transaction fails after the other has been completed) and removes the need
-    for the billions of dollars currently trapped in pre-funded liquidity pools
-    (Nostro/Vostro accounts<sup>[1]</sup>) globally.
+    settlement executes the transfer directly on a shared ledger, eliminating
+    multi-day counterparty settlement delays, though both 24/7 instant rails
+    (like TIPS/RT1) and stablecoin flows still require disciplined liquidity
+    management—and pre-funded balances or token inventory—to handle
+    unpredictable, always-on payment demand without tying up excess working
+    capital.
   </p>
 
   <div class="callout">
@@ -527,8 +529,8 @@
     <tbody>
       <tr>
         <td>Settlement Speed</td>
-        <td>T+1 to T+3 (Batch)</td>
-        <td>Instant / Atomic (&lt;2s)</td>
+        <td>T+1 to T+3 (Correspondent/Batch); &lt;10s on SEPA Instant (TIPS/RT1)</td>
+        <td>Instant / Atomic(&lt;2s on-chain finality, subject to on/off-ramps)</td>
       </tr>
       <tr>
         <td>Availability</td>
@@ -562,17 +564,20 @@
     <h3>The "Insider" Truth: It's Not About Crypto</h3>
     <p>
       The real breakthrough of stablecoins isn't the token—it's the
-      <strong style="color: var(--theme-color)">shared state</strong>. When two
-      institutions settle on a distributed ledger, they are looking at the same
-      source of truth at the same time. No more "I sent it," followed by "We
-      didn't get it."
+      <strong style="color: var(--theme-color)">shared state</strong>. Inside
+      the euro area, <strong>T2</strong> and <strong>TIPS</strong> already deliver
+      fast central-bank settlement, so stablecoins do not automatically beat
+      SEPA Instant on domestic speed—rather, they offer programmable settlement,
+      cross-border/24/7 treasury optionality, and back-end settlement rails
+      that card networks like Visa and Mastercard are integrating alongside
+      existing clearing.
     </p>
     <p>
-      <strong style="color: var(--theme-color)">JPM Coin</strong> and
-      <strong style="color: var(--theme-color)">Circle’s USDC</strong> are two
-      sides of the same coin: institutional-grade rails designed to eliminate
-      the "reconciliation trauma" that has haunted back-offices since the
-      invention of double-entry bookkeeping.
+      <strong style="color: var(--theme-color)">Institutional stablecoins</strong>
+      and <strong style="color: var(--theme-color)">regulated EUR/USD tokens</strong>
+      sit alongside traditional bank rails to reduce multi-day cross-border
+      reconciliation friction—while still requiring careful liquidity and
+      working-capital planning across rails.
     </p>
   </div>
   <h2>The Road Ahead</h2>
