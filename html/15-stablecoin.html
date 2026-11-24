@@ -341,8 +341,121 @@
       hands you your original $100 back from the safe.
     </p>
   </div>
+<div class="diagram-wrap">
+    <div class="diagram-title">The Stablecoin Issuance &amp; Redemption Cycle</div>
+    <div class="diagram-content" style="padding: 16px 20px;">
+      <svg
+        viewBox="0 0 840 435"
+        width="100%"
+        height="auto"
+        role="img"
+        aria-label="Diagram of the stablecoin issuance, on-chain circulation, and redemption cycle"
+        style="display: block; max-width: 100%; height: auto;"
+      >
+        <defs>
+          <marker
+            id="arrow-gray"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto-start-reverse"
+          >
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#888780" />
+          </marker>
+          <marker
+            id="arrow-green"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto-start-reverse"
+          >
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669" />
+          </marker>
+        </defs>
 
-  <div class="diagram-wrap">
+        <!-- Row 1: Issuance (Left -> Right) -->
+        <rect x="10" y="12" width="236" height="96" rx="8" fill="#e6f1fb" stroke="#185fa5" stroke-width="1.5" />
+        <text x="24" y="34" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">FIAT DEPOSIT</text>
+        <text x="24" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">User sends USD/EUR to</text>
+        <text x="24" y="73" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Reserve</text>
+        <text x="24" y="94" font-family="monospace" font-size="11" fill="#767676">On-ramp API</text>
+
+        <line x1="252" y1="60" x2="290" y2="60" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow-gray)" />
+
+        <rect x="298" y="12" width="244" height="96" rx="8" fill="#e6f1fb" stroke="#185fa5" stroke-width="1.5" />
+        <text x="312" y="34" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">COLLATERAL AUDIT</text>
+        <text x="312" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Custodian Verifies Funds</text>
+        <text x="312" y="94" font-family="monospace" font-size="11" fill="#767676">Proof of Reserves [9]</text>
+
+        <line x1="548" y1="60" x2="586" y2="60" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow-gray)" />
+
+        <rect x="594" y="12" width="236" height="96" rx="8" fill="#e6f1fb" stroke="#185fa5" stroke-width="1.5" />
+        <text x="608" y="34" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">MINTING</text>
+        <text x="608" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Smart Contract Issues</text>
+        <text x="608" y="73" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Tokens</text>
+        <text x="608" y="94" font-family="monospace" font-size="11" fill="#767676">ERC-20 / Native Mint</text>
+
+        <!-- Connector Row 1 -> Row 2 (Right column down) -->
+        <line x1="712" y1="112" x2="712" y2="146" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow-gray)" />
+
+        <!-- Row 2: On-Chain Circulation (Right -> Left) -->
+        <rect x="594" y="154" width="236" height="96" rx="8" fill="#ffffff" stroke="#185fa5" stroke-width="1.5" />
+        <text x="608" y="176" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">DISTRIBUTION</text>
+        <text x="608" y="197" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Tokens Enter User Wallet</text>
+        <text x="608" y="236" font-family="monospace" font-size="11" fill="#767676">Custodial / Self-Custody</text>
+
+        <line x1="588" y1="202" x2="548" y2="202" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow-gray)" />
+
+        <rect x="298" y="154" width="244" height="96" rx="8" fill="#ffffff" stroke="#185fa5" stroke-width="1.5" />
+        <text x="312" y="176" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">YIELD / TREASURY</text>
+        <text x="312" y="197" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Programmable Liquidity</text>
+        <text x="312" y="236" font-family="monospace" font-size="11" fill="#767676">DeFi / CeFi Protocol</text>
+
+        <line x1="292" y1="202" x2="252" y2="202" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow-gray)" />
+
+        <rect x="10" y="154" width="236" height="96" rx="8" fill="#ffffff" stroke="#185fa5" stroke-width="1.5" />
+        <text x="24" y="176" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#185fa5" letter-spacing="0.05em">B2B SETTLEMENT</text>
+        <text x="24" y="197" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Atomic Transfer to</text>
+        <text x="24" y="215" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Vendor</text>
+        <text x="24" y="236" font-family="monospace" font-size="11" fill="#767676">P2P On-Chain</text>
+
+        <!-- Connector Row 2 -> Row 3 (Left column down) -->
+        <line x1="128" y1="254" x2="128" y2="288" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-green)" />
+
+        <!-- Row 3: Redemption (Left -> Right) -->
+        <rect x="10" y="296" width="236" height="96" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+        <text x="24" y="318" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" letter-spacing="0.05em">BURN REQUEST</text>
+        <text x="24" y="339" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Tokens Sent to Null</text>
+        <text x="24" y="357" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Address</text>
+        <text x="24" y="378" font-family="monospace" font-size="11" fill="#767676">Redemption API</text>
+
+        <line x1="252" y1="344" x2="290" y2="344" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-green)" />
+
+        <rect x="298" y="296" width="244" height="96" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+        <text x="312" y="318" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" letter-spacing="0.05em">COLLATERAL RELEASE</text>
+        <text x="312" y="339" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Reserve Funds Unlocked</text>
+        <text x="312" y="378" font-family="monospace" font-size="11" fill="#767676">Treasury Settlement</text>
+
+        <line x1="548" y1="344" x2="586" y2="344" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-green)" />
+
+        <rect x="594" y="296" width="236" height="96" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+        <text x="608" y="318" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#059669" letter-spacing="0.05em">FIAT PAYOUT</text>
+        <text x="608" y="339" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">User Receives Bank</text>
+        <text x="608" y="357" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#0f0f0f">Credit</text>
+        <text x="608" y="378" font-family="monospace" font-size="11" fill="#767676">Off-ramp (SEPA/FedWire)</text>
+      </svg>
+    </div>
+    <div class="diagram-source">
+      <strong>Figure 1: The Stablecoin Lifecycle.</strong> The cycle moves from
+      fiat collateralization (minting) through on-chain utility (circulation) to
+      final fiat liquidation (redemption).
+    </div>
+  </div>
+  <!-- <div class="diagram-wrap">
     <div class="diagram-title">The Stablecoin Issuance & Redemption Cycle</div>
     <div class="diagram-content">
       <div class="flow-row">
@@ -425,7 +538,7 @@
       fiat collateralization (minting) through on-chain utility (circulation) to
       final fiat liquidation (redemption).
     </div>
-  </div>
+  </div> -->
   <h2>The Technical Stack: From Rails to Reserves</h2>
   <p>
     While strategic discussions often start with the concept of "The Blockchain"
